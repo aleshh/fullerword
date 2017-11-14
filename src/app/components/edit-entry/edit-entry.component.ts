@@ -40,8 +40,6 @@ import { Entry } from '../../models/Entry';
   // templateUrl: './edit-entry.component.html'
 })
 export class EditEntryComponent implements OnInit {
-  // entryText: string;
-  // definition: string;
   entry: Entry;
   newTags: string;
 
@@ -53,7 +51,6 @@ export class EditEntryComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.entryText = this.route.snapshot.paramMap.get('text');
     const routeText = this.route.snapshot.paramMap.get('text');
     this.entry = this.dataService.getEntry(routeText);
     if (!this.entry) {
