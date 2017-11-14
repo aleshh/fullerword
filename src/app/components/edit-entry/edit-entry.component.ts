@@ -28,14 +28,13 @@ import { Entry } from '../../models/Entry';
           type="text"
           [(ngModel)]="newTags"
           name="newTags"
-          (keydown.enter)="tagsSubmitted()"
           class="main-entry"
           placeholder="add tags..."
           autocomplete="off"
         >
         <div class="tag-container">
           <div *ngFor="let tag of entry.tags" class="tag-display">
-            {{ tag }}
+            {{ tag }} <a (click)="removeTag(tag)">X</a>
           </div>
         </div>
         <input type="submit" class="submit-button" value="Save">
@@ -69,11 +68,14 @@ export class EditEntryComponent implements OnInit {
       definition: this.entry.definition,
       tags: this.entry.tags
     }, this.newTags);
-    this.router.navigate(['/explore']);
+    this.router.navigate(['/detail',this.entry.text]);
   }
 
-  tagsSubmitted() {
-    console.log('tags: ', this.newTags);
+  removeTag(tag): void {
+    // console.log('tag2remove: ', tag);
+    const index = this.entry.tags.findIndex(r => r === tag);
+    // console.log('index: ',index);
+    this.entry.tags.splice(index, 1);
   }
 
 }
