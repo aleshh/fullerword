@@ -1,7 +1,8 @@
 <header><h1>FullerWord</h1></header>
-<div class="add-entry">Add entry</div>
-<div class="explore-entries">Explore entries</div>
+<div class="main">
+  <router-outlet></router-outlet>
+</div>
 <nav>
   <div class="divider"></div>
-  <a class="nav-button" href="#">Add Entry</a><a class="nav-button" href="#">Explore</a>
+  <a class="nav-button" routerLink="/add-entry">Add Entry</a><a class="nav-button" routerLink="/explore">Explore</a>
 </nav>
