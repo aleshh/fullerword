@@ -43,23 +43,32 @@ export class DataService {
     return result;
   }
 
-  addOrUpdateEntry(newEntry: Entry): void {
+  addOrUpdateEntry(newEntry: Entry, tagString?: string): void {
     if (newEntry.text && newEntry.text !== '') {
-      let index = this.entries.findIndex(r => r.text === newEntry.text);
+      if (tagString) {
+        let newTags = this.convertTagStringToTags(tagString);
+        for (let tag of newTags) {
+          if (newEntry.tags.indexOf(tag) == -1) {
 
+            newEntry.tags.push(tag);
+          }
+        }
+      }
+      let index = this.entries.findIndex(r => r.text === newEntry.text);
       if (index == -1) {
         console.log('DataService adding new entry: ', newEntry);
         this.entries.unshift(newEntry);
       } else {
-        console.log('duplicate entry!');
+        console.log('DataService upating entry: ', newEntry);
         this.entries.splice(index, 1, newEntry)
       }
     }
   }
 
-  addTags(entry: Entry, tagString: string): void {
+  convertTagStringToTags(tagString: string): string[] {
     let newTags: string[] = tagString.split(this.preferences.tagEntrySeparator);
+    let newTagsTrimmed = newTags.map(x => x.trim());
+    return newTagsTrimmed;
   }
-
 
 }

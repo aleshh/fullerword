@@ -61,15 +61,14 @@ export class EditEntryComponent implements OnInit {
     if (!this.entry) {
       this.entry = { text: routeText, definition: '', tags: []};
     }
-    console.log('asdf: ' + this.entry);
   }
 
   onSubmit() {
     this.dataService.addOrUpdateEntry({
       text: this.entry.text,
       definition: this.entry.definition,
-      tags: []
-    });
+      tags: this.entry.tags
+    }, this.newTags);
     this.router.navigate(['/explore']);
   }
 

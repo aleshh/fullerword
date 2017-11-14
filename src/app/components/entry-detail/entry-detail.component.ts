@@ -37,13 +37,10 @@ export class EntryDetailComponent implements OnInit {
 
   getEntry(): void {
     const routeText = this.route.snapshot.paramMap.get('text');
-    console.log('EntryDetailComponent getEntry: ', routeText);
     this.entry = this.dataService.getEntry(routeText);
-    console.log('entry-detail component:' + this.entry.text);
   }
 
   editEntry(): void {
-    console.log('ha!');
     this.router.navigate(['edit/', this.entry.text]);
   }
 
