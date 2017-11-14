@@ -10,28 +10,28 @@ import { Entry } from '../../models/Entry';
   template: `
     <div class="add-entry-main">
       <form (ngSubmit)="onSubmit()">
-        <input 
-          type="text" 
-          [(ngModel)]="entryText" 
+        <input
+          type="text"
+          [(ngModel)]="entry.text"
           name="entryText"
-          class="main-entry" 
+          class="main-entry"
         >
-        <input 
-          type="text" 
-          [(ngModel)]="definition" 
+        <input
+          type="text"
+          [(ngModel)]="entry.definition"
           name="definition"
           class="main-entry"
           placeholder="definition"
           autocomplete="off"
         >
-        <input 
-          type="text" 
-          [(ngModel)]="newTags" 
+        <input
+          type="text"
+          [(ngModel)]="newTags"
           name="newTags"
           (keydown.enter)="tagsSubmitted()"
           class="main-entry"
           placeholder="add tags..."
-          autocomplete="off"          
+          autocomplete="off"
         >
         <input type="submit" class="submit-button" value="Save">
       </form>
@@ -40,8 +40,8 @@ import { Entry } from '../../models/Entry';
   // templateUrl: './edit-entry.component.html'
 })
 export class EditEntryComponent implements OnInit {
-  entryText: string;
-  definition: string;
+  // entryText: string;
+  // definition: string;
   entry: Entry;
   newTags: string;
 
@@ -53,13 +53,19 @@ export class EditEntryComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.entryText = this.route.snapshot.paramMap.get('text');
+    // this.entryText = this.route.snapshot.paramMap.get('text');
+    const routeText = this.route.snapshot.paramMap.get('text');
+    this.entry = this.dataService.getEntry(routeText);
+    if (!this.entry) {
+      this.entry = { text: routeText, definition: ''};
+    }
+    console.log('asdf: ' + this.entry);
   }
 
   onSubmit() {
-    this.dataService.addOrUpdateEntry({ 
-      text: this.entryText, 
-      definition: this.definition
+    this.dataService.addOrUpdateEntry({
+      text: this.entry.text,
+      definition: this.entry.definition
     });
     this.router.navigate(['/explore']);
   }
