@@ -4,10 +4,15 @@ import { Entry } from '../models/Entry';
 @Injectable()
 export class DataService {
   entries: Entry[];
+  preferences;
 
   constructor(){
     this.entries = [
-      { text: 'consonant', definition: '', tags: [] },
+      {
+        text: 'consonant',
+        definition: 'in agreement or harmony',
+        tags: [ 'adjective', 'positive', 'relational' ]
+      },
       { text: 'desultory', definition: '', tags: [] },
       { text: 'insouciant', definition: '', tags: [] },
       { text: 'claptrap', definition: '', tags: [] },
@@ -23,6 +28,10 @@ export class DataService {
       { text: 'ignominious', definition: '', tags: [] },
       { text: 'paroxysm', definition: '', tags: [] }
     ];
+
+    this.preferences = {
+      tagEntrySeparator: ','
+    };
   }
 
   getEntries(): Entry[] {
@@ -49,7 +58,7 @@ export class DataService {
   }
 
   addTags(entry: Entry, tagString: string): void {
-
+    let newTags: string[] = tagString.split(this.preferences.tagEntrySeparator);
   }
 
 

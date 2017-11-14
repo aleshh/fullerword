@@ -33,6 +33,11 @@ import { Entry } from '../../models/Entry';
           placeholder="add tags..."
           autocomplete="off"
         >
+        <div class="tag-container">
+          <div *ngFor="let tag of entry.tags" class="tag-display">
+            {{ tag }}
+          </div>
+        </div>
         <input type="submit" class="submit-button" value="Save">
       </form>
     </div>
@@ -69,7 +74,7 @@ export class EditEntryComponent implements OnInit {
   }
 
   tagsSubmitted() {
-    console.log('tags');
+    console.log('tags: ', this.newTags);
   }
 
 }

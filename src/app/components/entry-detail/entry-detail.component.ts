@@ -11,8 +11,13 @@ import { Entry } from '../../models/Entry';
     <div class="entry-detail-main">
       <h1>{{ entry.text }}</h1>
       <p>{{entry.definition}}</p>
+      <div class="tag-container">
+        <div *ngFor="let tag of entry.tags" class="tag-display">
+          {{ tag }}
+        </div>
+      </div>
       <button (click)="editEntry()">Edit</button>
-    </div>  
+    </div>
   `
   // templateUrl: './entry-detail.component.html'
 })
@@ -34,7 +39,7 @@ export class EntryDetailComponent implements OnInit {
     const routeText = this.route.snapshot.paramMap.get('text');
     console.log('EntryDetailComponent getEntry: ', routeText);
     this.entry = this.dataService.getEntry(routeText);
-    console.log('entry-detail component:' + this.entry.text); 
+    console.log('entry-detail component:' + this.entry.text);
   }
 
   editEntry(): void {
