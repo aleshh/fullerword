@@ -7,21 +7,21 @@ export class DataService {
 
   constructor(){
     this.entries = [
-      { text: 'consonant', definition: '' },
-      { text: 'desultory', definition: '' },
-      { text: 'insouciant', definition: '' },
-      { text: 'claptrap', definition: '' },
-      { text: 'Discrete bilateral channel', definition: '' },
-      { text: 'contumaciously', definition: '' },
-      { text: 'elan', definition: '' },
-      { text: 'Stuzzi botz', definition: '' },
-      { text: 'invective', definition: '' },
-      { text: 'altacocker', definition: '' },
-      { text: 'mordant', definition: '' },
-      { text: 'apres nous, le deluge!', definition: '' },
-      { text: 'quixotic', definition: '' },
-      { text: 'ignominious', definition: '' },
-      { text: 'paroxysm', definition: '' }
+      { text: 'consonant', definition: '', tags: [] },
+      { text: 'desultory', definition: '', tags: [] },
+      { text: 'insouciant', definition: '', tags: [] },
+      { text: 'claptrap', definition: '', tags: [] },
+      { text: 'Discrete bilateral channel', definition: '', tags: [] },
+      { text: 'contumaciously', definition: '', tags: [] },
+      { text: 'elan', definition: '', tags: [] },
+      { text: 'Stuzzi botz', definition: '', tags: [] },
+      { text: 'invective', definition: '', tags: [] },
+      { text: 'altacocker', definition: '', tags: [] },
+      { text: 'mordant', definition: '', tags: [] },
+      { text: 'apres nous, le deluge!', definition: '', tags: [] },
+      { text: 'quixotic', definition: '', tags: [] },
+      { text: 'ignominious', definition: '', tags: [] },
+      { text: 'paroxysm', definition: '', tags: [] }
     ];
   }
 
@@ -35,7 +35,7 @@ export class DataService {
   }
 
   addOrUpdateEntry(newEntry: Entry): void {
-    if (newEntry.text && newEntry.text !== '') {      
+    if (newEntry.text && newEntry.text !== '') {
       let index = this.entries.findIndex(r => r.text === newEntry.text);
 
       if (index == -1) {
@@ -46,7 +46,7 @@ export class DataService {
         this.entries.splice(index, 1, newEntry)
       }
     }
-  }  
+  }
 
   addTags(entry: Entry, tagString: string): void {
 

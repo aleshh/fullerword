@@ -57,7 +57,7 @@ export class EditEntryComponent implements OnInit {
     const routeText = this.route.snapshot.paramMap.get('text');
     this.entry = this.dataService.getEntry(routeText);
     if (!this.entry) {
-      this.entry = { text: routeText, definition: ''};
+      this.entry = { text: routeText, definition: '', tags: []};
     }
     console.log('asdf: ' + this.entry);
   }
@@ -65,7 +65,8 @@ export class EditEntryComponent implements OnInit {
   onSubmit() {
     this.dataService.addOrUpdateEntry({
       text: this.entry.text,
-      definition: this.entry.definition
+      definition: this.entry.definition,
+      tags: []
     });
     this.router.navigate(['/explore']);
   }
