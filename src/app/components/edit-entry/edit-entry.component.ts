@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
+// import { FormsModule } from '@angular/forms';
 
 import { DataService } from '../../services/data.service';
 import { Entry } from '../../models/Entry';
@@ -38,6 +39,7 @@ import { Entry } from '../../models/Entry';
           </div>
         </div>
         <input type="submit" class="submit-button" value="Save">
+
       </form>
     </div>
   `
@@ -62,14 +64,30 @@ export class EditEntryComponent implements OnInit {
     }
   }
 
-  onSubmit() {
+  onSubmit(): void {
+    console.log('submit!');
+
     this.dataService.addOrUpdateEntry({
       text: this.entry.text,
       definition: this.entry.definition,
       tags: this.entry.tags
     }, this.newTags);
+
     this.router.navigate(['/detail',this.entry.text]);
   }
+
+  // for some reason this saves the entry also!
+  //
+  //   <button
+  //   type="button"
+  //   class="submit-button"
+  //   (click)="cancel()"
+  //   >Cancel</button>
+
+  // cancel(): void {
+  //   console.log('cancel!');
+  //   this.router.navigate(['/detail',this.entry.text]);
+  // }
 
   removeTag(tag): void {
     // console.log('tag2remove: ', tag);
