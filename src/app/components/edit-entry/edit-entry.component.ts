@@ -18,6 +18,7 @@ import { Entry } from '../../models/Entry';
           name="entryText"
           class="main-entry"
         >
+        <br>
         <input
           type="text"
           [(ngModel)]="entry.definition"
@@ -26,6 +27,7 @@ import { Entry } from '../../models/Entry';
           placeholder="definition"
           autocomplete="off"
         >
+        <br>
         <input
           type="text"
           [(ngModel)]="newTags"
@@ -65,10 +67,9 @@ export class EditEntryComponent implements OnInit {
       this.entry = { text: routeText, definition: '', tags: []};
     }
 
-    let tmp = this.dictionaryService.getDefinition('test');
-    console.log('definition of test: ', tmp);
-
-
+    this.dictionaryService.getDefinition('test').subscribe(res => {
+      console.log('definition of test: ', res);
+    })
   }
 
   onSubmit(): void {
