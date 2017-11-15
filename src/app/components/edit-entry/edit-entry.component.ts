@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 // import { FormsModule } from '@angular/forms';
 
 import { DataService } from '../../services/data.service';
+import { DictionaryService } from '../../services/dictionary.service';
 import { Entry } from '../../models/Entry';
 
 @Component({
@@ -53,6 +54,7 @@ export class EditEntryComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private dataService: DataService,
+    private dictionaryService: DictionaryService,
     private location: Location
   ) { }
 
@@ -62,6 +64,11 @@ export class EditEntryComponent implements OnInit {
     if (!this.entry) {
       this.entry = { text: routeText, definition: '', tags: []};
     }
+
+    let tmp = this.dictionaryService.getDefinition('test');
+    console.log('definition of test: ', tmp);
+
+
   }
 
   onSubmit(): void {
