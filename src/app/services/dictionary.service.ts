@@ -12,12 +12,6 @@ export class DictionaryService {
 
   getDefinition(word: string) {
 
-    // http
-    // .post('/api/items/add', body, {
-    //   headers: new HttpHeaders().set('Authorization', 'my-auth-token'),
-    // })
-    // .subscribe();
-
     const httpOptions = {
       headers: new HttpHeaders({
         "Accept": "application/json",
@@ -27,9 +21,12 @@ export class DictionaryService {
     };
 
     return this.http.get(
-      'https://od-api.oxforddictionaries.com/api/v1/en/' + word,
+      'https://od-api.oxforddictionaries.com/api/v1/entries/en/' + word,
       {
-        headers: new HttpHeaders().set('Authorization', 'my-auth-token'),
+        headers: new HttpHeaders()
+        .set('Accept', 'application/json')
+        .set('app_id', oxfordCredentials.app_id)
+        .set('app_key', oxfordCredentials.app_key)
       }
     )
       .map(res => {
