@@ -6,6 +6,7 @@ import { Location } from '@angular/common';
 import { DataService } from '../../services/data.service';
 import { DictionaryService } from '../../services/dictionary.service';
 import { Entry } from '../../models/Entry';
+import { DictionaryEntry } from '../../models/DictionaryEntry';
 
 @Component({
   selector: 'app-edit-entry',
@@ -51,7 +52,7 @@ import { Entry } from '../../models/Entry';
 export class EditEntryComponent implements OnInit {
   entry: Entry;
   newTags: string;
-  definition;
+  definition: DictionaryEntry;
 
   constructor(
     private route: ActivatedRoute,
@@ -70,7 +71,7 @@ export class EditEntryComponent implements OnInit {
 
     this.dictionaryService.getDefinition(this.entry.text).subscribe(res => {
       this.definition = res;
-      // console.log('definition of test: ', this.definition);
+      console.log('definition of "', this.entry.text, '": ', this.definition.metadata.provider);
     })
   }
 

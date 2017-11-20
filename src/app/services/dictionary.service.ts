@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 
 import { oxfordCredentials } from './credentials';
+import { DictionaryEntry } from '../models/DictionaryEntry';
 
 @Injectable()
 export class DictionaryService {
@@ -20,7 +21,7 @@ export class DictionaryService {
       })
     };
 
-    return this.http.get<{}>(
+    return this.http.get<DictionaryEntry>(
       'https://od-api.oxforddictionaries.com/api/v1/entries/en/' + word,
       {
         headers: new HttpHeaders()
@@ -28,8 +29,10 @@ export class DictionaryService {
         .set('app_id', oxfordCredentials.app_id)
         .set('app_key', oxfordCredentials.app_key)
       }
-    )
-      .map(res => console.log('dictionaryService response: ', res));
+    );
+      // .map(res => {
+      //   console.log('dictionaryService response: ', res.metadata.provider)
+      // });
   }
 
 }
