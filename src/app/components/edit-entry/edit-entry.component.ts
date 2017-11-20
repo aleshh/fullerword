@@ -12,41 +12,40 @@ import { DictionaryEntry } from '../../models/DictionaryEntry';
   selector: 'app-edit-entry',
   template: `
     <div class="add-entry-main">
-      <form (ngSubmit)="onSubmit()">
-        <input
-          type="text"
-          [(ngModel)]="entry.text"
-          name="entryText"
-          class="main-entry"
-        >
-        <br>
-        <input
-          type="text"
-          [(ngModel)]="entry.definition"
-          name="definition"
-          class="main-entry"
-          placeholder="definition"
-          autocomplete="off"
-        >
-        <br>
-        <input
-          type="text"
-          [(ngModel)]="newTags"
-          name="newTags"
-          class="main-entry"
-          placeholder="add tags..."
-          autocomplete="off"
-        >
-        <div class="tag-container">
-          <div *ngFor="let tag of entry.tags" class="tag-display">
-            {{ tag }} <a (click)="removeTag(tag)">X</a>
-          </div>
+    <form (ngSubmit)="onSubmit()">
+      <input
+        type="text"
+        [(ngModel)]="entry.text"
+        name="entryText"
+        class="main-entry"
+      >
+      <br>
+      <input
+        type="text"
+        [(ngModel)]="entry.definition"
+        name="definition"
+        class="main-entry"
+        placeholder="definition"
+        autocomplete="off"
+      >
+      <br>
+      <input
+        type="text"
+        [(ngModel)]="newTags"
+        name="newTags"
+        class="main-entry"
+        placeholder="add tags..."
+        autocomplete="off"
+      >
+      <div class="tag-container">
+        <div *ngFor="let tag of entry.tags" class="tag-display">
+          {{ tag }} <a (click)="removeTag(tag)">X</a>
         </div>
-        <input type="submit" class="submit-button" value="Save">
-
-      </form>
-      {{definition.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0]}}
-    </div>
+      </div>
+      <input type="submit" class="submit-button" value="Save">
+    </form>
+    {{ definition.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0] }}
+  </div>
   `
   // templateUrl: './edit-entry.component.html'
 })
