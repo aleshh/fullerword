@@ -1,4 +1,12 @@
 export interface DictionaryEntry {
   metadata: { provider: string },
-  // results: object[]
+  results: [
+    { lexicalEntries: [
+      { entries: [
+        { senses: [
+          { definitions: string[]}
+        ] }
+      ]}
+    ]}
+  ]
 }

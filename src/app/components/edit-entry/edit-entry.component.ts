@@ -45,6 +45,7 @@ import { DictionaryEntry } from '../../models/DictionaryEntry';
         <input type="submit" class="submit-button" value="Save">
 
       </form>
+      {{definition.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0]}}
     </div>
   `
   // templateUrl: './edit-entry.component.html'
@@ -72,6 +73,7 @@ export class EditEntryComponent implements OnInit {
     this.dictionaryService.getDefinition(this.entry.text).subscribe(res => {
       this.definition = res;
       console.log('definition of "', this.entry.text, '": ', this.definition.metadata.provider);
+      console.log('', this.definition.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0]);
     })
   }
 
