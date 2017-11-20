@@ -51,6 +51,7 @@ import { Entry } from '../../models/Entry';
 export class EditEntryComponent implements OnInit {
   entry: Entry;
   newTags: string;
+  definition;
 
   constructor(
     private route: ActivatedRoute,
@@ -67,8 +68,9 @@ export class EditEntryComponent implements OnInit {
       this.entry = { text: routeText, definition: '', tags: []};
     }
 
-    this.dictionaryService.getDefinition('test').subscribe(res => {
-      console.log('definition of test: ', res);
+    this.dictionaryService.getDefinition(this.entry.text).subscribe(res => {
+      this.definition = res;
+      // console.log('definition of test: ', this.definition);
     })
   }
 
