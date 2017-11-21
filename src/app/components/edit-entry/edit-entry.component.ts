@@ -44,8 +44,9 @@ import { DictionaryEntry } from '../../models/DictionaryEntry';
         </div>
         <input type="submit" class="submit-button" value="Save">
       </form>
-      <div *ngIf="definition">
-        {{ definition.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0] }}
+      <div *ngIf="dictionaryDefinition">
+        <button (click)="useDefinition()" >Use</button>
+        {{ dictionaryDefinition }}
       </div>
     </div>
     `
@@ -55,6 +56,7 @@ export class EditEntryComponent implements OnInit {
   entry: Entry;
   newTags: string;
   definition: DictionaryEntry;
+  dictionaryDefinition: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -73,9 +75,11 @@ export class EditEntryComponent implements OnInit {
 
     this.dictionaryService.getDefinition(this.entry.text).subscribe(res => {
       this.definition = res;
-      console.log('definition of "', this.entry.text, '": ', this.definition.metadata.provider);
-      console.log('', this.definition.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0]);
-    })
+      this.dictionaryDefinition = this.definition.results[0].lexicalEntries[0]
+        .entries[0].senses[0].definitions[0];
+      console.log('definition of "', this.entry.text, '": ',
+        this.dictionaryDefinition);
+    });
   }
 
   onSubmit(): void {
@@ -102,6 +106,10 @@ export class EditEntryComponent implements OnInit {
   //   console.log('cancel!');
   //   this.router.navigate(['/detail',this.entry.text]);
   // }
+
+  useDefinition(): void {
+    this.entry.definition = this.dictionaryDefinition;
+  }
 
   removeTag(tag): void {
     // console.log('tag2remove: ', tag);
