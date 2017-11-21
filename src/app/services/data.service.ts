@@ -72,10 +72,10 @@ export class DataService {
       }
       let index = this.entries.findIndex(r => r.text === newEntry.text);
       if (index == -1) {
-        console.log('DataService adding new entry: ', newEntry);
+        // console.log('DataService adding new entry: ', newEntry);
         this.entries.unshift(newEntry);
       } else {
-        console.log('DataService upating entry: ', newEntry);
+        // console.log('DataService upating entry: ', newEntry);
         this.entries.splice(index, 1, newEntry)
       }
       this.saveEntriesToLocalStorage();

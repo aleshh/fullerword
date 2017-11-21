@@ -55,7 +55,7 @@ import { DictionaryEntry } from '../../models/DictionaryEntry';
         {{ dictionaryDefinition }}
       </div>
     </div>
-    `
+  `
   // templateUrl: './edit-entry.component.html'
 })
 export class EditEntryComponent implements OnInit {
@@ -74,7 +74,16 @@ export class EditEntryComponent implements OnInit {
 
   ngOnInit() {
     const routeText = this.route.snapshot.paramMap.get('text');
-    this.entry = this.dataService.getEntry(routeText);
+    let loadedEntry = this.dataService.getEntry(routeText);
+
+    // making a copy of the object (not reference)
+    // so we can cancel the edit.
+    // slice() copies the array of tags.
+    this.entry = {
+      text: loadedEntry.text,
+      definition: loadedEntry.definition,
+      tags: loadedEntry.tags.slice()
+    };
     if (!this.entry) {
       this.entry = { text: routeText, definition: '', tags: []};
     }
@@ -83,8 +92,8 @@ export class EditEntryComponent implements OnInit {
       this.definition = res;
       this.dictionaryDefinition = this.definition.results[0].lexicalEntries[0]
         .entries[0].senses[0].definitions[0];
-      console.log('definition of "', this.entry.text, '": ',
-        this.dictionaryDefinition);
+      // console.log('definition of "', this.entry.text, '": ',
+      //   this.dictionaryDefinition);
     });
   }
 
@@ -102,10 +111,10 @@ export class EditEntryComponent implements OnInit {
 
   // for some reason this saves the entry also!
 
-
   cancel(): void {
     console.log('cancel!');
-    this.router.navigate(['/detail',this.entry.text]);
+    // this.router.navigate(['/detail',this.entry.text]);
+    this.location.back()
   }
 
   useDefinition(): void {
