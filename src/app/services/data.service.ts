@@ -82,6 +82,11 @@ export class DataService {
     }
   }
 
+  deleteEntry(entryToDelete: Entry): void {
+    let index = this.entries.findIndex(r => r.text === entryToDelete.text);
+    this.entries.splice(index, 1)
+  }
+
   convertTagStringToTags(tagString: string): string[] {
     let newTags: string[] = tagString.split(this.preferences.tagEntrySeparator);
     let newTagsTrimmed = newTags.map(x => x.trim());

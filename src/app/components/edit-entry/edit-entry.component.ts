@@ -48,6 +48,11 @@ import { DictionaryEntry } from '../../models/DictionaryEntry';
           class="submit-button"
           (click)="cancel()"
         >Cancel</button>
+        <button
+          type="button"
+          class="submit-button"
+          (click)="delete()"
+        >Delete</button>
 
       </form>
       <div *ngIf="dictionaryDefinition">
@@ -76,15 +81,16 @@ export class EditEntryComponent implements OnInit {
     const routeText = this.route.snapshot.paramMap.get('text');
     let loadedEntry = this.dataService.getEntry(routeText);
 
-    // making a copy of the object (not reference)
-    // so we can cancel the edit.
-    // slice() copies the array of tags.
-    this.entry = {
-      text: loadedEntry.text,
-      definition: loadedEntry.definition,
-      tags: loadedEntry.tags.slice()
-    };
-    if (!this.entry) {
+    if (loadedEntry) {
+      // making a copy of the object (not reference)
+      // so we can cancel the edit.
+      // slice() copies the array of tags.
+      this.entry = {
+        text: loadedEntry.text,
+        definition: loadedEntry.definition,
+        tags: loadedEntry.tags.slice()
+      };
+    } else {
       this.entry = { text: routeText, definition: '', tags: []};
     }
 
@@ -115,6 +121,13 @@ export class EditEntryComponent implements OnInit {
     console.log('cancel!');
     // this.router.navigate(['/detail',this.entry.text]);
     this.location.back()
+  }
+
+  delete(): void {
+    if (window.confirm('Permanently delete ' + this.entry.text + '?')) {
+      this.dataService.deleteEntry(this.entry);
+      this.router.navigate(['/explore']);
+    }
   }
 
   useDefinition(): void {
