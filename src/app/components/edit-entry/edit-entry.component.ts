@@ -43,6 +43,12 @@ import { DictionaryEntry } from '../../models/DictionaryEntry';
           </div>
         </div>
         <input type="submit" class="submit-button" value="Save">
+        <button
+          type="button"
+          class="submit-button"
+          (click)="cancel()"
+        >Cancel</button>
+
       </form>
       <div *ngIf="dictionaryDefinition">
         <button (click)="useDefinition()" >Use</button>
@@ -95,17 +101,12 @@ export class EditEntryComponent implements OnInit {
   }
 
   // for some reason this saves the entry also!
-  //
-  //   <button
-  //   type="button"
-  //   class="submit-button"
-  //   (click)="cancel()"
-  //   >Cancel</button>
 
-  // cancel(): void {
-  //   console.log('cancel!');
-  //   this.router.navigate(['/detail',this.entry.text]);
-  // }
+
+  cancel(): void {
+    console.log('cancel!');
+    this.router.navigate(['/detail',this.entry.text]);
+  }
 
   useDefinition(): void {
     this.entry.definition = this.dictionaryDefinition;
