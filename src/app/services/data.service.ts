@@ -7,31 +7,47 @@ export class DataService {
   preferences;
 
   constructor(){
-    this.entries = [
-      {
-        text: 'consonant',
-        definition: 'in agreement or harmony',
-        tags: [ 'adjective', 'positive', 'relational' ]
-      },
-      { text: 'desultory', definition: '', tags: [] },
-      { text: 'insouciant', definition: '', tags: [] },
-      { text: 'claptrap', definition: '', tags: [] },
-      { text: 'Discrete bilateral channel', definition: '', tags: [] },
-      { text: 'contumaciously', definition: '', tags: [] },
-      { text: 'elan', definition: '', tags: [] },
-      { text: 'Stuzzi botz', definition: '', tags: [] },
-      { text: 'invective', definition: '', tags: [] },
-      { text: 'altacocker', definition: '', tags: [] },
-      { text: 'mordant', definition: '', tags: [] },
-      { text: 'apres nous, le deluge!', definition: '', tags: [] },
-      { text: 'quixotic', definition: '', tags: [] },
-      { text: 'ignominious', definition: '', tags: [] },
-      { text: 'paroxysm', definition: '', tags: [] }
-    ];
+
+    this.entries = [];
+
+    // this.entries = [
+    //   {
+    //     text: 'consonant',
+    //     definition: 'in agreement or harmony',
+    //     tags: [ 'adjective', 'positive', 'relational' ]
+    //   },
+    //   { text: 'desultory', definition: '', tags: [] },
+    //   { text: 'insouciant', definition: '', tags: [] },
+    //   { text: 'claptrap', definition: '', tags: [] },
+    //   { text: 'Discrete bilateral channel', definition: '', tags: [] },
+    //   { text: 'contumaciously', definition: '', tags: [] },
+    //   { text: 'elan', definition: '', tags: [] },
+    //   { text: 'Stuzzi botz', definition: '', tags: [] },
+    //   { text: 'invective', definition: '', tags: [] },
+    //   { text: 'altacocker', definition: '', tags: [] },
+    //   { text: 'mordant', definition: '', tags: [] },
+    //   { text: 'apres nous, le deluge!', definition: '', tags: [] },
+    //   { text: 'quixotic', definition: '', tags: [] },
+    //   { text: 'ignominious', definition: '', tags: [] },
+    //   { text: 'paroxysm', definition: '', tags: [] }
+    // ];
 
     this.preferences = {
       tagEntrySeparator: ','
     };
+
+    this.loadEntriesFromLocalStorage();
+  }
+
+  loadEntriesFromLocalStorage(): void {
+    var loadedEntries = JSON.parse(localStorage.getItem('entries'));
+    if (loadedEntries !== undefined) {
+      this.entries = loadedEntries;
+    }
+  }
+
+  saveEntriesToLocalStorage(): void {
+    localStorage.setItem('entries', JSON.stringify(this.entries));
   }
 
   getEntries(): Entry[] {
@@ -62,6 +78,7 @@ export class DataService {
         console.log('DataService upating entry: ', newEntry);
         this.entries.splice(index, 1, newEntry)
       }
+      this.saveEntriesToLocalStorage();
     }
   }
 
