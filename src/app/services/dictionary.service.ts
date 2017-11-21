@@ -30,9 +30,6 @@ export class DictionaryService {
         .set('app_key', oxfordCredentials.app_key)
       }
     );
-      // .map(res => {
-      //   console.log('dictionaryService response: ', res.metadata.provider)
-      // });
   }
 
 }
