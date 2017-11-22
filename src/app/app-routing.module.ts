@@ -25,6 +25,10 @@ const routes: Routes = [
     component: EntryDetailComponent
   },
   {
+    path: 'add/:text',
+    component: EditEntryComponent
+  },
+  {
     path: 'edit/:text',
     component: EditEntryComponent
   }

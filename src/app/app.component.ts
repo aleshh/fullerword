@@ -1,4 +1,4 @@
-import { Component, OnInit, DoCheck } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 // import { ActivatedRoute } from '@angular/router';
 // import { Router } from '@angular/router';
 import { LocationStrategy } from '@angular/common';
@@ -29,12 +29,11 @@ export class AppComponent implements DoCheck {
 
   ngDoCheck() {
     let routeText = this.locationStrategy.path();
-    console.log('routes: ', routeText)
     let routeSections = routeText.split("/");
-    console.log('routeText: ', routeSections);
     switch(routeSections[1]) {
       case 'explore': this.title = "Explore Words"; break;
       case 'detail': this.title = routeSections[2]; break;
+      case 'add': this.title = "Add: " + routeSections[2]; break;
       case 'edit': this.title = "Edit: " + routeSections[2]; break;
       case 'add-entry': this.title = "Search"; break;
     }

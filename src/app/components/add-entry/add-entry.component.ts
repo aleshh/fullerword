@@ -8,18 +8,18 @@ import { DataService } from '../../services/data.service';
   template: `
     <div class="add-entry-main">
       <form (ngSubmit)="onSubmit()">
-        <input 
-          [(ngModel)]="entryText" 
-          name="entryText" 
-          autofocus 
-          class="main-entry" 
-          type="text" 
-          placeholder="Search" 
-          autocomplete="off"          
+        <input
+          [(ngModel)]="entryText"
+          name="entryText"
+          autofocus
+          class="main-entry"
+          type="text"
+          placeholder="Search"
+          autocomplete="off"
         >
-        <input 
-          type="submit" 
-          class="submit-button" 
+        <input
+          type="submit"
+          class="submit-button"
           value="Go"
         >
       </form>
@@ -40,8 +40,8 @@ export class AddEntryComponent implements OnInit {
   }
 
   onSubmit() {
-    this.router.navigate(['/edit', this.entryText]);
-    
+    this.router.navigate(['/add', this.entryText]);
+
     // this.dataService.addEntry(text);
   }
 

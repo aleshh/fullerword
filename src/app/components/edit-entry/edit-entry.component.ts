@@ -49,6 +49,7 @@ import { DictionaryEntry } from '../../models/DictionaryEntry';
           (click)="cancel()"
         >Cancel</button>
         <button
+          *ngIf="editingExisting"
           type="button"
           class="submit-button"
           (click)="delete()"
@@ -68,6 +69,7 @@ export class EditEntryComponent implements OnInit {
   newTags: string;
   definition: DictionaryEntry;
   dictionaryDefinition: string;
+  editingExisting: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -78,6 +80,7 @@ export class EditEntryComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log('ActivatedRoute: ', this.route);
     const routeText = this.route.snapshot.paramMap.get('text');
     let loadedEntry = this.dataService.getEntry(routeText);
 
@@ -90,6 +93,7 @@ export class EditEntryComponent implements OnInit {
         definition: loadedEntry.definition,
         tags: loadedEntry.tags.slice()
       };
+      this.editingExisting = true;
     } else {
       this.entry = { text: routeText, definition: '', tags: []};
     }
@@ -98,8 +102,6 @@ export class EditEntryComponent implements OnInit {
       this.definition = res;
       this.dictionaryDefinition = this.definition.results[0].lexicalEntries[0]
         .entries[0].senses[0].definitions[0];
-      // console.log('definition of "', this.entry.text, '": ',
-      //   this.dictionaryDefinition);
     });
   }
 
