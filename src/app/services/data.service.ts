@@ -13,6 +13,7 @@ export class DataService {
     };
 
     this.loadEntriesFromLocalStorage();
+    console.log('tags: ', this.getTagList());
   }
 
   loadEntriesFromLocalStorage(): void {
@@ -62,7 +63,22 @@ export class DataService {
     this.saveEntriesToLocalStorage();
   }
 
-  convertTagStringToTags(tagString: string): string[] {
+  getTagList(): object[] {
+    let tagSet = [];
+    for (let i of this.entries) {
+      for (let j of i.tags) {
+        let current = tagSet.find(t => t.tag == j);
+        if(current) {
+          current.count ++;
+        } else {
+          tagSet.push({tag: j, count: 1});
+        }
+      }
+    }
+    return tagSet;
+  }
+
+  private convertTagStringToTags(tagString: string): string[] {
     let newTags: string[] = tagString.split(this.preferences.tagEntrySeparator);
     let newTagsTrimmed = newTags.map(x => x.trim());
     return newTagsTrimmed;
