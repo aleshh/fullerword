@@ -7,31 +7,7 @@ export class DataService {
   preferences;
 
   constructor(){
-
     this.entries = [];
-
-    // this.entries = [
-    //   {
-    //     text: 'consonant',
-    //     definition: 'in agreement or harmony',
-    //     tags: [ 'adjective', 'positive', 'relational' ]
-    //   },
-    //   { text: 'desultory', definition: '', tags: [] },
-    //   { text: 'insouciant', definition: '', tags: [] },
-    //   { text: 'claptrap', definition: '', tags: [] },
-    //   { text: 'Discrete bilateral channel', definition: '', tags: [] },
-    //   { text: 'contumaciously', definition: '', tags: [] },
-    //   { text: 'elan', definition: '', tags: [] },
-    //   { text: 'Stuzzi botz', definition: '', tags: [] },
-    //   { text: 'invective', definition: '', tags: [] },
-    //   { text: 'altacocker', definition: '', tags: [] },
-    //   { text: 'mordant', definition: '', tags: [] },
-    //   { text: 'apres nous, le deluge!', definition: '', tags: [] },
-    //   { text: 'quixotic', definition: '', tags: [] },
-    //   { text: 'ignominious', definition: '', tags: [] },
-    //   { text: 'paroxysm', definition: '', tags: [] }
-    // ];
-
     this.preferences = {
       tagEntrySeparator: ','
     };
@@ -72,10 +48,8 @@ export class DataService {
       }
       let index = this.entries.findIndex(r => r.text === newEntry.text);
       if (index == -1) {
-        // console.log('DataService adding new entry: ', newEntry);
         this.entries.unshift(newEntry);
       } else {
-        // console.log('DataService upating entry: ', newEntry);
         this.entries.splice(index, 1, newEntry)
       }
       this.saveEntriesToLocalStorage();
@@ -84,7 +58,8 @@ export class DataService {
 
   deleteEntry(entryToDelete: Entry): void {
     let index = this.entries.findIndex(r => r.text === entryToDelete.text);
-    this.entries.splice(index, 1)
+    this.entries.splice(index, 1);
+    this.saveEntriesToLocalStorage();
   }
 
   convertTagStringToTags(tagString: string): string[] {

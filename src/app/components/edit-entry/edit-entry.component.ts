@@ -115,11 +115,8 @@ export class EditEntryComponent implements OnInit {
     this.router.navigate(['/detail',this.entry.text]);
   }
 
-  // for some reason this saves the entry also!
-
   cancel(): void {
     console.log('cancel!');
-    // this.router.navigate(['/detail',this.entry.text]);
     this.location.back()
   }
 
@@ -135,9 +132,7 @@ export class EditEntryComponent implements OnInit {
   }
 
   removeTag(tag): void {
-    // console.log('tag2remove: ', tag);
     const index = this.entry.tags.findIndex(r => r === tag);
-    // console.log('index: ',index);
     this.entry.tags.splice(index, 1);
   }
 
