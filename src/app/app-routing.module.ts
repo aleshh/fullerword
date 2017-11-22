@@ -5,6 +5,7 @@ import { AddEntryComponent } from './components/add-entry/add-entry.component';
 import { ExploreComponent } from './components/explore/explore.component';
 import { EntryDetailComponent } from './components/entry-detail/entry-detail.component';
 import { EditEntryComponent } from './components/edit-entry/edit-entry.component';
+import { TagsComponent } from './components/tags/tags.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'explore',
     component: ExploreComponent
+  },
+  {
+    path: 'tags',
+    component: TagsComponent
   },
   {
     path: 'detail/:text',

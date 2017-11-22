@@ -11,8 +11,9 @@ import { LocationStrategy } from '@angular/common';
       <router-outlet></router-outlet>
     </div>
     <nav>
-      <div class="divider"></div>
-      <a class="nav-button" routerLink="/add-entry">Add Entry</a><a class="nav-button" routerLink="/explore">Explore</a>
+      <a class="nav-button" routerLink="/add-entry">Add Entry</a>
+      <a class="nav-button" routerLink="/explore">Explore</a>
+      <a class="nav-button" routerLink="/tags">Tags</a>
     </nav>
   `
   // templateUrl: './app.component.html',
@@ -32,6 +33,7 @@ export class AppComponent implements DoCheck {
     let routeSections = routeText.split("/");
     switch(routeSections[1]) {
       case 'explore': this.title = "Explore Words"; break;
+      case 'tags': this.title = "Tags"; break;
       case 'detail': this.title = routeSections[2]; break;
       case 'add': this.title = "Add: " + routeSections[2]; break;
       case 'edit': this.title = "Edit: " + routeSections[2]; break;

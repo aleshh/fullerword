@@ -13,6 +13,7 @@ import { DataService } from './services/data.service';
 import { DictionaryService } from './services/dictionary.service';
 import { EntryDetailComponent } from './components/entry-detail/entry-detail.component';
 import { EditEntryComponent } from './components/edit-entry/edit-entry.component';
+import { TagsComponent } from './components/tags/tags.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { EditEntryComponent } from './components/edit-entry/edit-entry.component
     AddEntryComponent,
     ExploreComponent,
     EntryDetailComponent,
-    EditEntryComponent
+    EditEntryComponent,
+    TagsComponent
   ],
   imports: [
     BrowserModule,
