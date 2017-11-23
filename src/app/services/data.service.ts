@@ -13,7 +13,6 @@ export class DataService {
     };
 
     this.loadEntriesFromLocalStorage();
-    console.log('tags: ', this.getTagList());
   }
 
   loadEntriesFromLocalStorage(): void {
