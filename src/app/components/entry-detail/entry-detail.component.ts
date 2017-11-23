@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Location } from '@angular/common';
 
 import { DataService } from '../../services/data.service';
 import { Entry } from '../../models/Entry';
@@ -27,8 +26,7 @@ export class EntryDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private dataService: DataService,
-    private location: Location
+    private dataService: DataService
   ) {}
 
   ngOnInit(): void {

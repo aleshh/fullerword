@@ -6,6 +6,7 @@ import { ExploreComponent } from './components/explore/explore.component';
 import { EntryDetailComponent } from './components/entry-detail/entry-detail.component';
 import { EditEntryComponent } from './components/edit-entry/edit-entry.component';
 import { TagsComponent } from './components/tags/tags.component';
+import { TagDetailComponent } from './components/tag-detail/tag-detail.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'edit/:text',
     component: EditEntryComponent
+  },
+  {
+    path: 'tag/:tag',
+    component: TagDetailComponent
   }
 ];
 

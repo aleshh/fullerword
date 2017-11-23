@@ -1,5 +1,5 @@
 <div *ngFor="let tag of tagList" class="entry-list-item">
-  <a [routerLink]="['/detail' ]">
+  <a [routerLink]="['/tag', tag.tag ]">
     <div>{{tag.tag}} ({{tag.count}})</div>
   </a>
 </div>

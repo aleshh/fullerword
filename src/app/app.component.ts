@@ -37,6 +37,7 @@ export class AppComponent implements DoCheck {
       case 'detail': this.title = routeSections[2]; break;
       case 'add': this.title = "Add: " + routeSections[2]; break;
       case 'edit': this.title = "Edit: " + routeSections[2]; break;
+      case 'tag': this.title = "Tag: " + routeSections[2]; break;
       case 'add-entry': this.title = "Search"; break;
     }
   }

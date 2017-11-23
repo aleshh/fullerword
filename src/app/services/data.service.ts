@@ -35,6 +35,17 @@ export class DataService {
     return result;
   }
 
+  getEntriesByTag(tag): Entry[] {
+    let matches = [];
+    for (let entry of this.entries) {
+      if (entry.tags.indexOf(tag) != -1) {
+        matches.push(entry);
+      }
+    }
+
+    return matches;
+  }
+
   addOrUpdateEntry(newEntry: Entry, tagString?: string): void {
     if (newEntry.text && newEntry.text !== '') {
       if (tagString) {

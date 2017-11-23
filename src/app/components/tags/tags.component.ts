@@ -5,7 +5,6 @@ import { log } from 'util';
 @Component({
   selector: 'app-tags',
   templateUrl: './tags.component.html',
-  styleUrls: ['./tags.component.scss']
 })
 export class TagsComponent implements OnInit {
   tagList: object[];
@@ -14,7 +13,6 @@ export class TagsComponent implements OnInit {
 
   ngOnInit() {
     this.tagList = this.dataService.getTagList();
-    console.log('taglist: ', this.tagList);
   }
 
 }
