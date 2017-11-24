@@ -1,0 +1,31 @@
+<div class="add-entry-main">
+  <form (ngSubmit)="onSubmit()">
+    <input
+      [(ngModel)]="entryText"
+      (keyup)="onKeyUp()"
+      name="entryText"
+      autofocus
+      class="main-entry"
+      type="text"
+      placeholder="Search"
+      autocomplete="off"
+    >
+    <input
+      type="submit"
+      class="submit-button"
+      value="Go"
+    >
+  </form>
+</div>
+<div *ngIf="entryMatches">Matching words:</div>
+<div *ngFor="let entry of entryMatches" class="entry-list-item">
+  <a [routerLink]="['/detail', entry.text]">
+    <div>{{entry.text}}</div>
+  </a>
+</div>
+<div *ngIf="tagMatches">Matching tags:</div>
+<div *ngFor="let tag of tagMatches" class="entry-list-item">
+  <a [routerLink]="['/tag', tag.tag ]">
+    <div>{{tag.tag}} ({{tag.count}})</div>
+  </a>
+</div>

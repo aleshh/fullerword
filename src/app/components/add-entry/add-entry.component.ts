@@ -6,39 +6,12 @@ import { Entry } from '../../models/Entry';
 
 @Component({
   selector: 'app-add-entry',
-  template: `
-    <div class="add-entry-main">
-      <form (ngSubmit)="onSubmit()">
-        <input
-          [(ngModel)]="entryText"
-          (keyup)="onKeyUp()"
-          name="entryText"
-          autofocus
-          class="main-entry"
-          type="text"
-          placeholder="Search"
-          autocomplete="off"
-        >
-        <input
-          type="submit"
-          class="submit-button"
-          value="Go"
-        >
-      </form>
-    </div>
-    <div *ngIf="entryMatches">Matching words:</div>
-    <div *ngFor="let entry of entryMatches" class="entry-list-item">
-      <a [routerLink]="['/detail', entry.text]">
-        <div>{{entry.text}}</div>
-      </a>
-    </div>
-  `
-  // templateUrl: './add-entry.component.html',
-  // styleUrls: ['./add-entry.component.scss']
+  templateUrl: './add-entry.component.html'
 })
 export class AddEntryComponent implements OnInit {
   entryText: string;
   entryMatches: Entry[];
+  tagMatches: object[];
 
   constructor(
     private router: Router,
@@ -55,12 +28,21 @@ export class AddEntryComponent implements OnInit {
   onKeyUp() {
     if (this.entryText.length > 1) {
       this.entryMatches = this.dataService.getEntries(this.entryText);
-      console.log('entry: ', this.entryText);
-      if (this.entryMatches.length > 0) {
-        console.log('word matches: ', this.entryMatches[0].text);
+      if (this.entryMatches && this.entryMatches.length == 0) {
+        this.entryMatches = null;
       }
+      // this.tagMatches = this.dataService.getTagList(this.entryText);
+      if (this.tagMatches && this.tagMatches.length == 0) {
+        this.tagMatches = null;
+      }
+      console.log('word matches: ', this.entryMatches);
+      console.log('tag matches: ', this.tagMatches);
+      // if (this.entryMatches.length > 0) {
+        // console.log('word matches: ', this.entryMatches[0].text);
+      // }
     } else {
       this.entryMatches = null;
+      this.tagMatches = null;
     }
 
   }

@@ -15,14 +15,14 @@ export class DataService {
     this.loadEntriesFromLocalStorage();
   }
 
-  loadEntriesFromLocalStorage(): void {
+  private loadEntriesFromLocalStorage(): void {
     var loadedEntries = JSON.parse(localStorage.getItem('entries'));
     if (loadedEntries !== undefined) {
       this.entries = loadedEntries;
     }
   }
 
-  saveEntriesToLocalStorage(): void {
+  private saveEntriesToLocalStorage(): void {
     localStorage.setItem('entries', JSON.stringify(this.entries));
   }
 
@@ -83,8 +83,10 @@ export class DataService {
     this.saveEntriesToLocalStorage();
   }
 
-  getTagList(): object[] {
+  // this is fine for small data sets, but could use major refactoring
+  getTagList(searchText?: string): object[] {
     let tagSet = [];
+
     for (let i of this.entries) {
       for (let j of i.tags) {
         let current = tagSet.find(t => t.tag == j);
@@ -95,6 +97,12 @@ export class DataService {
         }
       }
     }
+
+    if (searchText) {
+      let length = searchText.length;
+      tagSet = tagSet.filter(i => i.tag.substring(0,length) == searchText);
+    }
+
     return tagSet;
   }
 
