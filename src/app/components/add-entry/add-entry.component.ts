@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { DataService } from '../../services/data.service';
+import { Entry } from '../../models/Entry';
 
 @Component({
   selector: 'app-add-entry',
@@ -10,6 +11,7 @@ import { DataService } from '../../services/data.service';
       <form (ngSubmit)="onSubmit()">
         <input
           [(ngModel)]="entryText"
+          (keyup)="onKeyUp()"
           name="entryText"
           autofocus
           class="main-entry"
@@ -30,6 +32,7 @@ import { DataService } from '../../services/data.service';
 })
 export class AddEntryComponent implements OnInit {
   entryText: string;
+  entryMatches: Entry[];
 
   constructor(
     private router: Router,
@@ -41,8 +44,14 @@ export class AddEntryComponent implements OnInit {
 
   onSubmit() {
     this.router.navigate(['/add', this.entryText]);
+  }
 
-    // this.dataService.addEntry(text);
+  onKeyUp() {
+    if (this.entryText.length > 1) {
+      this.entryMatches = this.dataService.getEntries(this.entryText);
+      console.log('entry: ', this.entryText);
+      console.log('entryMatches: ', this.entryMatches);
+    }
   }
 
 }

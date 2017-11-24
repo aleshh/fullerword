@@ -26,8 +26,19 @@ export class DataService {
     localStorage.setItem('entries', JSON.stringify(this.entries));
   }
 
-  getEntries(): Entry[] {
-    return this.entries;
+  getEntries(partialText?: string): Entry[] {
+    if (partialText == undefined || partialText == '' ) {
+      return this.entries;
+    } else {
+      let matches = [];
+      let length = partialText.length;
+      for (let entry of this.entries) {
+        if (entry.text.substr(0, length) === partialText) {
+          matches.push(entry);
+        }
+      }
+      return matches;
+    }
   }
 
   getEntry(text): Entry {
@@ -42,7 +53,6 @@ export class DataService {
         matches.push(entry);
       }
     }
-
     return matches;
   }
 
