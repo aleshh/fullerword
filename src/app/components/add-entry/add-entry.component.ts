@@ -31,7 +31,7 @@ export class AddEntryComponent implements OnInit {
       if (this.entryMatches && this.entryMatches.length == 0) {
         this.entryMatches = null;
       }
-      // this.tagMatches = this.dataService.getTagList(this.entryText);
+      this.tagMatches = this.dataService.getTagList(this.entryText);
       if (this.tagMatches && this.tagMatches.length == 0) {
         this.tagMatches = null;
       }
