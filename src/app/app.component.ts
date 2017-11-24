@@ -1,12 +1,19 @@
 import { Component, DoCheck } from '@angular/core';
 // import { ActivatedRoute } from '@angular/router';
 // import { Router } from '@angular/router';
-import { LocationStrategy } from '@angular/common';
+import { Location, LocationStrategy } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   template: `
-    <header><h1>{{ title | titlecase }}</h1></header>
+    <header>
+      <a
+        (click)="goBack()"
+        class="header-back-button"
+        *ngIf="showBack"
+      > < </a>
+      <h1>{{ title | titlecase }}</h1>
+    </header>
     <div class="main">
       <router-outlet></router-outlet>
     </div>
@@ -21,10 +28,12 @@ import { LocationStrategy } from '@angular/common';
 })
 export class AppComponent implements DoCheck {
   title: string = "Title";
+  showBack: boolean = false;
 
   constructor(
     // private activatedRoute: ActivatedRoute
     // private router: Router
+    private location: Location,
     private locationStrategy: LocationStrategy
   ) {}
 
@@ -32,13 +41,33 @@ export class AppComponent implements DoCheck {
     let routeText = this.locationStrategy.path();
     let routeSections = routeText.split("/");
     switch(routeSections[1]) {
-      case 'explore': this.title = "Explore Words"; break;
-      case 'tags': this.title = "Tags"; break;
-      case 'detail': this.title = routeSections[2]; break;
-      case 'add': this.title = "Add: " + routeSections[2]; break;
-      case 'edit': this.title = "Edit: " + routeSections[2]; break;
-      case 'tag': this.title = "Tag: " + routeSections[2]; break;
-      case 'add-entry': this.title = "Search"; break;
+      case 'explore': this.title = "Explore Words";
+        this.showBack = false;
+        break;
+      case 'tags': this.title = "Tags";
+        this.showBack = true;
+        break;
+      case 'detail': this.title = routeSections[2];
+        this.showBack = true;
+        break;
+      case 'add': this.title = "Add: " + routeSections[2];
+        this.showBack = true;
+        break;
+      case 'edit': this.title = "Edit: " + routeSections[2];
+        this.showBack = false;
+        break;
+      case 'tag': this.title = "Tag: " + routeSections[2];
+        this.showBack = true;
+        break;
+      case 'add-entry': this.title = "Search";
+        this.showBack = false;
+        break;
+      default:
+        console.error('unknown route in app.component!');
     }
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }
