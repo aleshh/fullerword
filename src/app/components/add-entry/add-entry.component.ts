@@ -26,6 +26,12 @@ import { Entry } from '../../models/Entry';
         >
       </form>
     </div>
+    <div *ngIf="entryMatches">Matching words:</div>
+    <div *ngFor="let entry of entryMatches" class="entry-list-item">
+      <a [routerLink]="['/detail', entry.text]">
+        <div>{{entry.text}}</div>
+      </a>
+    </div>
   `
   // templateUrl: './add-entry.component.html',
   // styleUrls: ['./add-entry.component.scss']
@@ -50,8 +56,13 @@ export class AddEntryComponent implements OnInit {
     if (this.entryText.length > 1) {
       this.entryMatches = this.dataService.getEntries(this.entryText);
       console.log('entry: ', this.entryText);
-      console.log('entryMatches: ', this.entryMatches);
+      if (this.entryMatches.length > 0) {
+        console.log('word matches: ', this.entryMatches[0].text);
+      }
+    } else {
+      this.entryMatches = null;
     }
+
   }
 
 }
