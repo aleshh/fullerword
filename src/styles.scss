@@ -103,8 +103,8 @@ nav {
 nav > div {
   display: inline-block;
   margin: 0;
-  width: 25%;
   height: 100%;
+  width: 33.33%; /* for three items */
 }
 
 nav a  {
@@ -121,8 +121,8 @@ nav a:hover {
   background-color: $primary-color-active;
 }
 
-nav i-settings {
-  font-size: .5em;
+nav i-settings svg {
+  height: 22px;
 }
 
 .entry-list-item {
