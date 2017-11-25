@@ -35,11 +35,6 @@ export class AddEntryComponent implements OnInit {
       if (this.tagMatches && this.tagMatches.length == 0) {
         this.tagMatches = null;
       }
-      console.log('word matches: ', this.entryMatches);
-      console.log('tag matches: ', this.tagMatches);
-      // if (this.entryMatches.length > 0) {
-        // console.log('word matches: ', this.entryMatches[0].text);
-      // }
     } else {
       this.entryMatches = null;
       this.tagMatches = null;
