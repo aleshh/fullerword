@@ -20,6 +20,11 @@ $light-text: #eeeeee;
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+  color: $dark-text;
+}
+
 body {
   // background-color: $primary-color;
   background-color: $background-color;
@@ -36,7 +41,14 @@ header {
 }
 
 .header-back-button {
-  float:left;
+  position: absolute;
+  left: 10px;
+  color: $light-text;
+
+  svg {
+    height: 30px;
+    width:  30px;
+  }
 }
 
 .main {
@@ -142,14 +154,20 @@ nav i-settings svg {
   color: $primary-color;
 }
 
+.tag-container > * {
+  display: inline-block;
+}
+
 .tag-display {
   display: inline-block;
   background-color: #ccc;
   border-radius: 5px;
   margin-right: 6px;
   border: 0;
-  padding: 5px 10px;
+  padding: 4px 10px;
   font-size: .6em;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
 
   svg {
     position:relative;
@@ -160,6 +178,10 @@ nav i-settings svg {
     stroke: rgb(79, 79, 79);
     margin-right: 5px;
   }
+}
+
+.tag-display:hover {
+  background-color: #bbb;
 }
 
 .remove-tag-icon svg {

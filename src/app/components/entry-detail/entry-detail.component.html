@@ -1,0 +1,13 @@
+<div class="entry-detail-main">
+    <h1>{{ entry.text }}</h1>
+    <p>{{entry.definition}}</p>
+    <div class="tag-container">
+      <div *ngFor="let tag of entry.tags" >
+        <a [routerLink]="['/tag', tag ]" class="tag-display">
+            <i-circle></i-circle> {{ tag }}
+          </a>
+      </div>
+    </div>
+
+    <button (click)="editEntry()"> <i-edit></i-edit> Edit</button>
+  </div>

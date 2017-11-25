@@ -7,14 +7,16 @@
       autofocus
       class="main-entry"
       type="text"
-      placeholder="Search"
+      placeholder="Enter word or phrase..."
       autocomplete="off"
     >
-    <input
+    <!-- <input type="submit"> -->
+    <!-- <button type="submit" class="submit-button"> <i-save></i-save> Save</button> -->
+
+    <button
       type="submit"
       class="submit-button"
-      value="Go"
-    >
+    > <i-plus-circle></i-plus-circle> Add…</button>
   </form>
 </div>
 <div *ngIf="entryMatches">Matching words:</div>

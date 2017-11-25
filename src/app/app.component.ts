@@ -40,7 +40,7 @@ export class AppComponent implements DoCheck {
       case 'tag': this.title = "Tag: " + routeSections[2];
         this.showBack = true;
         break;
-      case 'add-entry': this.title = "Search";
+      case 'add-entry': this.title = "Search/Add Word";
         this.showBack = false;
         break;
       default:
