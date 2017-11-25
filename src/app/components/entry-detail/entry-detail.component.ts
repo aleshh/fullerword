@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { DataService } from '../../services/data.service';
+import { UtilitiesService } from '../../services/utilities.service';
 import { Entry } from '../../models/Entry';
 
 @Component({
@@ -14,7 +15,8 @@ export class EntryDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private dataService: DataService
+    private dataService: DataService,
+    private utilities: UtilitiesService
   ) {}
 
   ngOnInit(): void {
@@ -22,7 +24,8 @@ export class EntryDetailComponent implements OnInit {
   }
 
   getEntry(): void {
-    const routeText = this.route.snapshot.paramMap.get('text');
+    let routeText = this.route.snapshot.paramMap.get('text');
+    routeText = this.utilities.decodeUrl(routeText);
     this.entry = this.dataService.getEntry(routeText);
   }
 

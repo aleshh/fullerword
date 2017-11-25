@@ -26,7 +26,7 @@ export class AppComponent implements DoCheck {
     let routeSections = routeText.split("/");
     let wordFromUrl;
     if (routeSections[2]) {
-      wordFromUrl = this.utilities.urlDecode(routeSections[2]);
+      wordFromUrl = this.utilities.decodeUrl(routeSections[2]);
     }
     switch(routeSections[1]) {
       case 'explore': this.title = "Explore Words";
