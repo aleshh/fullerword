@@ -5,26 +5,7 @@ import { Location, LocationStrategy } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  template: `
-    <header>
-      <a
-        (click)="goBack()"
-        class="header-back-button"
-        *ngIf="showBack"
-      > < </a>
-      <h1>{{ title | titlecase }}</h1>
-    </header>
-    <div class="main">
-      <router-outlet></router-outlet>
-    </div>
-    <nav>
-      <a class="nav-button" routerLink="/add-entry">Add Entry</a>
-      <a class="nav-button" routerLink="/explore"><i-compass></i-compass></a>
-      <a class="nav-button" routerLink="/tags">Tags</a>
-    </nav>
-  `
-  // templateUrl: './app.component.html',
-  // styleUrls: ['./app.component.css']
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements DoCheck {
   title: string = "Title";

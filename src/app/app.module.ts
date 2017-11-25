@@ -6,7 +6,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 
-import { IconCompass } from 'angular-feather';
+import {
+  IconCompass, IconChevronLeft, IconPlusCircle, IconZoomIn, IconSearch, IconX,
+  IconSettings, IconTag, IconStar, IconSave, IconList, IconHeart, IconFilter,
+  IconEdit, IconDelete, IconBookmark
+} from 'angular-feather';
 
 import { AppComponent } from './app.component';
 import { AddEntryComponent } from './components/add-entry/add-entry.component';
@@ -34,7 +38,22 @@ import { TagDetailComponent } from './components/tag-detail/tag-detail.component
     FormsModule,
     HttpModule,
     HttpClientModule,
-    IconCompass
+    IconCompass,
+    IconChevronLeft,
+    IconPlusCircle,
+    IconZoomIn,
+    IconSearch,
+    IconX,
+    IconSettings,
+    IconTag,
+    IconStar,
+    IconSave,
+    IconList,
+    IconHeart,
+    IconFilter,
+    IconEdit,
+    IconDelete,
+    IconBookmark
   ],
   providers: [
     DataService,

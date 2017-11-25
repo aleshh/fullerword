@@ -1,8 +1,17 @@
-<header><h1>FullerWord</h1></header>
+<header>
+  <a
+    (click)="goBack()"
+    class="header-back-button"
+    *ngIf="showBack"
+  > <i-chevron-left></i-chevron-left> </a>
+  <h1>{{ title | titlecase }}</h1>
+</header>
 <div class="main">
   <router-outlet></router-outlet>
 </div>
 <nav>
-  <div class="divider"></div>
-  <a class="nav-button" routerLink="/add-entry">Add Entry</a><a class="nav-button" routerLink="/explore">Explore</a>
+  <a class="nav-button" routerLink="/add-entry"> <i-zoom-in></i-zoom-in> </a>
+  <a class="nav-button" routerLink="/explore"><i-compass></i-compass></a>
+  <a class="nav-button" routerLink="/tags"><i-tag></i-tag></a>
+  <a class="nav-button" routerLink="/settings"><i-settings></i-settings></a>
 </nav>
