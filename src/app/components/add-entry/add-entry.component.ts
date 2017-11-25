@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { DataService } from '../../services/data.service';
+import { UtilitiesService } from '../../services/utilities.service';
 import { Entry } from '../../models/Entry';
 
 @Component({
@@ -15,14 +16,16 @@ export class AddEntryComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private dataService: DataService
+    private dataService: DataService,
+    private utilities: UtilitiesService
   ) {}
 
   ngOnInit() {
   }
 
   onSubmit() {
-    this.router.navigate(['/add', this.entryText]);
+    let urlEncodedText = this.utilities.urlEncode(this.entryText);
+    this.router.navigate(['/add', urlEncodedText]);
   }
 
   onKeyUp() {

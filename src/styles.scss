@@ -1,11 +1,12 @@
 // @import url('https://fonts.googleapis.com/css?family=Montserrat:100,400,700');
-@import url('https://fonts.googleapis.com/css?family=Merriweather');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:100,400,700');
 
 $primary-color: #444444;
 $primary-color-active: #333333;
 $background-color: #eeeeee;
 
 $dark-text: #222222;
+$dark-text-secondary: #cccccc;
 $light-text: #eeeeee;
 
 * {
@@ -54,7 +55,12 @@ header {
 .main {
   background-color: #eee;
   margin-top: 12vh;
-  margin-bottom: 12vh;
+  // margin-bottom: 12vh;
+
+  h2 {
+    font-size: 1.7em;
+    margin-bottom: 10px;
+  }
 }
 
 .add-entry-main {
@@ -73,11 +79,16 @@ header {
 }
 
 .main-entry::placeholder {
-  color: #ccc;
+  color: $dark-text-secondary;
 }
 
 .main-entry:focus {
   outline: none;
+}
+
+.main-entry-definition {
+  margin-top: -20px;
+  // border: 2px solid rgb(191, 191, 191);
 }
 
 button, .submit-button {
@@ -113,7 +124,7 @@ nav {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 2.5em;
+  height: 2.3em;
   background-color: $primary-color;
   color: #eeeeee;
   text-align: center;
@@ -147,11 +158,24 @@ nav i-settings svg {
 .entry-list-item {
   border-bottom: 1px solid #888;
   padding: 6px 10px;
+
 }
 
 .entry-list-item a {
   text-decoration: none;
   color: $primary-color;
+}
+
+.entry-list-item-text {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: $dark-text-secondary;
+
+  .primary-text {
+    color: $dark-text;
+  }
 }
 
 .tag-container > * {

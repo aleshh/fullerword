@@ -1,5 +1,12 @@
 <div *ngFor="let entry of entries" class="entry-list-item">
   <a [routerLink]="['/detail', entry.text]">
-    <div>{{entry.text}}</div>
+    <div class="entry-list-item-text">
+      <span class="primary-text">
+        {{entry.text}}
+      </span>
+      <span class="secondary-text">
+        {{entry.definition}}
+      </span>
+    </div>
   </a>
 </div>

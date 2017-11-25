@@ -16,12 +16,14 @@ import {
 import { AppComponent } from './app.component';
 import { AddEntryComponent } from './components/add-entry/add-entry.component';
 import { ExploreComponent } from './components/explore/explore.component';
-import { DataService } from './services/data.service';
-import { DictionaryService } from './services/dictionary.service';
 import { EntryDetailComponent } from './components/entry-detail/entry-detail.component';
 import { EditEntryComponent } from './components/edit-entry/edit-entry.component';
 import { TagsComponent } from './components/tags/tags.component';
 import { TagDetailComponent } from './components/tag-detail/tag-detail.component';
+
+import { DataService } from './services/data.service';
+import { UtilitiesService } from './services/utilities.service';
+import { DictionaryService } from './services/dictionary.service';
 
 @NgModule({
   declarations: [
@@ -62,6 +64,7 @@ import { TagDetailComponent } from './components/tag-detail/tag-detail.component
   ],
   providers: [
     DataService,
+    UtilitiesService,
     DictionaryService
   ],
   bootstrap: [ AppComponent ]

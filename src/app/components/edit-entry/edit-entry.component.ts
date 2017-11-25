@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 // import { FormsModule } from '@angular/forms';
 
 import { DataService } from '../../services/data.service';
+import { UtilitiesService } from '../../services/utilities.service';
 import { DictionaryService } from '../../services/dictionary.service';
 import { Entry } from '../../models/Entry';
 import { DictionaryEntry } from '../../models/DictionaryEntry';
@@ -23,13 +24,15 @@ export class EditEntryComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private dataService: DataService,
+    private utilities: UtilitiesService,
     private dictionaryService: DictionaryService,
     private location: Location
   ) { }
 
   ngOnInit() {
     console.log('ActivatedRoute: ', this.route);
-    const routeText = this.route.snapshot.paramMap.get('text');
+    let routeText = this.route.snapshot.paramMap.get('text');
+    routeText = this.utilities.urlDecode(routeText);
     let loadedEntry = this.dataService.getEntry(routeText);
 
     if (loadedEntry) {

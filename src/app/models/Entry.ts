@@ -1,11 +1,11 @@
 export interface Entry {
   // id: number,
   text: string,
-  // urlText: string,
+  urlText?: string,
   definition: string,
-  // customDefinition: string,
-  // source: string,
+  source?: string,
   tags: string[],
+  star?: boolean;
   // synonyms: string[],
   // strength: number,
   // share: string,
