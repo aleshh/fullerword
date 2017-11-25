@@ -19,7 +19,7 @@ import { Location, LocationStrategy } from '@angular/common';
     </div>
     <nav>
       <a class="nav-button" routerLink="/add-entry">Add Entry</a>
-      <a class="nav-button" routerLink="/explore">Explore</a>
+      <a class="nav-button" routerLink="/explore"><i-compass></i-compass></a>
       <a class="nav-button" routerLink="/tags">Tags</a>
     </nav>
   `

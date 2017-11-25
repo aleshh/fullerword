@@ -6,6 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 
+import { IconCompass } from 'angular-feather';
+
 import { AppComponent } from './app.component';
 import { AddEntryComponent } from './components/add-entry/add-entry.component';
 import { ExploreComponent } from './components/explore/explore.component';
@@ -31,7 +33,8 @@ import { TagDetailComponent } from './components/tag-detail/tag-detail.component
     AppRoutingModule,
     FormsModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    IconCompass
   ],
   providers: [
     DataService,
