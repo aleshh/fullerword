@@ -24,7 +24,10 @@ export class AppComponent implements DoCheck {
   ngDoCheck() {
     let routeText = this.locationStrategy.path();
     let routeSections = routeText.split("/");
-    let wordFromUrl = this.utilities.urlDecode(routeSections[2]);
+    let wordFromUrl;
+    if (routeSections[2]) {
+      wordFromUrl = this.utilities.urlDecode(routeSections[2]);
+    }
     switch(routeSections[1]) {
       case 'explore': this.title = "Explore Words";
         this.showBack = false;
