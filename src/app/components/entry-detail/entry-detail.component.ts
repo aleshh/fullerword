@@ -12,10 +12,10 @@ import { Entry } from '../../models/Entry';
       <p>{{entry.definition}}</p>
       <div class="tag-container">
         <div *ngFor="let tag of entry.tags" class="tag-display">
-          {{ tag }}
+          <i-circle></i-circle> {{ tag }}
         </div>
       </div>
-      <button (click)="editEntry()">Edit</button>
+      <button (click)="editEntry()"> <i-edit></i-edit> Edit</button>
     </div>
   `
   // templateUrl: './entry-detail.component.html'

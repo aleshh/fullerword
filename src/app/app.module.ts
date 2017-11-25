@@ -9,7 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import {
   IconCompass, IconChevronLeft, IconPlusCircle, IconZoomIn, IconSearch, IconX,
   IconSettings, IconTag, IconStar, IconSave, IconList, IconHeart, IconFilter,
-  IconEdit, IconDelete, IconBookmark
+  IconEdit, IconDelete, IconBookmark, IconXCircle, IconArrowLeft,
+  IconChevronsUp, IconCircle
 } from 'angular-feather';
 
 import { AppComponent } from './app.component';
@@ -53,7 +54,11 @@ import { TagDetailComponent } from './components/tag-detail/tag-detail.component
     IconFilter,
     IconEdit,
     IconDelete,
-    IconBookmark
+    IconBookmark,
+    IconXCircle,
+    IconArrowLeft,
+    IconChevronsUp,
+    IconCircle
   ],
   providers: [
     DataService,

@@ -1,0 +1,52 @@
+<div class="add-entry-main">
+    <form (ngSubmit)="onSubmit()">
+      <h2>{{entry.text}}</h2>
+      <!-- <input
+        type="text"
+        [(ngModel)]="entry.text"
+        name="entryText"
+        class="main-entry"
+      > -->
+      <br>
+      <textarea
+        [(ngModel)]="entry.definition"
+        name="definition"
+        class="main-entry"
+        placeholder="definition"
+        autocomplete="off"
+      ></textarea>
+      <br>
+      <input
+        type="text"
+        [(ngModel)]="newTags"
+        name="newTags"
+        class="main-entry"
+        placeholder="add tags..."
+        autocomplete="off"
+      >
+      <div class="tag-container">
+        <div *ngFor="let tag of entry.tags" class="tag-display">
+          {{ tag }} <a class="remove-tag-icon" (click)="removeTag(tag)"><i-x></i-x></a>
+        </div>
+      </div>
+      <button
+      type="button"
+      class="submit-button"
+      (click)="cancel()"
+      > <i-arrow-left></i-arrow-left> Cancel</button>
+      <button type="submit" class="submit-button"> <i-save></i-save> Save</button>
+      <br>
+      <button
+        *ngIf="editingExisting"
+        type="button"
+        class="submit-button"
+        (click)="delete()"
+      > <i-x-circle></i-x-circle> Delete</button>
+
+    </form>
+    <hr>
+    <div *ngIf="dictionaryDefinition">
+      <button (click)="useDefinition()" > <i-chevrons-up></i-chevrons-up> Use</button>
+      {{ dictionaryDefinition }}
+    </div>
+  </div>

@@ -35,7 +35,7 @@ export class AppComponent implements DoCheck {
         this.showBack = true;
         break;
       case 'edit': this.title = "Edit: " + routeSections[2];
-        this.showBack = false;
+        this.showBack = true;
         break;
       case 'tag': this.title = "Tag: " + routeSections[2];
         this.showBack = true;
