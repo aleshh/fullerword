@@ -69,7 +69,7 @@ header {
   text-align: center;
 }
 
-.main-entry {
+.main-entry, .edit-entry {
   border: 0;
   border-bottom: 2px solid #444444;
   background-color: #eeeeee;
@@ -78,15 +78,22 @@ header {
   text-align: center;
 }
 
-.main-entry::placeholder {
+.main-entry::placeholder, .edit-entry::placeholder {
   color: $dark-text-secondary;
 }
 
-.main-entry:focus {
+.main-entry:focus, .edit-entry {
   outline: none;
 }
 
-.main-entry-definition {
+.edit-entry {
+  border: none;
+  background-color: #e6e6e6;
+  border-radius: 3px;
+  padding: 5px 0;
+}
+
+.edit-entry-definition {
   margin-top: -20px;
   // border: 2px solid rgb(191, 191, 191);
 }
