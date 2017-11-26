@@ -12,6 +12,7 @@ import { UtilitiesService } from './services/utilities.service';
 export class AppComponent implements DoCheck {
   title: string = "Title";
   showBack: boolean = false;
+  showSettings: boolean = false;
 
   constructor(
     // private activatedRoute: ActivatedRoute
@@ -28,12 +29,18 @@ export class AppComponent implements DoCheck {
     if (routeSections[2]) {
       wordFromUrl = this.utilities.decodeUrl(routeSections[2]);
     }
+    this.showBack = false;
+    this.showSettings = false;
     switch(routeSections[1]) {
       case 'explore': this.title = "Explore Words";
-        this.showBack = false;
+        // this.showBack = false;
+        this.showSettings = true;
         break;
       case 'tags': this.title = "Tags";
-        this.showBack = false;
+        // this.showBack = false;
+        break;
+      case 'settings': this.title = "Settings";
+        this.showBack = true;
         break;
       case 'detail': this.title = wordFromUrl;
         this.showBack = true;
@@ -48,7 +55,7 @@ export class AppComponent implements DoCheck {
         this.showBack = true;
         break;
       case 'add-entry': this.title = "Search/Add Word";
-        this.showBack = false;
+        // this.showBack = false;
         break;
       default:
         console.error('unknown route in app.component!');

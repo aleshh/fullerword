@@ -1,9 +1,14 @@
 <header>
   <a
     (click)="goBack()"
-    class="header-back-button"
+    class="header-button header-back-button"
     *ngIf="showBack"
   > <i-chevron-left></i-chevron-left> </a>
+  <a
+    routerLink="/settings"
+    class="header-button header-settings-button"
+    *ngIf="showSettings"
+  > <i-settings></i-settings> </a>
   <h1>{{ title | titlecase }}</h1>
 </header>
 <div class="main">

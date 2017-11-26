@@ -6,6 +6,7 @@ export interface Entry {
   source?: string,
   tags: string[],
   star?: boolean;
+  sampleData?: boolean;
   // synonyms: string[],
   // strength: number,
   // share: string,

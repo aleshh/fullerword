@@ -7,6 +7,7 @@ import { EntryDetailComponent } from './components/entry-detail/entry-detail.com
 import { EditEntryComponent } from './components/edit-entry/edit-entry.component';
 import { TagsComponent } from './components/tags/tags.component';
 import { TagDetailComponent } from './components/tag-detail/tag-detail.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path: 'tags',
     component: TagsComponent
+  },
+  {
+    path: 'settings',
+    component: SettingsComponent
   },
   {
     path: 'detail/:text',

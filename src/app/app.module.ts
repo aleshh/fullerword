@@ -24,6 +24,7 @@ import { TagDetailComponent } from './components/tag-detail/tag-detail.component
 import { DataService } from './services/data.service';
 import { UtilitiesService } from './services/utilities.service';
 import { DictionaryService } from './services/dictionary.service';
+import { SettingsComponent } from './components/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { DictionaryService } from './services/dictionary.service';
     EntryDetailComponent,
     EditEntryComponent,
     TagsComponent,
-    TagDetailComponent
+    TagDetailComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

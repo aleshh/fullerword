@@ -38,12 +38,11 @@ header {
   background-color: $primary-color;
   color: $background-color;
   text-align: center;
-  padding: 3.5vh;
+  padding: 1.1em;
 }
 
-.header-back-button {
+.header-button {
   position: absolute;
-  left: 0;
   top: 0;
   height: 100%;
   width: 3em;
@@ -52,6 +51,13 @@ header {
 
   svg {
     position: relative;
+  }
+}
+
+.header-back-button {
+  left: 0;
+
+  svg {
     top: 14px;
     left: -2px;
     height: 40px;
@@ -60,9 +66,19 @@ header {
   }
 }
 
+.header-settings-button {
+  right: 0;
+
+  svg {
+    top: 22px;
+    right: 6px;
+    stroke-width: 1.8px;
+  }
+}
+
 .main {
   background-color: #eee;
-  margin-top: 12vh;
+  margin-top: 3.6em;
   // margin-bottom: 12vh;
 
   h2 {
