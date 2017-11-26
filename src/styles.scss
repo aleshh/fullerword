@@ -43,12 +43,20 @@ header {
 
 .header-back-button {
   position: absolute;
-  left: 10px;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3em;
   color: $light-text;
+  cursor: pointer;
 
   svg {
-    height: 30px;
-    width:  30px;
+    position: relative;
+    top: 14px;
+    left: -2px;
+    height: 40px;
+    width:  40px;
+    stroke-width: 1.3px;
   }
 }
 
@@ -59,7 +67,7 @@ header {
 
   h2 {
     font-size: 1.7em;
-    margin-bottom: 10px;
+    margin-bottom: .3em;
   }
 }
 
@@ -124,6 +132,10 @@ button:hover, .submit-button:hover {
   padding: 1em;
 }
 
+.entry-detail-definition {
+  margin-bottom: .6em;
+}
+
 nav {
   position: fixed;
   bottom: 0;
@@ -165,7 +177,6 @@ nav i-settings svg {
 .entry-list-item {
   border-bottom: 1px solid #888;
   padding: 6px 10px;
-
 }
 
 .entry-list-item a {
@@ -183,6 +194,10 @@ nav i-settings svg {
   .primary-text {
     color: $dark-text;
   }
+}
+
+.tag-container {
+  margin-bottom: .6em;
 }
 
 .tag-container > * {
@@ -213,6 +228,10 @@ nav i-settings svg {
 
 a.tag-display:hover {
   background-color: #bbb;
+}
+
+.remove-tag-icon {
+  margin-right: -8px;
 }
 
 .remove-tag-icon svg {
