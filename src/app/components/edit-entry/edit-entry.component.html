@@ -26,7 +26,7 @@
       >
       <div class="tag-container">
         <div *ngFor="let tag of entry.tags" class="tag-display">
-          {{ tag }} <a class="remove-tag-icon" (click)="removeTag(tag)"><i-x></i-x></a>
+            <i-circle></i-circle> {{ tag }} <a class="remove-tag-icon" (click)="removeTag(tag)"><i-x></i-x></a>
         </div>
       </div>
       <button
