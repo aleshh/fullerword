@@ -32,7 +32,7 @@ export class EditEntryComponent implements OnInit {
   ngOnInit() {
     console.log('ActivatedRoute: ', this.route);
     let routeText = this.route.snapshot.paramMap.get('text');
-    routeText = this.utilities.urlDecode(routeText);
+    routeText = this.utilities.decodeUrl(routeText);
     let loadedEntry = this.dataService.getEntry(routeText);
 
     if (loadedEntry) {
@@ -65,7 +65,9 @@ export class EditEntryComponent implements OnInit {
       tags: this.entry.tags
     }, this.newTags);
 
-    this.router.navigate(['/detail',this.entry.text]);
+    this.router.navigate(
+      ['/detail', this.utilities.encodeUrl(this.entry.text)]
+    );
   }
 
   cancel(): void {

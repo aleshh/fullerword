@@ -30,7 +30,8 @@ export class EntryDetailComponent implements OnInit {
   }
 
   editEntry(): void {
-    this.router.navigate(['edit/', this.entry.text]);
+    let encodedUrl = this.utilities.encodeUrl(this.entry.text);
+    this.router.navigate(['edit/', encodedUrl]);
   }
 
 }

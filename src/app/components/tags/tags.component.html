@@ -1,5 +1,5 @@
 <div *ngFor="let tag of tagList" class="entry-list-item">
-  <a [routerLink]="['/tag', tag.tag ]">
+  <a [routerLink]="['/tag', utilities.encodeUrl(tag.tag) ]">
     <div class="entry-list-item-text">
       <span class="primary-text">{{tag.tag}}</span>
       <span class="secondary-text">({{tag.count}})</span>

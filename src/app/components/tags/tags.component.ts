@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
+import { UtilitiesService } from '../../services/utilities.service';
 import { log } from 'util';
 
 @Component({
@@ -9,7 +10,10 @@ import { log } from 'util';
 export class TagsComponent implements OnInit {
   tagList: object[];
 
-  constructor(private dataService: DataService) { }
+  constructor(
+    private dataService: DataService,
+    private utilities: UtilitiesService
+  ) { }
 
   ngOnInit() {
     this.tagList = this.dataService.getTagList();
