@@ -13,7 +13,6 @@ export class DataService {
     };
 
     this.loadEntriesFromLocalStorage();
-    console.log('tags: ', this.convertTagStringToTags('blah,, blah, ') );
   }
 
   private loadEntriesFromLocalStorage(): void {
@@ -72,7 +71,11 @@ export class DataService {
       if (index == -1) {
         this.entries.unshift(newEntry);
       } else {
-        this.entries.splice(index, 1, newEntry)
+        const entryChanged = !this.entriesMatch(this.entries[index], newEntry);
+        if (entryChanged) {
+          console.log('entry changed: ', newEntry.text);
+          this.entries.splice(index, 1, newEntry)
+        }
       }
       this.saveEntriesToLocalStorage();
     }
@@ -115,6 +118,12 @@ export class DataService {
       if (tag !== "") newTagsNoBlanks.push(tag);
     }
     return newTagsNoBlanks;
+  }
+
+  private entriesMatch(entry1: Entry, entry2: Entry): boolean {
+    const entry1Parsed:string = JSON.stringify(entry1);
+    const entry2Parsed:string = JSON.stringify(entry2);
+    return entry1Parsed === entry2Parsed;
   }
 
 }
