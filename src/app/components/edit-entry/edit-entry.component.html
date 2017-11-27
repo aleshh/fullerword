@@ -15,7 +15,11 @@
         placeholder="definition"
         autocomplete="off"
       ></textarea>
-      <br>
+      <div class="tag-container">
+        <div *ngFor="let tag of entry.tags" class="tag-display">
+            <i-circle></i-circle> {{ tag }} <a class="remove-tag-icon" (click)="removeTag(tag)"><i-x></i-x></a>
+        </div>
+      </div>
       <input
         type="text"
         [(ngModel)]="newTags"
@@ -24,11 +28,8 @@
         placeholder="add tags..."
         autocomplete="off"
       >
-      <div class="tag-container">
-        <div *ngFor="let tag of entry.tags" class="tag-display">
-            <i-circle></i-circle> {{ tag }} <a class="remove-tag-icon" (click)="removeTag(tag)"><i-x></i-x></a>
-        </div>
-      </div>
+      <br>
+      <hr>
       <button
       type="button"
       class="submit-button"
