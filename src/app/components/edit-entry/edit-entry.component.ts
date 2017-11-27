@@ -30,7 +30,6 @@ export class EditEntryComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log('ActivatedRoute: ', this.route);
     let routeText = this.route.snapshot.paramMap.get('text');
     routeText = this.utilities.decodeUrl(routeText);
     let loadedEntry = this.dataService.getEntry(routeText);
@@ -57,7 +56,6 @@ export class EditEntryComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log('submit!');
 
     this.dataService.addOrUpdateEntry({
       text: this.entry.text,
@@ -71,7 +69,6 @@ export class EditEntryComponent implements OnInit {
   }
 
   cancel(): void {
-    console.log('cancel!');
     this.location.back()
   }
 
