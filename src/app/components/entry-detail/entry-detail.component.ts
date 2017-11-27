@@ -27,6 +27,7 @@ export class EntryDetailComponent implements OnInit {
     let routeText = this.route.snapshot.paramMap.get('text');
     routeText = this.utilities.decodeUrl(routeText);
     this.entry = this.dataService.getEntry(routeText);
+    console.log('entry loaded: ', this.entry);
   }
 
   editEntry(): void {

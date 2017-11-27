@@ -35,14 +35,20 @@ export class EditEntryComponent implements OnInit {
     let loadedEntry = this.dataService.getEntry(routeText);
 
     if (loadedEntry) {
-      // making a copy of the object (not reference)
-      // so we can cancel the edit.
-      // slice() copies the array of tags.
-      this.entry = {
-        text: loadedEntry.text,
-        definition: loadedEntry.definition,
-        tags: loadedEntry.tags.slice()
-      };
+      // // making a copy of the object (not reference)
+      // // so we can cancel the edit.
+      // // slice() copies the array of tags.
+      // this.entry = {
+      //   text: loadedEntry.text,
+      //   definition: loadedEntry.definition,
+      //   tags: loadedEntry.tags.slice()
+      // };
+
+      // we'll instead take a round-trip through the json parser
+      // so we grab any optional paramaters that may exist
+      const tmp = JSON.stringify(loadedEntry);
+      this.entry = JSON.parse(tmp);
+
       this.editingExisting = true;
     } else {
       this.entry = { text: routeText, definition: '', tags: []};
@@ -57,11 +63,14 @@ export class EditEntryComponent implements OnInit {
 
   onSubmit(): void {
 
-    this.dataService.addOrUpdateEntry({
-      text: this.entry.text,
-      definition: this.entry.definition,
-      tags: this.entry.tags
-    }, this.newTags);
+    this.dataService.addOrUpdateEntry(this.entry, this.newTags);
+
+    // don't remember why we were spelling it out this way..
+    // this.dataService.addOrUpdateEntry({
+    //   text: this.entry.text,
+    //   definition: this.entry.definition,
+    //   tags: this.entry.tags
+    // }, this.newTags);
 
     this.router.navigate(
       ['/detail', this.utilities.encodeUrl(this.entry.text)]

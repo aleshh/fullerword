@@ -69,11 +69,16 @@ export class DataService {
       }
       let index = this.entries.findIndex(r => r.text === newEntry.text);
       if (index == -1) {
+        newEntry.dateAdded = new Date();
+        newEntry.dateAccessed = new Date();
+        newEntry.dateModified = new Date();
         this.entries.unshift(newEntry);
       } else {
         const entryChanged = !this.entriesMatch(this.entries[index], newEntry);
         if (entryChanged) {
           console.log('entry changed: ', newEntry.text);
+          newEntry.dateAccessed = new Date();
+          newEntry.dateModified = new Date();
           this.entries.splice(index, 1, newEntry)
         }
       }
