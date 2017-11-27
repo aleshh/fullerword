@@ -5,10 +5,13 @@ export interface Entry {
   definition: string,
   source?: string,
   tags: string[],
-  star?: boolean;
-  sampleData?: boolean;
+  star?: boolean,
+  sampleData?: boolean,
   // synonyms: string[],
   // strength: number,
   // share: string,
-  // dateAdded: Date
+  dateAdded?: Date,
+  dateModified?: Date,
+  dateAccessed?: Date,
+  timesAccessed?: number
 }

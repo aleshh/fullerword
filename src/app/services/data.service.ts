@@ -13,6 +13,8 @@ export class DataService {
     };
 
     this.loadEntriesFromLocalStorage();
+    let date = new Date();
+    console.log('date: ', date);
   }
 
   private loadEntriesFromLocalStorage(): void {
