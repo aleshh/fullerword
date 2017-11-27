@@ -12,12 +12,15 @@ $light-text: #eeeeee;
 * {
   margin: 0;
   padding: 0;
-  // font-family: 'Montserrat', sans-serif;
   font-family: 'Merriweather', serif;
 }
 
 *, *:before, *:after {
   box-sizing: border-box;
+}
+
+div, p, h1, h2, button, input {
+  font-size: 20px;
 }
 
 a {
@@ -26,7 +29,7 @@ a {
 }
 
 body {
-  font-size: 1.05em;
+  // font-size: 1.05em;
   // background-color: $primary-color;
   background-color: $background-color;
 }
@@ -38,18 +41,18 @@ header {
   background-color: $primary-color;
   color: $background-color;
   text-align: center;
-  padding: 1.1em;
+  padding: 20px;
 }
 
 header h1 {
-  font-size: 1.3rem;
+  font-size: 21px;
 }
 
 .header-button {
   position: absolute;
   top: 0;
   height: 100%;
-  width: 3em;
+  width: 60px;
   color: $light-text;
   cursor: pointer;
 
@@ -81,34 +84,37 @@ header h1 {
 }
 
 .main {
-  background-color: #eee;
-  margin-top: 3.6em;
-  // margin-bottom: 12vh;
+  // background-color: #eee;
+  margin-top: 67px;
 
   h2 {
-    font-size: 1.7em;
-    margin-bottom: .3em;
+    font-size: 36px;
+    // margin-top: 5px;
+    margin-bottom: 10px;
   }
 }
 
 .add-entry-main {
   background-color: #eee;
-  padding: 1em;
+  padding: 15px;
   text-align: center;
 }
 
 .main-entry, .edit-entry {
-  font-size: .9rem;
   border: 0;
   border-bottom: 2px solid #444444;
   background-color: #eeeeee;
   max-width: 100%;
-  margin-bottom: .5em;
+  margin-bottom: 15px;
   text-align: center;
 }
 
 .main-entry {
-  font-size: 1.5rem;
+  font-size: 24px;
+}
+
+.edit-entry {
+  font-size: 18px;
 }
 
 .main-entry::placeholder, .edit-entry::placeholder {
@@ -128,7 +134,6 @@ header h1 {
 
 .edit-entry-definition {
   margin-top: -20px;
-  // border: 2px solid rgb(191, 191, 191);
 }
 
 button, .submit-button {
@@ -136,9 +141,9 @@ button, .submit-button {
   border-radius: 5px;
   border: 0;
   padding: 5px 10px;
-  font-size: .9em;
-  margin-bottom: .5em;
-  margin-top: .5em;
+  // font-size: 20px;
+  margin-bottom: 8px;
+  margin-top: 8px;
 }
 
 button svg {
@@ -154,12 +159,12 @@ button:hover, .submit-button:hover {
 }
 
 .entry-detail-main {
-  padding: 1em;
+  padding: 15px;
 }
 
 .entry-detail-definition {
-  font-size: 1.2em;
-  margin-bottom: .6em;
+  // font-size: 20px;
+  margin-bottom: 10px;
 }
 
 nav {
@@ -169,7 +174,7 @@ nav {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 2.3em;
+  height: 44px;
   background-color: $primary-color;
   color: #eeeeee;
   text-align: center;
@@ -185,7 +190,7 @@ nav > div {
 nav a  {
   display: block;
   margin: 0;
-  padding-top: .5em;
+  padding-top: 10px;
   width: 100%;
   height: 100%;
   color: #eeeeee;
@@ -205,7 +210,6 @@ nav i-settings svg {
  */
 
 .entry-list-item {
-  font-size: 1.5em;
   border-bottom: 1px solid #888;
   padding: 6px 10px;
 }
@@ -228,8 +232,7 @@ nav i-settings svg {
 }
 
 .tag-container {
-  // font-size: .9em;
-  margin-bottom: .6em;
+  margin-bottom: 10px;
 }
 
 .tag-container > * {
@@ -243,7 +246,7 @@ nav i-settings svg {
   margin-right: 6px;
   border: 0;
   padding: 4px 10px;
-  font-size: .6em;
+  font-size: 14px;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
 
