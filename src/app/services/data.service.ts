@@ -13,8 +13,7 @@ export class DataService {
     };
 
     this.loadEntriesFromLocalStorage();
-    let date = new Date();
-    console.log('date: ', date);
+    console.log('tags: ', this.convertTagStringToTags('blah,, blah, ') );
   }
 
   private loadEntriesFromLocalStorage(): void {
@@ -109,9 +108,13 @@ export class DataService {
   }
 
   private convertTagStringToTags(tagString: string): string[] {
-    let newTags: string[] = tagString.split(this.preferences.tagEntrySeparator);
-    let newTagsTrimmed = newTags.map(x => x.trim());
-    return newTagsTrimmed;
+    const newTags: string[] = tagString.split(this.preferences.tagEntrySeparator);
+    const newTagsTrimmed = newTags.map(x => x.trim());
+    let newTagsNoBlanks = [];
+    for (let tag of newTagsTrimmed) {
+      if (tag !== "") newTagsNoBlanks.push(tag);
+    }
+    return newTagsNoBlanks;
   }
 
 }
