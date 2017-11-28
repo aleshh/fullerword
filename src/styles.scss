@@ -4,6 +4,7 @@
 $primary-color: #444444;
 $primary-color-active: #333333;
 $background-color: #eeeeee;
+$background-color-offset: #dddddd;
 
 $dark-text: #222222;
 $dark-text-secondary: #cccccc;
@@ -218,7 +219,8 @@ nav i-settings svg {
 
 .entry-list-options {
   height: 70px;
-  background-color: silver;
+  background-color: $background-color-offset;
+  border-bottom: 1px solid silver;
   text-align: center;
   padding-top: 8px;
 
@@ -229,7 +231,7 @@ nav i-settings svg {
     margin-bottom: 6px;
   }
   ul {
-    width: 392px;
+    width: 302px;
     height: 23px;
     margin: 0 auto;
     border: 1px solid $primary-color;
@@ -240,7 +242,7 @@ nav i-settings svg {
     float: left;
     list-style: none;
     padding-top: 3px;
-    width: 130px;
+    width: 100px;
     height: 23px;
     font-size: 12px;
     border-right: 1px solid $primary-color;
@@ -249,7 +251,7 @@ nav i-settings svg {
   li:last-child {
     border-right: none;
   }
-  li:hover {
+  li:hover, .active {
     background-color: $primary-color;
     color: $light-text;
     cursor: pointer;

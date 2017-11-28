@@ -10,6 +10,7 @@ import { Entry } from '../../models/Entry';
 })
 export class ExploreComponent implements OnInit {
   entries: Entry[];
+  sortBy: string;
 
   constructor(
     private dataService: DataService,
@@ -19,6 +20,10 @@ export class ExploreComponent implements OnInit {
   ngOnInit() {
     this.entries = this.dataService.getEntries();
     // scroll(0, 70);
+  }
+
+  changeSort(event): void {
+    this.sortBy = event.target.id;
   }
 
 }
