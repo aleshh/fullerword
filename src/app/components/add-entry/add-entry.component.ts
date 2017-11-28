@@ -25,6 +25,7 @@ export class AddEntryComponent implements OnInit {
 
   onSubmit() {
     let urlEncodedText = this.utilities.encodeUrl(this.entryText);
+    console.log('encoded entry: ', urlEncodedText );
     this.router.navigate(['/add', urlEncodedText]);
   }
 

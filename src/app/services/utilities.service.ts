@@ -10,14 +10,14 @@ export class UtilitiesService {
   // https://stackoverflow.com/questions/695438/safe-characters-for-friendly-url
 
   encodeUrl(phrase: string): string {
-    let newString = phrase.replace('-', '~');
-    newString = newString.replace(' ', '-');
+    let newString = phrase.replace(/-/g, '~');
+    newString = newString.replace(/\s/g, '-');
     return newString;
   }
 
   decodeUrl(phrase: string): string {
-    let newString = phrase.replace('-', ' ');
-    newString = newString.replace('~', '-');
+    let newString = phrase.replace(/-/g, ' ');
+    newString = newString.replace(/~/g, '-');
     return newString;
   }
 
