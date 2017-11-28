@@ -33,6 +33,9 @@ export class EntryDetailComponent implements OnInit {
     // this.entry.dateAdded = new Date(this.entry.dateAdded);
     // console.log('dateAdded: ',this.entry.dateAdded );
     // console.log('dateAdded type: ', typeof( this.entry.dateAdded) );
+    console.log('dateAdded: ',this.entry.dateAdded );
+    console.log('dateAccesed: ',this.entry.dateAccessed );
+    console.log('dateModified: ',this.entry.dateModified );
   }
 
   editEntry(): void {
