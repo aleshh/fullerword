@@ -1,6 +1,8 @@
-<!-- <div class="entry-list-options">
-  <h3>Settings</h3>
-</div> -->
+<div class="entry-list-options">
+<h3>Sort by</h3>
+<ul><li role="button">Newest</li><li role="button">Oldest</li><li role="button">Alphabetical</li></ul>
+
+</div>
 <div class="entry-list">
   <div *ngFor="let entry of entries" class="entry-list-item">
     <a [routerLink]="['/detail', utilities.encodeUrl(entry.text)]">

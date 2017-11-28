@@ -18,7 +18,7 @@ export class ExploreComponent implements OnInit {
 
   ngOnInit() {
     this.entries = this.dataService.getEntries();
-    window.scroll(0, 100);
+    // scroll(0, 70);
   }
 
 }
