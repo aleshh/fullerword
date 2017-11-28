@@ -16,7 +16,15 @@ export class DataService {
   }
 
   private loadEntriesFromLocalStorage(): void {
-    var loadedEntries = JSON.parse(localStorage.getItem('entries'));
+    var loadedEntries = JSON.parse(localStorage.getItem('entries'),
+      (key, value) => {
+        if ( key == 'dateAdded' ||
+             key == 'dateAccessed' ||
+             key == 'dateModified') {
+          value = new Date(value);
+        }
+        return value;
+      });
     if (loadedEntries !== undefined) {
       this.entries = loadedEntries;
     }
