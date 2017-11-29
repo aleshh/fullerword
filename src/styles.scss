@@ -220,8 +220,11 @@ nav i-settings svg {
   height: 70px;
   background-color: $background-color-offset;
   border-bottom: 1px solid silver;
-  text-align: center;
+}
+
+.three-way-selector {
   padding-top: 8px;
+  text-align: center;
 
   h3 {
     font-size: 12px;

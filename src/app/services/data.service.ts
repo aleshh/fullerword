@@ -17,7 +17,6 @@ export class DataService {
   constructor(){
     this.loadEntriesFromLocalStorage();
     this.loadPreferencesFromLocalStorage();
-    console.log('prefs: ', this.preferences );
   }
 
   getEntries(partialText?: string): Entry[] {
