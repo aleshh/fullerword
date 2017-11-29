@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+
 import { Entry } from '../models/Entry';
+import { sampleWords } from './sample-words';
 
 @Injectable()
 export class DataService {
@@ -102,6 +104,7 @@ export class DataService {
   }
 
   // this is fine for small data sets, but could use major refactoring
+  // like, there might should be a separate list of tags?
   getTagList(searchText?: string): object[] {
     let tagSet = [];
 
@@ -122,6 +125,20 @@ export class DataService {
     }
 
     return tagSet;
+  }
+
+  loadSampleData(): void {
+    let data = sampleWords;
+    for (let word of data) {
+      word.dateAdded = new Date();
+      if (this.entries.indexOf(word) == -1) {
+        this.entries.push(word);
+      }
+    }
+  }
+
+  removeSampleData(): void {
+    this.entries = this.entries.filter(e => e.sampleData);
   }
 
   private convertTagStringToTags(tagString: string): string[] {
