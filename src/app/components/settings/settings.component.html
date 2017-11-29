@@ -1,0 +1,4 @@
+<div class="preferences">
+  <div *ngIf="!sampleDataLoaded" (click)="loadSampleData()"   >Add Sample Data</div>
+  <div *ngIf="sampleDataLoaded"  (click)="removeSampleData()" >Remove Sample Data</div>
+</div>

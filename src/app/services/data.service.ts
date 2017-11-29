@@ -164,10 +164,12 @@ export class DataService {
         this.entries.push(word);
       }
     }
+    this.setPreference('sampleDataLoaded', true);
   }
 
   removeSampleData(): void {
     this.entries = this.entries.filter(e => e.sampleData);
+    this.setPreference('sampleDataLoaded', false);
   }
 
   private convertTagStringToTags(tagString: string): string[] {
