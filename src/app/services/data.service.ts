@@ -51,7 +51,7 @@ export class DataService {
 
   getEntry(text): Entry {
     let result = this.entries.find(r => r.text === text);
-    result.dateAccessed = new Date();
+    if (result) result.dateAccessed = new Date();
     return result;
   }
 

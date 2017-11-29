@@ -19,11 +19,40 @@ export class ExploreComponent implements OnInit {
 
   ngOnInit() {
     this.entries = this.dataService.getEntries();
-    // scroll(0, 70);
+    scroll(0, 70);
   }
 
   changeSort(event): void {
     this.sortBy = event.target.id;
+    switch (this.sortBy) {
+      case ('newest'):
+        console.log('sorting newest');
+        this.entries.sort((a:Entry, b:Entry) => {
+          console.log(a.text, ': ', a.dateAdded, ' | ',b.text, ': ', b.dateAdded );
+          if (a.dateAdded <  b.dateAdded) return 1;
+          if (a.dateAdded == b.dateAdded) return 0;
+          if (a.dateAdded >  b.dateAdded) return -1;
+        });
+        break;
+      case ('oldest'):
+        console.log('sorting oldest');
+        this.entries.sort((a:Entry, b:Entry) => {
+          console.log(a.text, ': ', a.dateAdded, ' | ',b.text, ': ', b.dateAdded );
+          if (a.dateAdded >  b.dateAdded) return 1;
+          if (a.dateAdded == b.dateAdded) return 0;
+          if (a.dateAdded <  b.dateAdded) return -1;
+        });
+        break;
+      case ('alpha'):
+        console.log('sorting alpha?');
+        this.entries.sort((a:Entry, b:Entry) => {
+          console.log(a.text, ': ', a.dateAdded, ' | ',b.text, ': ', b.dateAdded );
+          if (a.text >  b.text) return 1;
+          if (a.text == b.text) return 0;
+          if (a.text <  b.text) return -1;
+        });
+        break;
+    }
   }
 
 }
