@@ -50,6 +50,7 @@ export class DataService {
 
   private savePreferencesToLocalStorage(): void {
     localStorage.setItem('preferences', JSON.stringify(this.preferences));
+    this.savePreferencesToLocalStorage();
   }
 
   setPreference(preference: string, setting: any): void {
