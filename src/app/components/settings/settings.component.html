@@ -1,9 +1,9 @@
 <div class="preferences">
+  <div class="three-way-selector entry-list-item">
+    <p>Sort Word List by</p>
+    <app-sort-order-setting [sortBy]="sortWordListBy" (sortOrderChanged)="changeSort($event)"></app-sort-order-setting>
+  </div>
+
   <div *ngIf="!sampleDataLoaded" class="entry-list-item" (click)="loadSampleData()"   >Add Sample Data</div>
   <div *ngIf="sampleDataLoaded"  class="entry-list-item" (click)="removeSampleData()" >Remove Sample Data</div>
-
-  <div class="three-way-selector entry-list-item">
-    <h3>Sort Word List by</h3>
-    <app-sort-order-setting (sortOrderChanged)="changeSort($event)"></app-sort-order-setting>
-  </div>
 </div>

@@ -1,7 +1,7 @@
 <div class="entry-list-options">
   <div class="three-way-selector">
     <h3>Sort by</h3>
-    <app-sort-order-setting (sortOrderChanged)="changeSort($event)"></app-sort-order-setting>
+    <app-sort-order-setting [sortBy]="sortBy" (sortOrderChanged)="changeSort($event)"></app-sort-order-setting>
 </div>
 </div>
 

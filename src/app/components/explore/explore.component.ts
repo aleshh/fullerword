@@ -10,12 +10,14 @@ import { Entry } from '../../models/Entry';
 })
 export class ExploreComponent implements OnInit, AfterViewInit {
   entries: Entry[];
-  sortBy: string = 'newest';
+  sortBy: string;
 
   constructor(
     private dataService: DataService,
     private utilities: UtilitiesService
-  ) { }
+  ) {
+    // this.sortBy = 'newest';
+   }
 
   ngOnInit() {
     this.entries = this.dataService.getEntries();
