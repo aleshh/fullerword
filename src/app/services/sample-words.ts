@@ -7,7 +7,8 @@ export const sampleWords: Entry[] = [
     tags: [
       "positive",
       "personal",
-      "adjective"
+      "adjective",
+      "sample-data"
     ],
     sampleData: true
   },
@@ -17,7 +18,8 @@ export const sampleWords: Entry[] = [
     tags: [
       "sharp",
       "adjective",
-      "personal"
+      "personal",
+      "sample-data"
     ],
     sampleData: true
   },
@@ -27,7 +29,8 @@ export const sampleWords: Entry[] = [
     tags: [
       "zany",
       "noun",
-      "descriptive"
+      "descriptive",
+      "sample-data"
     ],
     sampleData: true
   },
@@ -35,7 +38,8 @@ export const sampleWords: Entry[] = [
     text: "quizzical",
     definition: "(of a person's expression or behaviour) indicating mild or amused puzzlement",
     tags:[
-      "adjective"
+      "adjective",
+      "sample-data"
     ],
     sampleData: true
   }

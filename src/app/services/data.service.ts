@@ -19,53 +19,6 @@ export class DataService {
     console.log('prefs: ', this.preferences );
   }
 
-  private loadEntriesFromLocalStorage(): void {
-    var loadedEntries = JSON.parse(localStorage.getItem('entries'),
-      (key, value) => {
-        if ( key == 'dateAdded' ||
-             key == 'dateAccessed' ||
-             key == 'dateModified') {
-          value = new Date(value);
-        }
-        return value;
-      });
-    if (loadedEntries !== undefined) {
-      this.entries = loadedEntries;
-    }
-  }
-
-  private saveEntriesToLocalStorage(): void {
-    localStorage.setItem('entries', JSON.stringify(this.entries));
-  }
-
-  private loadPreferencesFromLocalStorage(): void {
-    this.preferences = JSON.parse(localStorage.getItem('preferences'));
-    if (this.preferences == undefined) {
-      this.preferences = {
-        tagEntrySeparator: ',',
-        sampleDataLoaded: false
-      };
-      console.log('preferences not loaded from localstorage: ', this.preferences );
-    } else {
-      console.log('preferences loaded from localstorage: ', this.preferences );
-    }
-
-  }
-
-  private savePreferencesToLocalStorage(): void {
-    localStorage.setItem('preferences', JSON.stringify(this.preferences));
-    console.log('preferneces stored to localstorage: ', this.preferences );
-  }
-
-  setPreference(preference: string, setting: any): void {
-    this.preferences[preference] = setting;
-    this.savePreferencesToLocalStorage();
-  }
-
-  getPreference(preference: string): any {
-    return this.preferences[preference];
-  }
-
   getEntries(partialText?: string): Entry[] {
     if (partialText == undefined || partialText == '' ) {
       return this.entries;
@@ -103,11 +56,11 @@ export class DataService {
         let newTags = this.convertTagStringToTags(tagString);
         for (let tag of newTags) {
           if (newEntry.tags.indexOf(tag) == -1) {
-
             newEntry.tags.push(tag);
           }
         }
       }
+      newEntry.sampleData = false;
       let index = this.entries.findIndex(r => r.text === newEntry.text);
       if (index == -1) {
         newEntry.dateAdded = new Date();
@@ -157,6 +110,15 @@ export class DataService {
     return tagSet;
   }
 
+  setPreference(preference: string, setting: any): void {
+    this.preferences[preference] = setting;
+    this.savePreferencesToLocalStorage();
+  }
+
+  getPreference(preference: string): any {
+    return this.preferences[preference];
+  }
+
   loadSampleData(): void {
     if (this.preferences.sampleDataLoaded) {
       console.error('Preferences already loaded');
@@ -164,17 +126,58 @@ export class DataService {
     }
     let data = sampleWords;
     for (let word of data) {
-      word.dateAdded = new Date();
-      if (this.entries.indexOf(word) == -1) {
+      let index = this.entries.findIndex(r => r.text === word.text);
+      if (index == -1) {
+        word.dateAdded = new Date();
         this.entries.push(word);
       }
     }
+    this.saveEntriesToLocalStorage();
     this.setPreference('sampleDataLoaded', true);
   }
 
   removeSampleData(): void {
     this.entries = this.entries.filter(e => !e.sampleData);
+    this.saveEntriesToLocalStorage();
     this.setPreference('sampleDataLoaded', false);
+  }
+
+  private loadEntriesFromLocalStorage(): void {
+    var loadedEntries = JSON.parse(localStorage.getItem('entries'),
+      (key, value) => {
+        if ( key == 'dateAdded' ||
+             key == 'dateAccessed' ||
+             key == 'dateModified') {
+          value = new Date(value);
+        }
+        return value;
+      });
+    if (loadedEntries !== undefined) {
+      this.entries = loadedEntries;
+    }
+  }
+
+  private saveEntriesToLocalStorage(): void {
+    localStorage.setItem('entries', JSON.stringify(this.entries));
+  }
+
+  private loadPreferencesFromLocalStorage(): void {
+    this.preferences = JSON.parse(localStorage.getItem('preferences'));
+    if (this.preferences == undefined) {
+      this.preferences = {
+        tagEntrySeparator: ',',
+        sampleDataLoaded: false
+      };
+      console.log('preferences not loaded from localstorage: ', this.preferences );
+    } else {
+      console.log('preferences loaded from localstorage: ', this.preferences );
+    }
+
+  }
+
+  private savePreferencesToLocalStorage(): void {
+    localStorage.setItem('preferences', JSON.stringify(this.preferences));
+    console.log('preferneces stored to localstorage: ', this.preferences );
   }
 
   private convertTagStringToTags(tagString: string): string[] {
