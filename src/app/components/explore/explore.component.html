@@ -1,12 +1,5 @@
-<div class="entry-list-options">
-<h3>Sort by</h3>
-<ul>
-   <li role="button" [class.active]="sortBy == 'newest'" class="sort-option" id="newest" (click)="changeSort($event)">Newest</li
-  ><li role="button" [class.active]="sortBy == 'oldest'" class="sort-option" id="oldest" (click)="changeSort($event)">Oldest</li
-  ><li role="button" [class.active]="sortBy == 'alpha'" class="sort-option" id="alpha" (click)="changeSort($event)">Alphabetical</li>
-</ul>
+<app-sort-order-setting (sortOrderChanged)="changeSort($event)"></app-sort-order-setting>
 
-</div>
 <div class="entry-list">
   <div *ngFor="let entry of entries" class="entry-list-item">
     <a [routerLink]="['/detail', utilities.encodeUrl(entry.text)]">

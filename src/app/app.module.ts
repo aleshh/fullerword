@@ -13,6 +13,10 @@ import {
   IconChevronsUp, IconCircle
 } from 'angular-feather';
 
+import { DataService } from './services/data.service';
+import { UtilitiesService } from './services/utilities.service';
+import { DictionaryService } from './services/dictionary.service';
+
 import { AppComponent } from './app.component';
 import { AddEntryComponent } from './components/add-entry/add-entry.component';
 import { ExploreComponent } from './components/explore/explore.component';
@@ -20,11 +24,8 @@ import { EntryDetailComponent } from './components/entry-detail/entry-detail.com
 import { EditEntryComponent } from './components/edit-entry/edit-entry.component';
 import { TagsComponent } from './components/tags/tags.component';
 import { TagDetailComponent } from './components/tag-detail/tag-detail.component';
-
-import { DataService } from './services/data.service';
-import { UtilitiesService } from './services/utilities.service';
-import { DictionaryService } from './services/dictionary.service';
 import { SettingsComponent } from './components/settings/settings.component';
+import { SortOrderSettingComponent } from './components/sort-order-setting/sort-order-setting.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { SettingsComponent } from './components/settings/settings.component';
     EditEntryComponent,
     TagsComponent,
     TagDetailComponent,
-    SettingsComponent
+    SettingsComponent,
+    SortOrderSettingComponent
   ],
   imports: [
     BrowserModule,

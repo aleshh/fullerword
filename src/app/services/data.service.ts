@@ -6,6 +6,7 @@ import { sampleWords } from './sample-words';
 class Preferences {
   tagEntrySeparator: string;
   sampleDataLoaded: boolean;
+  sortWordListBy: string
 }
 
 @Injectable()
@@ -166,7 +167,8 @@ export class DataService {
     if (this.preferences == undefined) {
       this.preferences = {
         tagEntrySeparator: ',',
-        sampleDataLoaded: false
+        sampleDataLoaded: false,
+        sortWordListBy: 'newest'
       };
       console.log('preferences not loaded from localstorage: ', this.preferences );
     } else {
