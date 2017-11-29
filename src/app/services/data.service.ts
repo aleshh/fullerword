@@ -34,9 +34,9 @@ export class DataService {
     }
   }
 
-    private saveEntriesToLocalStorage(): void {
-      localStorage.setItem('entries', JSON.stringify(this.entries));
-    }
+  private saveEntriesToLocalStorage(): void {
+    localStorage.setItem('entries', JSON.stringify(this.entries));
+  }
 
   private loadPreferencesFromLocalStorage(): void {
     this.preferences = JSON.parse(localStorage.getItem('preferences'));
@@ -45,16 +45,21 @@ export class DataService {
         tagEntrySeparator: ',',
         sampleDataLoaded: false
       };
+      console.log('preferences not loaded from localstorage: ', this.preferences );
+    } else {
+      console.log('preferences loaded from localstorage: ', this.preferences );
     }
+
   }
 
   private savePreferencesToLocalStorage(): void {
     localStorage.setItem('preferences', JSON.stringify(this.preferences));
-    this.savePreferencesToLocalStorage();
+    console.log('preferneces stored to localstorage: ', this.preferences );
   }
 
   setPreference(preference: string, setting: any): void {
     this.preferences[preference] = setting;
+    this.savePreferencesToLocalStorage();
   }
 
   getPreference(preference: string): any {
@@ -168,7 +173,7 @@ export class DataService {
   }
 
   removeSampleData(): void {
-    this.entries = this.entries.filter(e => e.sampleData);
+    this.entries = this.entries.filter(e => !e.sampleData);
     this.setPreference('sampleDataLoaded', false);
   }
 
