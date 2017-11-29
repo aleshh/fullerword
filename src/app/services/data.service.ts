@@ -3,18 +3,20 @@ import { Injectable } from '@angular/core';
 import { Entry } from '../models/Entry';
 import { sampleWords } from './sample-words';
 
+class Preferences {
+  tagEntrySeparator: string;
+  sampleDataLoaded: boolean;
+}
+
 @Injectable()
 export class DataService {
   entries: Entry[];
-  preferences;
+  preferences: Preferences;
 
   constructor(){
-    this.entries = [];
-    this.preferences = {
-      tagEntrySeparator: ','
-    };
-
     this.loadEntriesFromLocalStorage();
+    this.loadPreferencesFromLocalStorage();
+    console.log('prefs: ', this.preferences );
   }
 
   private loadEntriesFromLocalStorage(): void {
@@ -32,8 +34,30 @@ export class DataService {
     }
   }
 
-  private saveEntriesToLocalStorage(): void {
-    localStorage.setItem('entries', JSON.stringify(this.entries));
+    private saveEntriesToLocalStorage(): void {
+      localStorage.setItem('entries', JSON.stringify(this.entries));
+    }
+
+  private loadPreferencesFromLocalStorage(): void {
+    this.preferences = JSON.parse(localStorage.getItem('preferences'));
+    if (this.preferences == undefined) {
+      this.preferences = {
+        tagEntrySeparator: ',',
+        sampleDataLoaded: false
+      };
+    }
+  }
+
+  private savePreferencesToLocalStorage(): void {
+    localStorage.setItem('preferences', JSON.stringify(this.preferences));
+  }
+
+  setPreference(preference: string, setting: any): void {
+    this.preferences[preference] = setting;
+  }
+
+  getPreference(preference: string): any {
+    return this.preferences[preference];
   }
 
   getEntries(partialText?: string): Entry[] {
@@ -128,6 +152,10 @@ export class DataService {
   }
 
   loadSampleData(): void {
+    if (this.preferences.sampleDataLoaded) {
+      console.error('Preferences already loaded');
+      return;
+    }
     let data = sampleWords;
     for (let word of data) {
       word.dateAdded = new Date();
