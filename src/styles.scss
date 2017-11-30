@@ -6,6 +6,7 @@ $background-color: #eeeeee;
 $background-color-offset: #dddddd;
 
 $dark-text: #222222;
+$dark-text-lighter: #666666;
 $dark-text-secondary: #cccccc;
 $light-text: #eeeeee;
 
@@ -133,7 +134,7 @@ header h1 {
 }
 
 .definition-star {
-  margin-top: 20px;
+  margin-top: 28px;
   text-align: left;
 
   #star {
@@ -141,14 +142,14 @@ header h1 {
 
     svg {
       position: relative;
-      top: -10px;
-      height: 40px;
-      width: 40px;
+      top: -15px;
+      height: 35px;
+      width: 35px;
       stroke-width: 1px;
     }
   }
   .star-on svg {
-    fill: $primary-color;
+    fill: $dark-text;
   }
 }
 
@@ -192,6 +193,10 @@ button:hover, .submit-button:hover {
 .entry-detail-definition {
   // font-size: 20px;
   margin-bottom: 10px;
+}
+
+.dictionary-definition {
+  margin-bottom: 45px;
 }
 
 nav {
@@ -313,6 +318,29 @@ nav i-settings svg {
   .secondary-text {
     font-weight: 300;
     color: $dark-text-secondary;
+  }
+}
+
+.entry-list-large {
+  .entry-list-item-text {
+    font-size: 23px;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+  }
+  .secondary-text {
+    color: $dark-text-lighter;
+    font-size: 16px;
+    display: block;
+  }
+}
+
+.entry-list-small {
+  .entry-list-item {
+    padding: 1px 10px 4px;
+  }
+  .primary-text, .secondary-text {
+    font-size: 17px;
   }
 }
 
