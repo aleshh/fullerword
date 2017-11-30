@@ -132,6 +132,26 @@ header h1 {
   outline: none;
 }
 
+.definition-star {
+  margin-top: 20px;
+  text-align: left;
+
+  #star {
+    float: right;
+
+    svg {
+      position: relative;
+      top: -10px;
+      height: 40px;
+      width: 40px;
+      stroke-width: 1px;
+    }
+  }
+  .star-on svg {
+    fill: $primary-color;
+  }
+}
+
 .edit-entry {
   border: none;
   background-color: #e6e6e6;

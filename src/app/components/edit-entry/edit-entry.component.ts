@@ -35,17 +35,9 @@ export class EditEntryComponent implements OnInit {
     let loadedEntry = this.dataService.getEntry(routeText);
 
     if (loadedEntry) {
-      // // making a copy of the object (not reference)
-      // // so we can cancel the edit.
-      // // slice() copies the array of tags.
-      // this.entry = {
-      //   text: loadedEntry.text,
-      //   definition: loadedEntry.definition,
-      //   tags: loadedEntry.tags.slice()
-      // };
-
-      // we'll instead take a round-trip through the json parser
-      // so we grab any optional paramaters that may exist
+      // taking a round-trip through the json parser
+      // so we're not dealing with the original entry
+      // and we can cancel and discard our changes
       const tmp = JSON.stringify(loadedEntry);
       this.entry = JSON.parse(tmp);
 
@@ -90,6 +82,14 @@ export class EditEntryComponent implements OnInit {
 
   useDefinition(): void {
     this.entry.definition = this.dictionaryDefinition;
+  }
+
+  toggleStar():void {
+    if (!this.entry.star) {
+      this.entry.star = true;
+    } else {
+      this.entry.star = false;
+    }
   }
 
   removeTag(tag): void {

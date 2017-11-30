@@ -7,14 +7,18 @@
         name="entryText"
         class="main-entry"
       > -->
-      <br>
-      <textarea
+      <div class="definition-star">
+        <textarea
         [(ngModel)]="entry.definition"
         name="definition"
         class="edit-entry edit-entry-definition"
         placeholder="definition"
         autocomplete="off"
-      ></textarea>
+        ></textarea>
+        <div id="star" [class.star-on]="entry.star" (click)="toggleStar()">
+          <i-star></i-star>
+        </div>
+      </div>
       <div class="tag-container">
         <div *ngFor="let tag of entry.tags" class="tag-display">
             <i-circle></i-circle> {{ tag }} <a class="remove-tag-icon" (click)="removeTag(tag)"><i-x></i-x></a>
