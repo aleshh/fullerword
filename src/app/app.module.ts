@@ -10,7 +10,7 @@ import {
   IconCompass, IconChevronLeft, IconPlusCircle, IconZoomIn, IconSearch, IconX,
   IconSettings, IconTag, IconStar, IconSave, IconList, IconHeart, IconFilter,
   IconEdit, IconDelete, IconBookmark, IconXCircle, IconArrowLeft,
-  IconChevronsUp, IconCircle
+  IconChevronsUp, IconCircle, IconCheckCircle
 } from 'angular-feather';
 
 import { DataService } from './services/data.service';
@@ -64,7 +64,8 @@ import { SortOrderSettingComponent } from './components/sort-order-setting/sort-
     IconXCircle,
     IconArrowLeft,
     IconChevronsUp,
-    IconCircle
+    IconCircle,
+    IconCheckCircle
   ],
   providers: [
     DataService,

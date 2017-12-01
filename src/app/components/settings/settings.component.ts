@@ -15,14 +15,14 @@ export class SettingsComponent implements OnInit {
     this.preferences = this.dataService.getPreferences();
   }
 
-  loadSampleData(): void {
-    this.dataService.loadSampleData();
-    this.preferences.sampleDataLoaded = true;
-  }
-
-  removeSampleData(): void {
+  toggleSampleData():void {
+    if (this.preferences.sampleDataLoaded) {
     this.dataService.removeSampleData();
     this.preferences.sampleDataLoaded = false;
+    } else {
+    this.dataService.loadSampleData();
+    this.preferences.sampleDataLoaded = true;
+    }
   }
 
   changeSort(event): void {
@@ -35,9 +35,9 @@ export class SettingsComponent implements OnInit {
     this.preferences.exploreDisplaySize = size;
   }
 
-  changeStarSetting(setting): void {
-    this.dataService.setPreference('useStarRating', setting);
-    this.preferences.useStarRating = setting;
+  changeStarSetting(): void {
+    this.preferences.useStarRating = !this.preferences.useStarRating;
+    this.dataService.setPreference('useStarRating', this.preferences.useStarRating);
   }
 
 }
