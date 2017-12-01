@@ -296,28 +296,46 @@ nav i-settings svg {
 .entry-list-item {
   border-bottom: 1px solid #888;
   padding: 6px 10px;
-}
 
-.entry-list-item a {
-  text-decoration: none;
-  color: $primary-color;
-}
+  .star {
+    float:left;
+    margin-right: 7px;
 
-.entry-list-item-text {
-  width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  color: $dark-text-secondary;
-
-  .primary-text {
-    font-weight: 700;
-    color: $dark-text;
+    svg {
+      position: relative;
+      top: 3px;
+      height: 20px;
+      width: 20px;
+      stroke-width: 0;
+      fill: $dark-text-secondary;
+    }
+  }
+  .star-on svg {
+    fill: $dark-text-lighter;
   }
 
-  .secondary-text {
-    font-weight: 300;
+  a {
+    display: block;
+    text-decoration: none;
+    color: $primary-color;
+  }
+
+  .entry-list-item-text {
+    // width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     color: $dark-text-secondary;
+
+    .primary-text {
+      font-weight: 700;
+      color: $dark-text;
+    }
+
+    .secondary-text {
+      font-weight: 300;
+      color: $dark-text-secondary;
+    }
   }
 }
 
@@ -329,7 +347,7 @@ nav i-settings svg {
     text-overflow: unset;
   }
   .secondary-text {
-    color: $dark-text-lighter;
+    color: $dark-text-lighter !important;
     font-size: 16px;
     display: block;
   }

@@ -9,6 +9,9 @@
      [class.entry-list-large]="displaySize == 'large'"
      [class.entry-list-small]="displaySize == 'small'">
   <div *ngFor="let entry of entries" class="entry-list-item">
+    <div *ngIf="useStarRating" class="star" [class.star-on]="entry.star" (click)="toggleStar(entry)">
+      <i-star></i-star>
+    </div>
     <a [routerLink]="['/detail', utilities.encodeUrl(entry.text)]">
       <div class="entry-list-item-text">
         <span class="primary-text">

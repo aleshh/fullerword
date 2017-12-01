@@ -12,6 +12,7 @@ export class ExploreComponent implements OnInit {
   entries: Entry[];
   sortBy: string;
   displaySize: string;
+  useStarRating: boolean;
 
   constructor(
     private dataService: DataService,
@@ -22,10 +23,16 @@ export class ExploreComponent implements OnInit {
     this.entries = this.dataService.getEntries();
     this.sortBy = this.dataService.getPreference('sortWordListBy');
     this.displaySize = this.dataService.getPreference('exploreDisplaySize');
+    this.useStarRating = this.dataService.getPreference('useStarRating');
 
     this.changeSort(this.sortBy);
     // this.changeSort(this.dataService.getPreference('sortWordListBy'));
     scroll(0, 70);
+  }
+
+  toggleStar(entry: Entry) {
+    entry.star = !entry.star;
+    console.log(entry.text, ' star: ', entry.star);
   }
 
   changeSort(event): void {

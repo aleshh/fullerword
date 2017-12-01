@@ -3,18 +3,18 @@ import { Injectable } from '@angular/core';
 import { Entry } from '../models/Entry';
 import { sampleWords } from './sample-words';
 
-interface Preferences {
-  tagEntrySeparator: string;  // ',' or ' '
-  sampleDataLoaded: boolean;
-  useStarRating: boolean;
-  sortWordListBy: string;     // 'newest', 'oldest', 'alpha'
-  exploreDisplaySize: string; // 'small', 'medium', 'large'
-}
+// interface Preferences {
+//   tagEntrySeparator: string;  // ',' or ' '
+//   sampleDataLoaded: boolean;
+//   useStarRating: boolean;
+//   sortWordListBy: string;     // 'newest', 'oldest', 'alpha'
+//   exploreDisplaySize: string; // 'small', 'medium', 'large'
+// }
 
 @Injectable()
 export class DataService {
   entries: Entry[];
-  preferences: Preferences;
+  preferences;
 
   constructor(){
     this.loadEntriesFromLocalStorage();
