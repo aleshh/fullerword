@@ -7,7 +7,7 @@
         name="entryText"
         class="main-entry"
       > -->
-      <div class="definition-star">
+      <div class="definition-star" [class.nostars]="!useStarRating">
         <textarea
         [(ngModel)]="entry.definition"
         name="definition"

@@ -152,6 +152,13 @@ header h1 {
     fill: $dark-text;
   }
 }
+.nostars {
+  text-align: center;
+
+  #star {
+    display: none;
+  }
+}
 
 .edit-entry {
   border: none;
