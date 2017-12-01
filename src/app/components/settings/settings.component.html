@@ -12,6 +12,8 @@
       ><li role="button" [class.active]="exploreDisplaySize === 'large'" id="large" (click)="changeDisplaySize('large')">Large</li>
     </ul>
   </div>
+  <div *ngIf="!useStarRating" class="entry-list-item" (click)="changeStarSetting(true)"  >Use star ratings</div>
+  <div *ngIf="useStarRating"  class="entry-list-item" (click)="changeStarSetting(false)" >Don't use star ratings</div>
 
   <div *ngIf="!sampleDataLoaded" class="entry-list-item" (click)="loadSampleData()"   >Add sample data</div>
   <div *ngIf="sampleDataLoaded"  class="entry-list-item" (click)="removeSampleData()" >Remove sample data</div>

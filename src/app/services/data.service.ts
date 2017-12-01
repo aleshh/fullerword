@@ -6,6 +6,7 @@ import { sampleWords } from './sample-words';
 interface Preferences {
   tagEntrySeparator: string;  // ',' or ' '
   sampleDataLoaded: boolean;
+  useStarRating: boolean;
   sortWordListBy: string;     // 'newest', 'oldest', 'alpha'
   exploreDisplaySize: string; // 'small', 'medium', 'large'
 }
@@ -168,6 +169,7 @@ export class DataService {
       this.preferences = {
         tagEntrySeparator: ',',
         sampleDataLoaded: false,
+        useStarRating: true,
         sortWordListBy: 'newest',
         exploreDisplaySize: 'normal'
       };
