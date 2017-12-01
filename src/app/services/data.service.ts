@@ -112,14 +112,19 @@ export class DataService {
     return tagSet;
   }
 
-  setPreference(preference: string, setting: any): void {
-    this.preferences[preference] = setting;
-    this.savePreferencesToLocalStorage();
+  getPreferences(): any {
+    return this.preferences;
   }
 
   getPreference(preference: string): any {
     return this.preferences[preference];
   }
+
+  setPreference(preference: string, setting: any): void {
+    this.preferences[preference] = setting;
+    this.savePreferencesToLocalStorage();
+  }
+
 
   loadSampleData(): void {
     if (this.preferences.sampleDataLoaded) {
