@@ -1,9 +1,19 @@
 <div class="preferences">
   <div class="three-way-selector entry-list-item">
-    <p>Sort Word List by</p>
+    <p>Sort word list by</p>
     <app-sort-order-setting [sortBy]="sortWordListBy" (sortOrderChanged)="changeSort($event)"></app-sort-order-setting>
   </div>
 
-  <div *ngIf="!sampleDataLoaded" class="entry-list-item" (click)="loadSampleData()"   >Add Sample Data</div>
-  <div *ngIf="sampleDataLoaded"  class="entry-list-item" (click)="removeSampleData()" >Remove Sample Data</div>
+  <div class="three-way-selector entry-list-item">
+    <p>Word list display size</p>
+    <ul>
+      <li role="button" [class.active]="exploreDisplaySize === 'small'" id="small" (click)="changeDisplaySize('small')">Small</li
+      ><li role="button" [class.active]="exploreDisplaySize === 'medium'" id="medium" (click)="changeDisplaySize('medium')">Medium</li
+      ><li role="button" [class.active]="exploreDisplaySize === 'large'" id="large" (click)="changeDisplaySize('small')">Large</li>
+    </ul>
+  </div>
+
+
+  <div *ngIf="!sampleDataLoaded" class="entry-list-item" (click)="loadSampleData()"   >Add sample data</div>
+  <div *ngIf="sampleDataLoaded"  class="entry-list-item" (click)="removeSampleData()" >Remove sample data</div>
 </div>

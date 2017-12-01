@@ -4,9 +4,10 @@ import { Entry } from '../models/Entry';
 import { sampleWords } from './sample-words';
 
 interface Preferences {
-  tagEntrySeparator: string;
+  tagEntrySeparator: string;  // ',' or ' '
   sampleDataLoaded: boolean;
-  sortWordListBy: string
+  sortWordListBy: string;     // 'newest', 'oldest', 'alpha'
+  exploreDisplaySize: string; // 'small', 'medium', 'large'
 }
 
 @Injectable()
@@ -167,7 +168,8 @@ export class DataService {
       this.preferences = {
         tagEntrySeparator: ',',
         sampleDataLoaded: false,
-        sortWordListBy: 'newest'
+        sortWordListBy: 'newest',
+        exploreDisplaySize: 'normal'
       };
       console.log('preferences not loaded from localstorage: ', this.preferences );
     } else {
