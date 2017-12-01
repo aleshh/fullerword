@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Entry } from '../models/Entry';
 import { sampleWords } from './sample-words';
 
-class Preferences {
+interface Preferences {
   tagEntrySeparator: string;
   sampleDataLoaded: boolean;
   sortWordListBy: string

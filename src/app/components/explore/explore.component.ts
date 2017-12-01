@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, Injectable } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 
 import { DataService } from '../../services/data.service';
 import { UtilitiesService } from '../../services/utilities.service';
@@ -8,38 +8,35 @@ import { Entry } from '../../models/Entry';
   selector: 'app-explore',
   templateUrl: './explore.component.html'
 })
-export class ExploreComponent implements OnInit, AfterViewInit {
+export class ExploreComponent implements OnInit {
   entries: Entry[];
   sortBy: string;
 
   constructor(
     private dataService: DataService,
     private utilities: UtilitiesService
-  ) {
-    // this.sortBy = 'newest';
-   }
+  ) {}
 
   ngOnInit() {
     this.entries = this.dataService.getEntries();
-    // this.sortBy = this.dataService.getPreference('sortWordListBy');
-    this.changeSort(this.dataService.getPreference('sortWordListBy'));
-    console.log('onInit: ', this.sortBy );
+    this.sortBy = this.dataService.getPreference('sortWordListBy');
+
+    this.changeSort(this.sortBy);
+    // this.changeSort(this.dataService.getPreference('sortWordListBy'));
     scroll(0, 70);
   }
 
-  ngAfterViewInit() {
-    // this.changeSort(this.sortBy);
-
-  }
-
   changeSort(event): void {
-    console.log('event typeof: ', typeof(event) );
-    console.log('event: ', event );
+    if (this.sortBy != event) {
+        this.dataService.setPreference('sortWordListBy', event);
+
+    }
     this.sortBy = event;
-    this.dataService.setPreference('sortWordListBy', event);
+    // if (this.sortBy != this.dataService.getPreference('sortWordListBy')) {
+    //   this.dataService.setPreference('sortWordListBy', event);
+    // }
     switch (this.sortBy) {
       case ('newest'):
-      console.log('sorting newest' );
       this.entries.sort((a:Entry, b:Entry) => {
           if (a.dateAdded <  b.dateAdded) return 1;
           if (a.dateAdded == b.dateAdded) return 0;
@@ -47,7 +44,6 @@ export class ExploreComponent implements OnInit, AfterViewInit {
         });
         break;
       case ('oldest'):
-      console.log('sorting oldest ' );
       this.entries.sort((a:Entry, b:Entry) => {
           if (a.dateAdded >  b.dateAdded) return 1;
           if (a.dateAdded == b.dateAdded) return 0;
@@ -55,7 +51,6 @@ export class ExploreComponent implements OnInit, AfterViewInit {
         });
         break;
       case ('alpha'):
-      console.log('sorting alpha: ' );
         this.entries.sort((a:Entry, b:Entry) => {
           if (a.text >  b.text) return 1;
           if (a.text == b.text) return 0;
