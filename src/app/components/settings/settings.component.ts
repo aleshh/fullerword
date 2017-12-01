@@ -7,19 +7,11 @@ import { DataService } from '../../services/data.service';
   templateUrl: './settings.component.html'
 })
 export class SettingsComponent implements OnInit {
-  // sampleDataLoaded: boolean;
-  // sortWordListBy: string;
-  // exploreDisplaySize: string;
-  // useStarRating: boolean;
   preferences;
 
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    // this.sampleDataLoaded = this.dataService.getPreference('sampleDataLoaded');
-    // this.sortWordListBy = this.dataService.getPreference('sortWordListBy');
-    // this.exploreDisplaySize = this.dataService.getPreference('exploreDisplaySize');
-    // this.useStarRating = this.dataService.getPreference('useStarRating');
     this.preferences = this.dataService.getPreferences();
   }
 
