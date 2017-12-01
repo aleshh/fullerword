@@ -6,8 +6,8 @@
 </div>
 
 <div class="entry-list"
-     [class.entry-list-large]="false"
-     [class.entry-list-small]="false">
+     [class.entry-list-large]="displaySize == 'large'"
+     [class.entry-list-small]="displaySize == 'small'">
   <div *ngFor="let entry of entries" class="entry-list-item">
     <a [routerLink]="['/detail', utilities.encodeUrl(entry.text)]">
       <div class="entry-list-item-text">

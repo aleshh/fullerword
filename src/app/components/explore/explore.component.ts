@@ -11,6 +11,7 @@ import { Entry } from '../../models/Entry';
 export class ExploreComponent implements OnInit {
   entries: Entry[];
   sortBy: string;
+  displaySize: string;
 
   constructor(
     private dataService: DataService,
@@ -20,6 +21,7 @@ export class ExploreComponent implements OnInit {
   ngOnInit() {
     this.entries = this.dataService.getEntries();
     this.sortBy = this.dataService.getPreference('sortWordListBy');
+    this.displaySize = this.dataService.getPreference('exploreDisplaySize');
 
     this.changeSort(this.sortBy);
     // this.changeSort(this.dataService.getPreference('sortWordListBy'));
