@@ -1,4 +1,4 @@
-<div class="entry-list-options">
+<div *ngIf="entries.length > 0" class="entry-list-options">
   <div class="three-way-selector">
     <h3>Sort by</h3>
     <app-sort-order-setting [sortBy]="sortBy" (sortOrderChanged)="changeSort($event)"></app-sort-order-setting>
@@ -22,5 +22,10 @@
         </span>
       </div>
     </a>
+  </div>
+
+  <div class="no-entries-welcome" *ngIf="entries.length == 0" >
+    <h2>Welcome!</h2>
+    Get started by <a routerLink="/add-entry">adding some words</a> or <a (click)="addSampleData()">importing the  sample words</a>.
   </div>
 </div>

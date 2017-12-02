@@ -19,6 +19,7 @@ export const sampleWords: Entry[] = [
       "sharp",
       "adjective",
       "personal",
+      "positive",
       "sample-data"
     ],
     sampleData: true
@@ -30,6 +31,7 @@ export const sampleWords: Entry[] = [
       "zany",
       "noun",
       "descriptive",
+      "negative",
       "sample-data"
     ],
     sampleData: true
@@ -39,6 +41,28 @@ export const sampleWords: Entry[] = [
     definition: "(of a person's expression or behaviour) indicating mild or amused puzzlement",
     tags:[
       "adjective",
+      "sample-data"
+    ],
+    sampleData: true
+  },
+  {
+    text: "insouciant",
+    definition: "showing a casual lack of concern",
+    tags:[
+      "adjective",
+      "negative",
+      "personal",
+      "sample-data"
+    ],
+    sampleData: true
+  },
+  {
+    text: "desultory",
+    definition: "lacking a plan, purpose, or enthusiasm",
+    tags:[
+      "adjective",
+      "negative",
+      "personal",
       "sample-data"
     ],
     sampleData: true

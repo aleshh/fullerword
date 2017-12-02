@@ -12,7 +12,7 @@ import { SettingsComponent } from './components/settings/settings.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/add-entry',
+    redirectTo: '/explore',
     pathMatch: 'full'
   },
   {

@@ -3,6 +3,7 @@ import { Component, OnInit, Injectable } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { UtilitiesService } from '../../services/utilities.service';
 import { Entry } from '../../models/Entry';
+// import { setTimeout } from 'timers';
 
 @Component({
   selector: 'app-explore',
@@ -26,8 +27,8 @@ export class ExploreComponent implements OnInit {
     this.useStarRating = this.dataService.getPreference('useStarRating');
 
     this.changeSort(this.sortBy);
-    // this.changeSort(this.dataService.getPreference('sortWordListBy'));
     scroll(0, 70);
+    console.log('entries: ', this.entries );
   }
 
   toggleStar(entry: Entry) {
@@ -67,6 +68,15 @@ export class ExploreComponent implements OnInit {
         });
         break;
     }
+  }
+
+  addSampleData():void {
+    this.dataService.loadSampleData();
+    setTimeout(this.hidePreferences, 0);
+  }
+
+  private hidePreferences(): void {
+    scroll(0, 70);
   }
 
 }

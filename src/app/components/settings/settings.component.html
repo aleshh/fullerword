@@ -19,9 +19,6 @@
            Use star ratings
   </div>
 
-  <!-- <div *ngIf="!preferences.sampleDataLoaded" class="entry-list-item" (click)="loadSampleData()"   >Add sample data</div>
-  <div *ngIf="preferences.sampleDataLoaded"  class="entry-list-item" (click)="removeSampleData()" >Remove sample data</div> -->
-
   <div class="entry-list-item" (click)="toggleSampleData()" >
       <div *ngIf="preferences.sampleDataLoaded" class="settings-check" > <i-check-circle></i-check-circle> </div>
       <div *ngIf="!preferences.sampleDataLoaded"  class="settings-check" > <i-circle></i-circle> </div>
