@@ -225,9 +225,9 @@ export class DataService {
       case ('alpha'):
       console.log('sorting alpha ' );
         this.entries.sort((a:Entry, b:Entry) => {
-          if (a.text >  b.text) return 1;
-          if (a.text == b.text) return 0;
-          if (a.text <  b.text) return -1;
+          if (a.text.toUpperCase() >  b.text.toUpperCase()) return 1;
+          if (a.text.toUpperCase() == b.text.toUpperCase()) return 0;
+          if (a.text.toUpperCase() <  b.text.toUpperCase()) return -1;
         });
         break;
     }
