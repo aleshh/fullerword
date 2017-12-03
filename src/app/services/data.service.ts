@@ -21,6 +21,8 @@ export class DataService {
     this.loadPreferencesFromLocalStorage();
   }
 
+  // # Entries CRUD
+
   getEntries(partialText?: string): Entry[] {
     if (partialText == undefined || partialText == '' ) {
       return this.entries;
@@ -88,6 +90,9 @@ export class DataService {
     this.saveEntriesToLocalStorage();
   }
 
+
+  // # Tags
+
   // this is fine for small data sets, but could use major refactoring
   // like, there might should be a separate list of tags?
   getTagList(searchText?: string): object[] {
@@ -112,6 +117,8 @@ export class DataService {
     return tagSet;
   }
 
+  // # Preferences CRUD
+
   getPreferences(): any {
     return this.preferences;
   }
@@ -125,6 +132,7 @@ export class DataService {
     this.savePreferencesToLocalStorage();
   }
 
+  // # Sample Data add/remove
 
   loadSampleData(): void {
     if (this.preferences.sampleDataLoaded) {
@@ -148,6 +156,8 @@ export class DataService {
     this.saveEntriesToLocalStorage();
     this.setPreference('sampleDataLoaded', false);
   }
+
+  // # LocalStorage private functions
 
   private loadEntriesFromLocalStorage(): void {
     var loadedEntries = JSON.parse(localStorage.getItem('entries'),
@@ -182,13 +192,14 @@ export class DataService {
     } else {
       console.log('preferences loaded from localstorage: ', this.preferences );
     }
-
   }
 
   private savePreferencesToLocalStorage(): void {
     localStorage.setItem('preferences', JSON.stringify(this.preferences));
     console.log('preferneces stored to localstorage: ', this.preferences );
   }
+
+  // # Utilitiy Functions
 
   private convertTagStringToTags(tagString: string): string[] {
     const newTags: string[] = tagString.split(this.preferences.tagEntrySeparator);
