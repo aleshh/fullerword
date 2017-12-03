@@ -76,7 +76,6 @@ export class DataService {
       } else {
         const entryChanged = !this.entriesMatch(this.entries[index], newEntry);
         if (entryChanged) {
-          console.log('entry changed: ', newEntry.text);
           newEntry.dateAccessed = new Date();
           newEntry.dateModified = new Date();
           this.entries.splice(index, 1, newEntry)
@@ -207,7 +206,6 @@ export class DataService {
   private sortEntries(): void {
     switch (this.preferences.sortWordListBy) {
       case ('newest'):
-      console.log('sorting newest ' );
       this.entries.sort((a:Entry, b:Entry) => {
         if (a.dateAdded <  b.dateAdded) return 1;
         if (a.dateAdded == b.dateAdded) return 0;
@@ -215,7 +213,6 @@ export class DataService {
       });
       break;
       case ('oldest'):
-      console.log('sorting oldest ' );
       this.entries.sort((a:Entry, b:Entry) => {
         if (a.dateAdded >  b.dateAdded) return 1;
         if (a.dateAdded == b.dateAdded) return 0;
@@ -223,7 +220,6 @@ export class DataService {
       });
       break;
       case ('alpha'):
-      console.log('sorting alpha ' );
         this.entries.sort((a:Entry, b:Entry) => {
           if (a.text.toUpperCase() >  b.text.toUpperCase()) return 1;
           if (a.text.toUpperCase() == b.text.toUpperCase()) return 0;
@@ -231,9 +227,6 @@ export class DataService {
         });
         break;
     }
-    console.log('Entries sorted ' );
-    console.log(this.entries );
-
   }
 
   private convertTagStringToTags(tagString: string): string[] {
