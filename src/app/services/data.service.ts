@@ -91,7 +91,6 @@ export class DataService {
     this.saveEntriesToLocalStorage();
   }
 
-
   // # Tags
 
   // this is fine for small data sets, but could use major refactoring
