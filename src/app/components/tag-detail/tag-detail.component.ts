@@ -33,4 +33,8 @@ export class TagDetailComponent implements OnInit {
     this.useStarRating = this.dataService.getPreference('useStarRating');
   }
 
+  toggleStar(entry: Entry) {
+    entry.star = !entry.star;
+  }
+
 }
