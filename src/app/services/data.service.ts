@@ -19,6 +19,7 @@ export class DataService {
   constructor(){
     this.loadEntriesFromLocalStorage();
     this.loadPreferencesFromLocalStorage();
+    // localStorage.removeItem('preferences');
   }
 
   // # Entries CRUD
@@ -130,6 +131,9 @@ export class DataService {
   setPreference(preference: string, setting: any): void {
     this.preferences[preference] = setting;
     this.savePreferencesToLocalStorage();
+    if (preference == 'sortWordListBy') {
+      this.sortEntries();
+    }
   }
 
   // # Sample Data add/remove
@@ -188,18 +192,50 @@ export class DataService {
         sortWordListBy: 'newest',
         exploreDisplaySize: 'normal'
       };
-      console.log('preferences not loaded from localstorage: ', this.preferences );
+      // console.log('preferences not loaded from localstorage: ', this.preferences );
     } else {
-      console.log('preferences loaded from localstorage: ', this.preferences );
+      // console.log('preferences loaded from localstorage: ', this.preferences );
     }
   }
 
   private savePreferencesToLocalStorage(): void {
     localStorage.setItem('preferences', JSON.stringify(this.preferences));
-    console.log('preferneces stored to localstorage: ', this.preferences );
+    // console.log('preferneces stored to localstorage: ', this.preferences );
   }
 
   // # Utilitiy Functions
+
+  private sortEntries(): void {
+    switch (this.preferences.sortWordListBy) {
+      case ('newest'):
+      console.log('sorting newest ' );
+      this.entries.sort((a:Entry, b:Entry) => {
+        if (a.dateAdded <  b.dateAdded) return 1;
+        if (a.dateAdded == b.dateAdded) return 0;
+        if (a.dateAdded >  b.dateAdded) return -1;
+      });
+      break;
+      case ('oldest'):
+      console.log('sorting oldest ' );
+      this.entries.sort((a:Entry, b:Entry) => {
+        if (a.dateAdded >  b.dateAdded) return 1;
+        if (a.dateAdded == b.dateAdded) return 0;
+        if (a.dateAdded <  b.dateAdded) return -1;
+      });
+      break;
+      case ('alpha'):
+      console.log('sorting alpha ' );
+        this.entries.sort((a:Entry, b:Entry) => {
+          if (a.text >  b.text) return 1;
+          if (a.text == b.text) return 0;
+          if (a.text <  b.text) return -1;
+        });
+        break;
+    }
+    console.log('Entries sorted ' );
+    console.log(this.entries );
+
+  }
 
   private convertTagStringToTags(tagString: string): string[] {
     const newTags: string[] = tagString.split(this.preferences.tagEntrySeparator);

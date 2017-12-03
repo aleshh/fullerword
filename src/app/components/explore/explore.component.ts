@@ -34,39 +34,48 @@ export class ExploreComponent implements OnInit {
   }
 
   changeSort(event): void {
-    if (this.sortBy != event) {
-        this.dataService.setPreference('sortWordListBy', event);
+    // if (this.sortBy != event) {
+    //     this.dataService.setPreference('sortWordListBy', event);
+    // }
+    // this.sortBy = event;
 
-    }
+    if (this.sortBy == event) return;
+
+    this.dataService.setPreference('sortWordListBy', event);
     this.sortBy = event;
-    switch (this.sortBy) {
-      case ('newest'):
-      this.entries.sort((a:Entry, b:Entry) => {
-          if (a.dateAdded <  b.dateAdded) return 1;
-          if (a.dateAdded == b.dateAdded) return 0;
-          if (a.dateAdded >  b.dateAdded) return -1;
-        });
-        break;
-      case ('oldest'):
-      this.entries.sort((a:Entry, b:Entry) => {
-          if (a.dateAdded >  b.dateAdded) return 1;
-          if (a.dateAdded == b.dateAdded) return 0;
-          if (a.dateAdded <  b.dateAdded) return -1;
-        });
-        break;
-      case ('alpha'):
-        this.entries.sort((a:Entry, b:Entry) => {
-          if (a.text >  b.text) return 1;
-          if (a.text == b.text) return 0;
-          if (a.text <  b.text) return -1;
-        });
-        break;
-    }
+
+    this.entries = this.dataService.getEntries();
+
+    // switch (this.sortBy) {
+    //   case ('newest'):
+    //   this.entries.sort((a:Entry, b:Entry) => {
+    //       if (a.dateAdded <  b.dateAdded) return 1;
+    //       if (a.dateAdded == b.dateAdded) return 0;
+    //       if (a.dateAdded >  b.dateAdded) return -1;
+    //     });
+    //     break;
+    //   case ('oldest'):
+    //   this.entries.sort((a:Entry, b:Entry) => {
+    //       if (a.dateAdded >  b.dateAdded) return 1;
+    //       if (a.dateAdded == b.dateAdded) return 0;
+    //       if (a.dateAdded <  b.dateAdded) return -1;
+    //     });
+    //     break;
+    //   case ('alpha'):
+    //     this.entries.sort((a:Entry, b:Entry) => {
+    //       if (a.text >  b.text) return 1;
+    //       if (a.text == b.text) return 0;
+    //       if (a.text <  b.text) return -1;
+    //     });
+    //     break;
+    // }
   }
 
   addSampleData(): void {
     this.dataService.loadSampleData();
     this.utilities.hideWordListPreferences();
   }
+
+
 
 }

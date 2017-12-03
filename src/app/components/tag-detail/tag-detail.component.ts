@@ -37,4 +37,13 @@ export class TagDetailComponent implements OnInit {
     entry.star = !entry.star;
   }
 
+  changeSort(event): void {
+    if (this.sortBy == event) return;
+
+    this.dataService.setPreference('sortWordListBy', event);
+    this.sortBy = event;
+
+    this.entries = this.dataService.getEntriesByTag(this.tag);
+  }
+
 }
