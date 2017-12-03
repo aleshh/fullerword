@@ -17,8 +17,8 @@ export class DataService {
   preferences;
 
   constructor(){
-    this.loadEntriesFromLocalStorage();
     this.loadPreferencesFromLocalStorage();
+    this.loadEntriesFromLocalStorage();
     // localStorage.removeItem('preferences');
   }
 
@@ -177,6 +177,7 @@ export class DataService {
     if (loadedEntries !== undefined) {
       this.entries = loadedEntries;
     }
+    this.sortEntries();
   }
 
   private saveEntriesToLocalStorage(): void {
