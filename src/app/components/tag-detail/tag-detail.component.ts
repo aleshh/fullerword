@@ -12,6 +12,9 @@ import { Entry } from '../../models/Entry';
 export class TagDetailComponent implements OnInit {
   tag: string;
   entries: Entry[];
+  sortBy: string;
+  displaySize: string;
+  useStarRating: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,6 +27,10 @@ export class TagDetailComponent implements OnInit {
     this.tag = this.route.snapshot.paramMap.get('tag');
     this.tag = this.utilities.decodeUrl(this.tag);
     this.entries = this.dataService.getEntriesByTag(this.tag);
+
+    this.sortBy = this.dataService.getPreference('sortWordListBy');
+    this.displaySize = this.dataService.getPreference('exploreDisplaySize');
+    this.useStarRating = this.dataService.getPreference('useStarRating');
   }
 
 }

@@ -26,7 +26,7 @@ export class ExploreComponent implements OnInit {
     this.useStarRating = this.dataService.getPreference('useStarRating');
 
     this.changeSort(this.sortBy);
-    this.hidePreferences();
+    this.utilities.hideWordListPreferences();
   }
 
   toggleStar(entry: Entry) {
@@ -66,12 +66,7 @@ export class ExploreComponent implements OnInit {
 
   addSampleData(): void {
     this.dataService.loadSampleData();
-    this.hidePreferences();
-  }
-
-  private hidePreferences(): void {
-    setTimeout(() => {scroll(0, 70);}, 0);
-    // scroll(0, 70);
+    this.utilities.hideWordListPreferences();
   }
 
 }

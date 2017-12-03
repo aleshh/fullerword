@@ -21,4 +21,8 @@ export class UtilitiesService {
     return newString;
   }
 
+  hideWordListPreferences(): void {
+    setTimeout(() => {scroll(0, 70);}, 0);
+  }
+
 }

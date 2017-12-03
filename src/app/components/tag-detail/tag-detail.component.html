@@ -1,5 +1,31 @@
-<div *ngFor="let entry of entries" class="entry-list-item">
+<!-- <div *ngFor="let entry of entries" class="entry-list-item">
   <a [routerLink]="['/detail', utilities.encodeUrl(entry.text)]">
     <div>{{entry.text}}</div>
   </a>
-</div>
+</div> -->
+
+<div *ngIf="entries.length > 0" class="entry-list-options">
+    <div class="three-way-selector">
+      <h3>Sort by</h3>
+      <app-sort-order-setting [sortBy]="sortBy" (sortOrderChanged)="changeSort($event)"></app-sort-order-setting>
+  </div>
+  </div>
+
+  <div class="entry-list"
+       [class.entry-list-large]="displaySize == 'large'"
+       [class.entry-list-small]="displaySize == 'small'">
+    <div *ngFor="let entry of entries" class="entry-list-item">
+      <div *ngIf="useStarRating" class="star" [class.star-on]="entry.star" (click)="toggleStar(entry)">
+        <i-star></i-star>
+      </div>
+      <a [routerLink]="['/detail', utilities.encodeUrl(entry.text)]">
+        <div class="entry-list-item-text">
+          <span class="primary-text">
+            {{entry.text}}
+          </span>
+          <span class="secondary-text">
+            {{entry.definition}}
+          </span>
+        </div>
+      </a>
+    </div>

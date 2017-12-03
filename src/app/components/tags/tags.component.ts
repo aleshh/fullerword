@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { UtilitiesService } from '../../services/utilities.service';
-import { log } from 'util';
 
 @Component({
   selector: 'app-tags',
