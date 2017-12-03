@@ -18,4 +18,13 @@ export class TagsComponent implements OnInit {
     this.tagList = this.dataService.getTagList();
   }
 
+  toggleTag(tag: any):void {
+    if (tag.selected == undefined) {
+      tag.selected = true;
+    } else {
+      tag.selected = !tag.selected;
+    }
+    console.log('tag toggled: ', tag );
+  }
+
 }

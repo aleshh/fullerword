@@ -1,5 +1,8 @@
 <div class="entry-list">
   <div *ngFor="let tag of tagList" class="entry-list-item">
+    <div class="tag" [class.tag-on]="tag.selected" (click)="toggleTag(tag)">
+      <i-tag></i-tag>
+    </div>
     <a [routerLink]="['/tag', utilities.encodeUrl(tag.tag) ]">
       <div class="entry-list-item-text">
         <span class="primary-text">{{tag.tag}}</span>
