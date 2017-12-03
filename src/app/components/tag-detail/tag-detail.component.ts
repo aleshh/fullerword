@@ -31,6 +31,8 @@ export class TagDetailComponent implements OnInit {
     this.sortBy = this.dataService.getPreference('sortWordListBy');
     this.displaySize = this.dataService.getPreference('exploreDisplaySize');
     this.useStarRating = this.dataService.getPreference('useStarRating');
+
+    this.utilities.hideWordListPreferences();
   }
 
   toggleStar(entry: Entry) {

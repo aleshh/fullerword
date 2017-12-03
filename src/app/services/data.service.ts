@@ -72,6 +72,7 @@ export class DataService {
         newEntry.dateAccessed = new Date();
         newEntry.dateModified = new Date();
         this.entries.unshift(newEntry);
+        this.sortEntries();
       } else {
         const entryChanged = !this.entriesMatch(this.entries[index], newEntry);
         if (entryChanged) {
@@ -184,6 +185,7 @@ export class DataService {
 
   private loadPreferencesFromLocalStorage(): void {
     this.preferences = JSON.parse(localStorage.getItem('preferences'));
+
     if (this.preferences == undefined) {
       this.preferences = {
         tagEntrySeparator: ',',
@@ -192,15 +194,11 @@ export class DataService {
         sortWordListBy: 'newest',
         exploreDisplaySize: 'normal'
       };
-      // console.log('preferences not loaded from localstorage: ', this.preferences );
-    } else {
-      // console.log('preferences loaded from localstorage: ', this.preferences );
     }
   }
 
   private savePreferencesToLocalStorage(): void {
     localStorage.setItem('preferences', JSON.stringify(this.preferences));
-    // console.log('preferneces stored to localstorage: ', this.preferences );
   }
 
   // # Utilitiy Functions
