@@ -10,7 +10,7 @@ import { Entry } from '../../models/Entry';
   templateUrl: './tag-detail.component.html'
 })
 export class TagDetailComponent implements OnInit {
-  tag: string;
+  tags: string[];
   entries: Entry[];
   sortBy: string;
   displaySize: string;
@@ -24,9 +24,10 @@ export class TagDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.tag = this.route.snapshot.paramMap.get('tag');
-    this.tag = this.utilities.decodeUrl(this.tag);
-    this.entries = this.dataService.getEntriesByTags([this.tag]);
+    let urlString = this.route.snapshot.paramMap.get('tag');
+    urlString = this.utilities.decodeUrl(urlString);
+    this.tags = urlString.split('.');
+    this.entries = this.dataService.getEntriesByTags(this.tags);
 
     this.sortBy = this.dataService.getPreference('sortWordListBy');
     this.displaySize = this.dataService.getPreference('exploreDisplaySize');
@@ -45,7 +46,7 @@ export class TagDetailComponent implements OnInit {
     this.dataService.setPreference('sortWordListBy', event);
     this.sortBy = event;
 
-    this.entries = this.dataService.getEntriesByTags([this.tag]);
+    this.entries = this.dataService.getEntriesByTags(this.tags);
   }
 
 }

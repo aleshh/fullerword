@@ -9,6 +9,7 @@ import { UtilitiesService } from '../../services/utilities.service';
 export class TagsComponent implements OnInit {
   tagList: object[];
   selectedTags: string[] = [];
+  wordCount: number;
 
   constructor(
     private dataService: DataService,
@@ -34,6 +35,7 @@ export class TagsComponent implements OnInit {
       }
       tag.selected = !tag.selected;
     }
+    this.wordCount = this.dataService.getEntriesByTags(this.selectedTags).length;
     console.log('selected tags: ', this.selectedTags );
   }
 

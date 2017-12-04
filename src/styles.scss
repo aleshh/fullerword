@@ -207,6 +207,27 @@ button:hover, .submit-button:hover {
   margin-bottom: 45px;
 }
 
+/*
+ *  Bottom popup above navbar
+ */
+
+ .bottom-popup {
+   display:block;
+   position: fixed;
+   bottom: 44px;
+   height: 36px;
+   width: 100%;
+   background-color: white;
+   border-top: 1px solid $primary-color;
+   padding: 6px 10px;
+   font-size: 18px;
+   text-align: center;
+ }
+
+/*
+ *  Bottom Navbar
+ */
+
 nav {
   position: fixed;
   bottom: 0;
