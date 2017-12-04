@@ -26,7 +26,7 @@ export class TagDetailComponent implements OnInit {
   ngOnInit() {
     this.tag = this.route.snapshot.paramMap.get('tag');
     this.tag = this.utilities.decodeUrl(this.tag);
-    this.entries = this.dataService.getEntriesByTag(this.tag);
+    this.entries = this.dataService.getEntriesByTags([this.tag]);
 
     this.sortBy = this.dataService.getPreference('sortWordListBy');
     this.displaySize = this.dataService.getPreference('exploreDisplaySize');
@@ -45,7 +45,7 @@ export class TagDetailComponent implements OnInit {
     this.dataService.setPreference('sortWordListBy', event);
     this.sortBy = event;
 
-    this.entries = this.dataService.getEntriesByTag(this.tag);
+    this.entries = this.dataService.getEntriesByTags([this.tag]);
   }
 
 }

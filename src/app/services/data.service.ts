@@ -20,6 +20,7 @@ export class DataService {
     this.loadPreferencesFromLocalStorage();
     this.loadEntriesFromLocalStorage();
     // localStorage.removeItem('preferences');
+    console.log('entries with tags: ', this.getEntriesByTags(['positive', 'adjective', 'blah']));
   }
 
   // # Entries CRUD
@@ -45,10 +46,19 @@ export class DataService {
     return result;
   }
 
-  getEntriesByTag(tag): Entry[] {
-    let matches = [];
+  // returns entries matching all tags
+  getEntriesByTags(tags: string[]): Entry[] {
+    let matches: Entry[] = [];
     for (let entry of this.entries) {
-      if (entry.tags.indexOf(tag) != -1) {
+      let containsTags = true;
+      let index = 0;
+      while(containsTags && index < tags.length) {
+        if (entry.tags.indexOf(tags[index]) == -1) {
+          containsTags = false;
+        }
+        index ++;
+      }
+      if (containsTags) {
         matches.push(entry);
       }
     }

@@ -7,7 +7,7 @@ export const sampleWords: Entry[] = [
     tags: [
       "positive",
       "personal",
-      "adjective",
+      "noun",
       "sample-data"
     ],
     sampleData: true
