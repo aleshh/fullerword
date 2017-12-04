@@ -8,6 +8,7 @@ import { UtilitiesService } from '../../services/utilities.service';
 })
 export class TagsComponent implements OnInit {
   tagList: object[];
+  selectedTags: string[] = [];
 
   constructor(
     private dataService: DataService,
@@ -21,10 +22,19 @@ export class TagsComponent implements OnInit {
   toggleTag(tag: any):void {
     if (tag.selected == undefined) {
       tag.selected = true;
+      this.selectedTags.push(tag.tag);
     } else {
+      if (tag.selected) {
+        let index = this.selectedTags.indexOf(tag.tag);
+        if (index > -1) {
+          this.selectedTags.splice(index, 1);
+        }
+      } else {
+        this.selectedTags.push(tag.tag);
+      }
       tag.selected = !tag.selected;
     }
-    console.log('tag toggled: ', tag );
+    console.log('selected tags: ', this.selectedTags );
   }
 
 }
