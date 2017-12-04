@@ -51,7 +51,14 @@ export class AppComponent implements DoCheck {
       case 'edit': this.title = "Edit: " + wordFromUrl;
         this.showBack = true;
         break;
-      case 'tag': this.title = "Tag: " + wordFromUrl;
+      case 'tag':
+        let list: string[] = wordFromUrl.split('.');
+        let str: string = list.join(', ');
+        if (list.length == 1) {
+          this.title = "Tag: " + list[0];
+        } else {
+          this.title = "Tags: " + str;
+        }
         this.showBack = true;
         break;
       case 'add-entry': this.title = "Search/Add Word";

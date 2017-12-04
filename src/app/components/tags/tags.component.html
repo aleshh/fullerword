@@ -12,9 +12,8 @@
   </div>
 </div>
 
-
 <a *ngIf="this.selectedTags.length > 1 && wordCount > 0"
-   [routerLink]="['/tag', this.selectedTags.join('.')]"
+   [routerLink]="['/tag', utilities.encodeUrl(this.selectedTags.join('.'))]"
    class="bottom-popup" >
   See {{wordCount}} entries with {{this.selectedTags.length}} tags.
 </a>
