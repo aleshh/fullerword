@@ -326,6 +326,7 @@ nav i-settings svg {
 .entry-list-item {
   border-bottom: 1px solid #888;
   padding: 6px 10px;
+  cursor: pointer;
 
   .star {
     float:left;
@@ -364,7 +365,7 @@ nav i-settings svg {
 
     svg {
       fill: $dark-text;
-      stroke: $background-color;
+      stroke: $background-color-offset;
       top: 3px;
       height: 22px;
       width: 22px;
@@ -394,6 +395,10 @@ nav i-settings svg {
       color: $dark-text-secondary;
     }
   }
+}
+
+.entry-list-item-selected {
+  background-color: $background-color-offset;
 }
 
 .entry-list-large {

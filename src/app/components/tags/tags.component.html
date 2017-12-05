@@ -1,4 +1,4 @@
-<div class="entry-list">
+<!-- <div class="entry-list">
   <div *ngFor="let tag of tagList" class="entry-list-item">
     <div class="tag" [class.tag-on]="tag.selected" (click)="toggleTag(tag)">
       <i-tag></i-tag>
@@ -10,12 +10,46 @@
       </div>
     </a>
   </div>
+</div> -->
+
+<div class="entry-list">
+  <div
+    *ngFor="let tag of tagList"
+    class="entry-list-item"
+    [class.entry-list-item-selected]="tag.selected"
+    (click)="toggleTag(tag)">
+    <div class="tag" [class.tag-on]="tag.selected" >
+      <i-tag></i-tag>
+    </div>
+    <div class="entry-list-item-text">
+      <span class="primary-text">{{tag.tag}}</span>
+      <span class="secondary-text">({{tag.count}})</span>
+    </div>
+  </div>
 </div>
 
-<a *ngIf="this.selectedTags.length > 1 && wordCount > 0"
+<a *ngIf="this.selectedTags.length == 1 && wordCount == 1"
+  [routerLink]="['/tag', utilities.encodeUrl(this.selectedTags.join('.'))]"
+  class="bottom-popup" >
+  See 1 entry tagged “{{this.selectedTags[0]}}.”
+</a>
+
+<a *ngIf="this.selectedTags.length == 1 && wordCount > 1"
+  [routerLink]="['/tag', utilities.encodeUrl(this.selectedTags.join('.'))]"
+  class="bottom-popup" >
+  See {{wordCount}} entries tagged “{{this.selectedTags[0]}}.”
+</a>
+
+<a *ngIf="this.selectedTags.length > 1 && wordCount == 1"
    [routerLink]="['/tag', utilities.encodeUrl(this.selectedTags.join('.'))]"
    class="bottom-popup" >
-  See {{wordCount}} entries with {{this.selectedTags.length}} tags.
+  See 1 entry with those {{this.selectedTags.length}} tags.
+</a>
+
+<a *ngIf="this.selectedTags.length > 1 && wordCount > 1"
+   [routerLink]="['/tag', utilities.encodeUrl(this.selectedTags.join('.'))]"
+   class="bottom-popup" >
+  See {{wordCount}} entries with those {{this.selectedTags.length}} tags.
 </a>
 
 <div *ngIf="this.selectedTags.length == 2 && wordCount == 0" class="bottom-popup">
