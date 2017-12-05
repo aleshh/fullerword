@@ -211,7 +211,7 @@ button:hover, .submit-button:hover {
  *  Bottom popup above navbar
  */
 
- .bottom-popup {
+.bottom-popup {
    display:block;
    position: fixed;
    bottom: 44px;
@@ -222,7 +222,23 @@ button:hover, .submit-button:hover {
    padding: 6px 10px;
    font-size: 18px;
    text-align: center;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+
+   svg {
+     position: relative;
+     top: 2px;
+     height: 18px;
+     width: 18px;
+     margin-right: 4px;
+    }
+
  }
+
+.entry-list-with-popup {
+  margin-bottom: 79px !important;
+}
 
 /*
  *  Bottom Navbar

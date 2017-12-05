@@ -12,7 +12,8 @@
   </div>
 </div> -->
 
-<div class="entry-list">
+<div class="entry-list"
+  [class.entry-list-with-popup]="this.selectedTags.length > 0">
   <div
     *ngFor="let tag of tagList"
     class="entry-list-item"
@@ -53,9 +54,9 @@
 </a>
 
 <div *ngIf="this.selectedTags.length == 2 && wordCount == 0" class="bottom-popup">
-  No words match both tags.
+  <i-alert-circle></i-alert-circle> No words match both tags.
 </div>
 
 <div *ngIf="this.selectedTags.length > 2 && wordCount == 0" class="bottom-popup">
-  No words match all {{this.selectedTags.length}} tags.
+    <i-alert-circle></i-alert-circle> No words match all {{this.selectedTags.length}} tags.
 </div>
