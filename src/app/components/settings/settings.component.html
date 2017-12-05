@@ -20,9 +20,27 @@
   </div>
 
   <div class="entry-list-item" (click)="toggleSampleData()" >
-      <div *ngIf="preferences.sampleDataLoaded" class="settings-check" > <i-check-circle></i-check-circle> </div>
-      <div *ngIf="!preferences.sampleDataLoaded"  class="settings-check" > <i-circle></i-circle> </div>
-           Use sample data
+      <div
+        *ngIf="preferences.sampleDataLoaded"
+        class="settings-check" >
+        <i-check-circle></i-check-circle>
+      </div>
+      <div
+        *ngIf="!preferences.sampleDataLoaded"
+        class="settings-check" >
+        <i-circle></i-circle>
+      </div>
+      Use sample data
+      <p
+        class="preferences-note"
+        *ngIf="!preferences.sampleDataLoaded">
+        Sample words will be added to your list. You can remove them anytime.
+      </p>
+      <p
+        class="preferences-note"
+        *ngIf="preferences.sampleDataLoaded">
+        Remove sample words. Entries you have modified will be kept.
+      </p>
   </div>
 
 </div>

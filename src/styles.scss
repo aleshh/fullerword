@@ -35,6 +35,10 @@ body {
   background-color: $background-color;
 }
 
+/*
+ *  Header
+ */
+
 header {
   position: fixed;
   z-index: 1;
@@ -92,6 +96,10 @@ header h1 {
   }
 }
 
+/*
+ *  Body styles
+ */
+
 .main {
   // background-color: #eee;
   margin-top: 67px;
@@ -102,6 +110,10 @@ header h1 {
     margin-bottom: 10px;
   }
 }
+
+/*
+ *  Add entry / edit entry
+ */
 
 .add-entry-main {
   background-color: #eee;
@@ -153,6 +165,7 @@ header h1 {
     fill: $dark-text;
   }
 }
+
 .nostars {
   text-align: center;
 
@@ -171,6 +184,23 @@ header h1 {
 .edit-entry-definition {
   margin-top: -20px;
 }
+
+.entry-detail-main {
+  padding: 15px;
+}
+
+.entry-detail-definition {
+  // font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.dictionary-definition {
+  margin-bottom: 45px;
+}
+
+/*
+ *  Buttons
+ */
 
 button, .submit-button {
   background-color: #ccc;
@@ -194,18 +224,7 @@ button:hover, .submit-button:hover {
   cursor: pointer;
 }
 
-.entry-detail-main {
-  padding: 15px;
-}
 
-.entry-detail-definition {
-  // font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.dictionary-definition {
-  margin-bottom: 45px;
-}
 
 /*
  *  Bottom popup above navbar
@@ -283,7 +302,7 @@ nav i-settings svg {
 }
 
 /*
- *  Entry list
+ *  Preferences (on content screens) and Settings (on settings screen)
  */
 
 .entry-list-options {
@@ -333,6 +352,12 @@ nav i-settings svg {
     cursor: pointer;
   }
 }
+
+
+
+/*
+ *  Entry list
+ */
 
 .entry-list {
   min-height: calc(100vh - 67px);
