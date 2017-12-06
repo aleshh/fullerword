@@ -15,8 +15,8 @@ export class AppComponent implements DoCheck {
   showSettings: boolean = false;
 
   constructor(
-    // private activatedRoute: ActivatedRoute
-    // private router: Router
+    // private activatedRoute: ActivatedRoute,
+    // private router: Router,
     private location: Location,
     private locationStrategy: LocationStrategy,
     private utilities: UtilitiesService
@@ -33,11 +33,9 @@ export class AppComponent implements DoCheck {
     this.showSettings = false;
     switch(routeSections[1]) {
       case 'explore': this.title = "Explore Words";
-        // this.showBack = false;
         this.showSettings = true;
         break;
       case 'tags': this.title = "Tags";
-        // this.showBack = false;
         break;
       case 'settings': this.title = "Settings";
         this.showBack = true;
@@ -62,7 +60,9 @@ export class AppComponent implements DoCheck {
         this.showBack = true;
         break;
       case 'add-entry': this.title = "Search/Add Word";
-        // this.showBack = false;
+        break;
+      case 'about': this.title = "About FullerWord";
+          this.showBack = true;
         break;
       default:
         console.error('unknown route in app.component!');
