@@ -26,6 +26,7 @@ import { TagsComponent } from './components/tags/tags.component';
 import { TagDetailComponent } from './components/tag-detail/tag-detail.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { SortOrderSettingComponent } from './components/sort-order-setting/sort-order-setting.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { SortOrderSettingComponent } from './components/sort-order-setting/sort-
     TagsComponent,
     TagDetailComponent,
     SettingsComponent,
-    SortOrderSettingComponent
+    SortOrderSettingComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

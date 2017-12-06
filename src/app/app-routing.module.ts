@@ -8,6 +8,7 @@ import { EditEntryComponent } from './components/edit-entry/edit-entry.component
 import { TagsComponent } from './components/tags/tags.component';
 import { TagDetailComponent } from './components/tag-detail/tag-detail.component';
 import { SettingsComponent } from './components/settings/settings.component';
+import { AboutComponent } from './components/about/about.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,10 @@ const routes: Routes = [
   {
     path: 'tag/:tag',
     component: TagDetailComponent
+  },
+  {
+    path: 'about',
+    component: AboutComponent
   }
 ];
 

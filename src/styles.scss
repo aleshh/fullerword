@@ -116,7 +116,7 @@ header h1 {
  */
 
 .add-entry-main {
-  background-color: #eee;
+  // background-color: #eee;
   padding: 15px;
   text-align: center;
 }
@@ -196,6 +196,14 @@ header h1 {
 
 .dictionary-definition {
   margin-bottom: 45px;
+}
+
+/*
+ *  About screen
+ */
+
+.about {
+  padding: 15px;
 }
 
 /*
@@ -373,8 +381,8 @@ nav i-settings svg {
   cursor: pointer;
 
   .star {
-    float:left;
-    margin-right: 7px;
+    float:right;
+    // margin-right: 7px;
 
     svg {
       position: relative;
