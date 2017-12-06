@@ -2,12 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { UtilitiesService } from '../../services/utilities.service';
 
+
+interface Tag {
+  tag: string,
+  count: number,
+  selected?: boolean
+}
 @Component({
   selector: 'app-tags',
   templateUrl: './tags.component.html',
 })
 export class TagsComponent implements OnInit {
-  tagList: object[];
+  tagList: any[]; // .tag: string, .count: number, .selected?: boolean
   selectedTags: string[] = [];
   wordCount: number;
 
@@ -18,6 +24,14 @@ export class TagsComponent implements OnInit {
 
   ngOnInit() {
     this.tagList = this.dataService.getTagList();
+    this.selectedTags = this.dataService.getSelectedTags();
+
+    for (let tag of this.tagList) {
+      if (this.selectedTags.indexOf(tag.tag) > -1) {
+        tag.selected = true;
+      }
+    }
+    this.wordCount = this.dataService.getEntriesByTags(this.selectedTags).length;
   }
 
   toggleTag(tag: any):void {
@@ -35,6 +49,7 @@ export class TagsComponent implements OnInit {
       }
       tag.selected = !tag.selected;
     }
+    this.dataService.setSelectedTags(this.selectedTags);
     this.wordCount = this.dataService.getEntriesByTags(this.selectedTags).length;
   }
 

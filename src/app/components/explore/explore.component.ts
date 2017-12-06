@@ -24,6 +24,7 @@ export class ExploreComponent implements OnInit {
     this.sortBy = this.dataService.getPreference('sortWordListBy');
     this.displaySize = this.dataService.getPreference('exploreDisplaySize');
     this.useStarRating = this.dataService.getPreference('useStarRating');
+    this.dataService.clearSelectedTags();
 
     this.changeSort(this.sortBy);
     this.utilities.hideWordListPreferences();

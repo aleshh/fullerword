@@ -1,17 +1,3 @@
-<!-- <div class="entry-list">
-  <div *ngFor="let tag of tagList" class="entry-list-item">
-    <div class="tag" [class.tag-on]="tag.selected" (click)="toggleTag(tag)">
-      <i-tag></i-tag>
-    </div>
-    <a [routerLink]="['/tag', utilities.encodeUrl(tag.tag) ]">
-      <div class="entry-list-item-text">
-        <span class="primary-text">{{tag.tag}}</span>
-        <span class="secondary-text">({{tag.count}})</span>
-      </div>
-    </a>
-  </div>
-</div> -->
-
 <div class="entry-list"
   [class.entry-list-with-popup]="this.selectedTags.length > 0">
   <div

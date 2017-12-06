@@ -21,6 +21,7 @@ export class AddEntryComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.dataService.clearSelectedTags();
   }
 
   onSubmit() {
