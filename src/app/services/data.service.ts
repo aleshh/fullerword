@@ -15,12 +15,13 @@ import { sampleWords } from './sample-words';
 export class DataService {
   entries: Entry[];
   preferences;
+  selectedTags: string[]; // temporarily stores tags selected on tags screen
 
   constructor(){
     this.loadPreferencesFromLocalStorage();
     this.loadEntriesFromLocalStorage();
+    this.selectedTags = [];
     // localStorage.removeItem('preferences');
-    console.log('entries with tags: ', this.getEntriesByTags(['positive', 'adjective', 'blah']));
   }
 
   // # Entries CRUD
@@ -103,6 +104,18 @@ export class DataService {
 
   // # Tags
 
+  getSelectedTags(): string[] {
+    return this.selectedTags;
+  }
+
+  setSelectedTags(tags: string[]): void {
+    this.selectedTags = tags;
+  }
+
+  clearSelectedTags(): void {
+    this.selectedTags = [];
+  }
+
   // this is fine for small data sets, but could use major refactoring
   // like, there might should be a separate list of tags?
   getTagList(searchText?: string): object[] {
@@ -173,6 +186,7 @@ export class DataService {
   // # LocalStorage private functions
 
   private loadEntriesFromLocalStorage(): void {
+    console.log('loading entries from LocalStorage' );
     var loadedEntries = JSON.parse(localStorage.getItem('entries'),
       (key, value) => {
         if ( key == 'dateAdded' ||

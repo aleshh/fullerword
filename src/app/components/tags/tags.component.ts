@@ -36,7 +36,6 @@ export class TagsComponent implements OnInit {
       tag.selected = !tag.selected;
     }
     this.wordCount = this.dataService.getEntriesByTags(this.selectedTags).length;
-    console.log('selected tags: ', this.selectedTags );
   }
 
 }
