@@ -13,9 +13,7 @@ import { Response } from '@angular/http/src/static_response';
 @Injectable()
 export class DictionaryService {
 
-  constructor(public http: HttpClient){
-    console.log('httpClinet: ', http );
-  }
+  constructor(public http: HttpClient){}
 
   getDefinition(word: string) {
 

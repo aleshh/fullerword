@@ -16,7 +16,10 @@
   <div class="entry-list-item" (click)="changeStarSetting()" >
       <div *ngIf="preferences.useStarRating" class="settings-check" > <i-check-circle></i-check-circle> </div>
       <div *ngIf="!preferences.useStarRating"  class="settings-check" > <i-circle></i-circle> </div>
-           Use star ratings
+      Use star ratings
+      <p class="preferences-note">
+        Use stars to flag favorite words. Disabling this will preserve starred words.
+      </p>
   </div>
 
   <div class="entry-list-item" (click)="toggleSampleData()" >
@@ -31,16 +34,10 @@
         <i-circle></i-circle>
       </div>
       Use sample data
-      <p
-        class="preferences-note"
-        *ngIf="!preferences.sampleDataLoaded">
-        Sample words will be added to your list. You can remove them anytime.
+      <p class="preferences-note">
+        Add or remove the sample words anytime. Entries you've modified will not be removed.
       </p>
-      <p
-        class="preferences-note"
-        *ngIf="preferences.sampleDataLoaded">
-        Remove sample words. Entries you have modified will be kept.
-      </p>
+
   </div>
 
   <div class="entry-list-item">

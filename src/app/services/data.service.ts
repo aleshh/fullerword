@@ -9,6 +9,7 @@ import { sampleWords } from './sample-words';
 //   useStarRating: boolean;
 //   sortWordListBy: string;     // 'newest', 'oldest', 'alpha'
 //   exploreDisplaySize: string; // 'small', 'medium', 'large'
+//   useSource: boolean;
 // }
 
 @Injectable()
@@ -186,7 +187,6 @@ export class DataService {
   // # LocalStorage private functions
 
   private loadEntriesFromLocalStorage(): void {
-    console.log('loading entries from LocalStorage' );
     var loadedEntries = JSON.parse(localStorage.getItem('entries'),
       (key, value) => {
         if ( key == 'dateAdded' ||
@@ -215,7 +215,8 @@ export class DataService {
         sampleDataLoaded: false,
         useStarRating: true,
         sortWordListBy: 'newest',
-        exploreDisplaySize: 'normal'
+        exploreDisplaySize: 'normal',
+        useSource: false
       };
     }
   }
