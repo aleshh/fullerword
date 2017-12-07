@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 // import { FormsModule } from '@angular/forms';
+import { HttpErrorResponse } from '@angular/common/http';
 
 import { DataService } from '../../services/data.service';
 import { UtilitiesService } from '../../services/utilities.service';
@@ -49,22 +50,25 @@ export class EditEntryComponent implements OnInit {
     }
 
     this.dictionaryService.getDefinition(this.entry.text).subscribe(res => {
-      this.definition = res;
-      this.dictionaryDefinition = this.definition.results[0].lexicalEntries[0]
-        .entries[0].senses[0].definitions[0];
-    });
+        this.definition = res;
+        this.dictionaryDefinition = this.definition.results[0].lexicalEntries[0]
+          .entries[0].senses[0].definitions[0];
+      },
+      (error: HttpErrorResponse ) => {
+        if (error instanceof Error) {
+          console.log('client-side error: ', error.error.mesage);
+        } else {
+          console.log('API error: ', error.status);
+          this.dictionaryDefinition = error.status + " error";
+        }
+      });
   }
+
+
 
   onSubmit(): void {
 
     this.dataService.addOrUpdateEntry(this.entry, this.newTags);
-
-    // don't remember why we were spelling it out this way..
-    // this.dataService.addOrUpdateEntry({
-    //   text: this.entry.text,
-    //   definition: this.entry.definition,
-    //   tags: this.entry.tags
-    // }, this.newTags);
 
     this.router.navigate(
       ['/detail', this.utilities.encodeUrl(this.entry.text)]

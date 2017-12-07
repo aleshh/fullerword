@@ -195,7 +195,15 @@ header h1 {
 }
 
 .dictionary-definition {
+  margin-top: 10px;
   margin-bottom: 45px;
+}
+
+.inline-icon svg {
+    position: relative;
+    top: 2px;
+    height: 18px;
+    width: 18px;
 }
 
 /*

@@ -50,8 +50,12 @@
 
     </form>
     <hr>
-    <div *ngIf="dictionaryDefinition" class="dictionary-definition">
+    <div *ngIf="dictionaryDefinition && dictionaryDefinition != '404 error'" class="dictionary-definition">
       <button (click)="useDefinition()" > <i-chevrons-up></i-chevrons-up> Use</button>
       {{ dictionaryDefinition }}
+    </div>
+    <div *ngIf="dictionaryDefinition == '404 error'" class="dictionary-definition">
+      <span class="inline-icon"><i-alert-circle></i-alert-circle></span>
+      No definition found.
     </div>
   </div>
