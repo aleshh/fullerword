@@ -157,6 +157,7 @@ export class DataService {
     if (preference == 'sortWordListBy') {
       this.sortEntries();
     }
+    console.log('preferences: ', this.preferences );
   }
 
   // # Sample Data add/remove

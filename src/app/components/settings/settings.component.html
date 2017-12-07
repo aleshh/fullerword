@@ -1,4 +1,4 @@
-<div class="preferences">
+<div class="settings">
   <div class="three-way-selector entry-list-item">
     <p>Sort word list by</p>
     <app-sort-order-setting [sortBy]="preferences.sortWordListBy" (sortOrderChanged)="changeSort($event)"></app-sort-order-setting>
@@ -13,15 +13,6 @@
     </ul>
   </div>
 
-  <div class="entry-list-item" (click)="changeStarSetting()" >
-      <div *ngIf="preferences.useStarRating" class="settings-check" > <i-check-circle></i-check-circle> </div>
-      <div *ngIf="!preferences.useStarRating"  class="settings-check" > <i-circle></i-circle> </div>
-      Use star ratings
-      <p class="preferences-note">
-        Use stars to flag favorite words. Disabling this will preserve starred words.
-      </p>
-  </div>
-
   <div class="entry-list-item" (click)="toggleSampleData()" >
       <div
         *ngIf="preferences.sampleDataLoaded"
@@ -34,10 +25,36 @@
         <i-circle></i-circle>
       </div>
       Use sample data
-      <p class="preferences-note">
+      <p class="settings-note">
         Add or remove the sample words anytime. Entries you've modified will not be removed.
       </p>
+  </div>
 
+  <div class="entry-list-item" (click)="toggleSetting('useStarRating')" >
+      <div *ngIf="preferences.useStarRating" class="settings-check" > <i-check-circle></i-check-circle> </div>
+      <div *ngIf="!preferences.useStarRating"  class="settings-check" > <i-circle></i-circle> </div>
+      Use star ratings
+      <p class="settings-note">
+        Use stars to flag favorite words. Disabling this will preserve starred words.
+      </p>
+  </div>
+
+  <div class="entry-list-item" (click)="toggleSetting('useSource')" >
+      <div *ngIf="preferences.useSource" class="settings-check" > <i-check-circle></i-check-circle> </div>
+      <div *ngIf="!preferences.useSource"  class="settings-check" > <i-circle></i-circle> </div>
+      Use source field
+      <p class="settings-note">
+        Adds a field to store source or sample use for each word. Disabling this will not delete any data.
+      </p>
+  </div>
+
+  <div class="entry-list-item" (click)="toggleTagEntrySeparator()" >
+      <div *ngIf="preferences.tagEntrySeparator == ','" class="settings-check" > <i-check-circle></i-check-circle> </div>
+      <div *ngIf="preferences.tagEntrySeparator == ' '"  class="settings-check" > <i-circle></i-circle> </div>
+      Use commas as a tag separator
+      <p class="settings-note">
+        When adding new tags, commas or spaces can used to separate tags.
+      </p>
   </div>
 
   <div class="entry-list-item">
