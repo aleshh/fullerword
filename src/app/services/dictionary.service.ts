@@ -13,16 +13,17 @@ export class DictionaryService {
 
   getDefinition(word: string) {
 
-    const httpOptions = {
-      headers: new HttpHeaders({
-        "Accept": "application/json",
-        "app_id": oxfordCredentials.app_id,
-        "app_key": oxfordCredentials.app_key
-      })
-    };
+    // const httpOptions = {
+    //   headers: new HttpHeaders({
+    //     "Accept": "application/json",
+    //     "app_id": oxfordCredentials.app_id,
+    //     "app_key": oxfordCredentials.app_key
+    //   })
+    // };
 
     return this.http.get<DictionaryEntry>(
-      'https://od-api.oxforddictionaries.com/api/v1/entries/en/' + word,
+      'https://od-api.oxforddictionaries.com/api/v1/entries/en/'
+      + word + '/regions=US',
       {
         headers: new HttpHeaders()
         .set('Accept', 'application/json')
