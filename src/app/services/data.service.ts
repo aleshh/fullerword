@@ -256,7 +256,12 @@ export class DataService {
 
   private convertTagStringToTags(tagString: string): string[] {
     const newTags: string[] = tagString.split(this.preferences.tagEntrySeparator);
-    const newTagsTrimmed = newTags.map(x => x.trim());
+    const newTagsTrimmed = newTags.map(x => {
+      x.trim();
+      x = x.replace(',', '');
+      return x;
+    });
+
     let newTagsNoBlanks = [];
     for (let tag of newTagsTrimmed) {
       if (tag !== "") newTagsNoBlanks.push(tag);
