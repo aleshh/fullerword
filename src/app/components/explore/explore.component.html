@@ -6,6 +6,7 @@
 </div>
 
 <div class="entry-list"
+     *ngIf="entries.length > 0"
      [class.entry-list-large]="displaySize == 'large'"
      [class.entry-list-small]="displaySize == 'small'">
   <div *ngFor="let entry of entries" class="entry-list-item">
@@ -23,9 +24,16 @@
       </div>
     </a>
   </div>
+</div>
 
-  <div class="no-entries-welcome" *ngIf="entries.length == 0" >
-    <h2>Welcome!</h2>
-    Get started by <a routerLink="/add-entry">adding some words</a> or <a (click)="addSampleData()">importing the  sample words</a>.
-  </div>
+<div class="no-entries-welcome" *ngIf="entries.length == 0" >
+  <h2>Welcome!</h2>
+  <p>
+    Get started by <a routerLink="/add-entry">adding some words</a> or by
+    importing <a (click)="addSampleData()">sample words</a> (You can always
+    remove them later).
+  </p>
+  <p>
+    You can also read <a routerLink="/about">about this app</a>.
+  </p>
 </div>

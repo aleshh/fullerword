@@ -477,12 +477,18 @@ nav i-settings svg {
 }
 
 .no-entries-welcome {
-  padding: 20vw;
+  padding: 10vw 15vw 0;
   font-size: 26px;
 
   a {
     text-decoration: underline;
-    font-weight: 700;
+    // font-weight: 700;
+  }
+
+  p {
+    margin-bottom: 20px;
+    font-size: 22px;
+    line-height: 32px;
   }
 }
 
