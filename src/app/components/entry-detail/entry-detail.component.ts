@@ -11,6 +11,7 @@ import { Entry } from '../../models/Entry';
 })
 export class EntryDetailComponent implements OnInit {
   entry: Entry;
+  useStarRating: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -20,6 +21,7 @@ export class EntryDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.useStarRating = this.dataService.getPreference('useStarRating');
     this.getEntry();
   }
 
@@ -37,6 +39,10 @@ export class EntryDetailComponent implements OnInit {
   editEntry(): void {
     let encodedUrl = this.utilities.encodeUrl(this.entry.text);
     this.router.navigate(['edit/', encodedUrl]);
+  }
+
+  toggleStar(): void {
+    this.entry.star = !this.entry.star;
   }
 
 }

@@ -1,5 +1,18 @@
 <div class="entry-detail-main">
-    <h2 class="entry-detail-title">{{ entry.text }}</h2>
+    <h2 *ngIf="!useStarRating" class="entry-detail-title">
+      {{entry.text}}
+    </h2>
+    <h2 *ngIf="useStarRating"
+        class="entry-detail-title clickable"
+        (click)="toggleStar()">
+
+      {{entry.text}}
+
+      <span [class.star-on]="entry.star">
+        <i-star></i-star>
+      </span>
+
+    </h2>
     <p class="entry-detail-definition">{{entry.definition}}</p>
     <div class="tag-container">
       <div *ngFor="let tag of entry.tags" >

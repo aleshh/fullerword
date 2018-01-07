@@ -193,8 +193,16 @@ header h1 {
   // margin-top: -20px;
 }
 
+/*
+ *  Entry detail
+ */
+
 .entry-detail-main {
   padding: 15px;
+
+  .star-on svg {
+    fill: $dark-text;
+  }
 }
 
 .entry-detail-definition {

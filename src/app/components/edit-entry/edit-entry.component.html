@@ -4,7 +4,7 @@
       <h2 *ngIf="useStarRating" (click)="toggleStar()" class="clickable">
         {{entry.text}}
 
-        <span *ngIf="useStarRating" id="star" [class.star-on]="entry.star">
+        <span [class.star-on]="entry.star">
           <i-star></i-star>
         </span>
 
