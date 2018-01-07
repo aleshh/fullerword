@@ -32,7 +32,7 @@ export class EditEntryComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    let useStarRating = this.dataService.getPreference('useStarRating');
+    this.useStarRating = this.dataService.getPreference('useStarRating');
     let routeText = this.route.snapshot.paramMap.get('text');
     routeText = this.utilities.decodeUrl(routeText);
     let loadedEntry = this.dataService.getEntry(routeText);
@@ -63,8 +63,6 @@ export class EditEntryComponent implements OnInit {
         }
       });
   }
-
-
 
   onSubmit(): void {
 
