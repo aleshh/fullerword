@@ -1,13 +1,21 @@
-<div class="add-entry-main">
+<div class="edit-entry-main">
     <form (ngSubmit)="onSubmit()">
-      <h2>{{entry.text}}</h2>
+      <h2 *ngIf="!useStarRating">{{entry.text}}</h2>
+      <h2 *ngIf="useStarRating" (click)="toggleStar()" class="clickable">
+        {{entry.text}}
+
+        <span *ngIf="useStarRating" id="star" [class.star-on]="entry.star">
+          <i-star></i-star>
+        </span>
+
+      </h2>
       <!-- <input
         type="text"
         [(ngModel)]="entry.text"
         name="entryText"
         class="main-entry"
       > -->
-      <div class="definition-star" [class.nostars]="!useStarRating">
+      <!-- <div class="definition-star" [class.nostars]="!useStarRating"> -->
         <textarea
         [(ngModel)]="entry.definition"
         name="definition"
@@ -15,10 +23,7 @@
         placeholder="definition"
         autocomplete="off"
         ></textarea>
-        <div id="star" [class.star-on]="entry.star" (click)="toggleStar()">
-          <i-star></i-star>
-        </div>
-      </div>
+      <!-- </div> -->
       <div class="tag-container">
         <div *ngFor="let tag of entry.tags" class="tag-display">
             <i-circle></i-circle> {{ tag }} <a class="remove-tag-icon" (click)="removeTag(tag)"><i-x></i-x></a>

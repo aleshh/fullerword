@@ -115,10 +115,18 @@ header h1 {
  *  Add entry / edit entry
  */
 
-.add-entry-main {
+.edit-entry-main {
   // background-color: #eee;
   padding: 15px;
   text-align: center;
+
+  .star-on svg {
+    fill: $dark-text;
+  }
+}
+
+.clickable {
+  cursor: pointer;
 }
 
 .main-entry, .edit-entry {
@@ -146,33 +154,33 @@ header h1 {
   outline: none;
 }
 
-.definition-star {
-  margin-top: 28px;
-  text-align: left;
+// .definition-star {
+//   margin-top: 28px;
+//   text-align: left;
 
-  #star {
-    float: right;
+//   #star {
+//     float: right;
 
-    svg {
-      position: relative;
-      top: -15px;
-      height: 35px;
-      width: 35px;
-      stroke-width: 1px;
-    }
-  }
-  .star-on svg {
-    fill: $dark-text;
-  }
-}
+//     svg {
+//       position: relative;
+//       top: -15px;
+//       height: 35px;
+//       width: 35px;
+//       stroke-width: 1px;
+//     }
+//   }
+//   .star-on svg {
+//     fill: $dark-text;
+//   }
+// }
 
-.nostars {
-  text-align: center;
+// .nostars {
+//   text-align: center;
 
-  #star {
-    display: none;
-  }
-}
+//   #star {
+//     display: none;
+//   }
+// }
 
 .edit-entry {
   border: none;
@@ -182,7 +190,7 @@ header h1 {
 }
 
 .edit-entry-definition {
-  margin-top: -20px;
+  // margin-top: -20px;
 }
 
 .entry-detail-main {
