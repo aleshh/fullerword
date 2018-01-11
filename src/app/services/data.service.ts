@@ -22,7 +22,10 @@ export class DataService {
     this.loadPreferencesFromLocalStorage();
     this.loadEntriesFromLocalStorage();
     this.selectedTags = [];
+
+    // // total reset:
     // localStorage.removeItem('preferences');
+    // localStorage.removeItem('entries');
   }
 
   // # Entries CRUD
@@ -164,7 +167,7 @@ export class DataService {
 
   loadSampleData(): void {
     if (this.preferences.sampleDataLoaded) {
-      console.error('Preferences already loaded');
+      console.error('Sample data already loaded');
       return;
     }
     let data = sampleWords;
@@ -197,10 +200,15 @@ export class DataService {
         }
         return value;
       });
-    if (loadedEntries !== undefined) {
+
+      console.log('loadedEntries: ', loadedEntries);
+    if (loadedEntries !== null) {
       this.entries = loadedEntries;
+      this.sortEntries();
+    } else {
+      this.entries = [];
+      console.log('No entries loaded from local storage');
     }
-    this.sortEntries();
   }
 
   private saveEntriesToLocalStorage(): void {
@@ -229,6 +237,8 @@ export class DataService {
   // # Utilitiy Functions
 
   private sortEntries(): void {
+    if (!this.entries) return;
+    console.log('BLAH: ', this.entries );
     switch (this.preferences.sortWordListBy) {
       case ('newest'):
       this.entries.sort((a:Entry, b:Entry) => {
