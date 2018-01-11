@@ -201,13 +201,11 @@ export class DataService {
         return value;
       });
 
-      console.log('loadedEntries: ', loadedEntries);
     if (loadedEntries !== null) {
       this.entries = loadedEntries;
       this.sortEntries();
     } else {
       this.entries = [];
-      console.log('No entries loaded from local storage');
     }
   }
 
@@ -238,7 +236,6 @@ export class DataService {
 
   private sortEntries(): void {
     if (!this.entries) return;
-    console.log('BLAH: ', this.entries );
     switch (this.preferences.sortWordListBy) {
       case ('newest'):
       this.entries.sort((a:Entry, b:Entry) => {
