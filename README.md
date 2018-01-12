@@ -1,27 +1,17 @@
 # Fullerword
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.9.
+Currently under development, Fullerword is a personal dictionary app intended for writers. Ever looked up a new word and wanted to use it in your writing? Save the default definition or your own definition and tag the word. Once you've got a collection the list can be filtered by tag to find just what you're looking for.
 
-## Development server
+Currently designed for phone-sized screens.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Built with Angular. Uses [the Oxford Dictionary API][https://developer.oxforddictionaries.com] and [Feather][https://feathericons.com] icons.
 
-## Code scaffolding
+[Working demo][http://fullerword.alesh.com/explore]. (Alpha)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![Explore words screen](https://alesh.com/files/screenshots/fullerword-screenshots/1.png)
 
-## Build
+![Word detail screen](https://alesh.com/files/screenshots/fullerword-screenshots/2.png)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+![Tags screen](https://alesh.com/files/screenshots/fullerword-screenshots/3.png)
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+![Settings screen](https://alesh.com/files/screenshots/fullerword-screenshots/4.png)

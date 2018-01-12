@@ -23,17 +23,27 @@ export class AppComponent implements DoCheck {
   ) {}
 
   ngDoCheck() {
+    const routesWithWords = ['detail', 'edit', 'tag'];
+
     let routeText = this.locationStrategy.path();
     let routeSections = routeText.split("/");
+    let routeLength = routeSections.length;
     let routeFromUrl;
-    let wordFromUrl;
+    let dataFromUrl;
 
-    if (routeSections[2]) {
-      wordFromUrl = this.utilities.decodeUrl(routeSections[2]);
+    if (routesWithWords.indexOf(routeSections[routeLength - 2]) > -1) {
+      routeFromUrl = routeSections[routeLength - 2];
+      dataFromUrl = routeSections[routeLength - 1];
+    } else {
+      routeFromUrl = routeSections[routeLength - 1];
+    }
+
+    if (dataFromUrl) {
+      dataFromUrl = this.utilities.decodeUrl(dataFromUrl);
     }
     this.showBack = false;
     this.showSettings = false;
-    switch(routeSections[1]) {
+    switch(routeFromUrl) {
       case 'explore': this.title = "Explore Words";
         this.showSettings = true;
         break;
@@ -42,17 +52,17 @@ export class AppComponent implements DoCheck {
       case 'settings': this.title = "Settings";
         this.showBack = true;
         break;
-      case 'detail': this.title = wordFromUrl;
+      case 'detail': this.title = dataFromUrl;
         this.showBack = true;
         break;
-      case 'add': this.title = "Add: " + wordFromUrl;
+      case 'add': this.title = "Add: " + dataFromUrl;
         this.showBack = true;
         break;
-      case 'edit': this.title = "Edit: " + wordFromUrl;
+      case 'edit': this.title = "Edit: " + dataFromUrl;
         this.showBack = true;
         break;
       case 'tag':
-        let list: string[] = wordFromUrl.split('.');
+        let list: string[] = dataFromUrl.split('.');
         let str: string = list.join(', ');
         if (list.length == 1) {
           this.title = "Tag: " + list[0];
