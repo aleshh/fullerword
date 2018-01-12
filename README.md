@@ -4,14 +4,8 @@ Currently under development, Fullerword is a personal dictionary app intended fo
 
 Currently designed for phone-sized screens.
 
-Built with Angular. Uses [the Oxford Dictionary API][https://developer.oxforddictionaries.com] and [Feather][https://feathericons.com] icons.
+Built with Angular. Uses [the Oxford Dictionary API](https://developer.oxforddictionaries.com) and [Feather](https://feathericons.com) icons.
 
-[Working demo][http://fullerword.alesh.com/explore]. (Alpha)
+[Working demo](http://fullerword.alesh.com/explore). (Alpha)
 
-![Explore words screen](https://alesh.com/files/screenshots/fullerword-screenshots/1.png)
-
-![Word detail screen](https://alesh.com/files/screenshots/fullerword-screenshots/2.png)
-
-![Tags screen](https://alesh.com/files/screenshots/fullerword-screenshots/3.png)
-
-![Settings screen](https://alesh.com/files/screenshots/fullerword-screenshots/4.png)
+![Explore words screen](https://alesh.com/files/screenshots/fullerword-screenshots/1.png) ![Word detail screen](https://alesh.com/files/screenshots/fullerword-screenshots/2.png) ![Tags screen](https://alesh.com/files/screenshots/fullerword-screenshots/3.png) ![Settings screen](https://alesh.com/files/screenshots/fullerword-screenshots/4.png)
