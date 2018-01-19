@@ -21,6 +21,7 @@ export class EditEntryComponent implements OnInit {
   dictionaryDefinition: string;
   editingExisting: boolean = false;
   useStarRating: boolean;
+  useSource: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -33,6 +34,7 @@ export class EditEntryComponent implements OnInit {
 
   ngOnInit() {
     this.useStarRating = this.dataService.getPreference('useStarRating');
+    this.useSource = this.dataService.getPreference('useSource');
     let routeText = this.route.snapshot.paramMap.get('text');
     routeText = this.utilities.decodeUrl(routeText);
     let loadedEntry = this.dataService.getEntry(routeText);
