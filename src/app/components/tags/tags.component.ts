@@ -32,6 +32,7 @@ export class TagsComponent implements OnInit {
       }
     }
     this.wordCount = this.dataService.getEntriesByTags(this.selectedTags).length;
+    console.log('taglist: ', this.tagList.length);
   }
 
   toggleTag(tag: any):void {

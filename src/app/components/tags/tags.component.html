@@ -1,4 +1,5 @@
 <div class="entry-list"
+  *ngIf="tagList.length > 0"
   [class.entry-list-with-popup]="this.selectedTags.length > 0">
   <div
     *ngFor="let tag of tagList"
@@ -46,3 +47,12 @@
 <div *ngIf="this.selectedTags.length > 2 && wordCount == 0" class="bottom-popup">
     <i-alert-circle></i-alert-circle> No words match all {{this.selectedTags.length}} tags.
 </div>
+
+<div class="no-entries-welcome" *ngIf="tagList.length == 0" >
+    <p>
+      You haven't added any words with tags yet.
+    </p>
+    <p>
+      <a routerLink="/add-entry">Add some now</a>?
+    </p>
+  </div>
