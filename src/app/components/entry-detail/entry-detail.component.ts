@@ -12,6 +12,7 @@ import { Entry } from '../../models/Entry';
 export class EntryDetailComponent implements OnInit {
   entry: Entry;
   useStarRating: boolean;
+  useSource: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,6 +23,7 @@ export class EntryDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.useStarRating = this.dataService.getPreference('useStarRating');
+    this.useSource = this.dataService.getPreference('useSource');
     this.getEntry();
   }
 

@@ -14,6 +14,7 @@
 
     </h2>
     <p class="entry-detail-definition">{{entry.definition}}</p>
+    <p *ngIf="useSource" class="entry-detail-source">Source: {{entry.source}}</p>
     <div class="tag-container">
       <div *ngFor="let tag of entry.tags" >
         <a [routerLink]="['/tag', utilities.encodeUrl(tag) ]" class="tag-display">
