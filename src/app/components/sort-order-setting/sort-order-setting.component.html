@@ -1,5 +1,26 @@
 <ul>
-   <li role="button" [class.active]="sortBy === 'newest'" class="sort-option" id="newest" (click)="changeSort($event)">Newest</li
-  ><li role="button" [class.active]="sortBy === 'oldest'" class="sort-option" id="oldest" (click)="changeSort($event)">Oldest</li
-  ><li role="button" [class.active]="sortBy === 'alpha'" class="sort-option" id="alpha" (click)="changeSort($event)">Alphabetical</li>
+   <li
+    role="button"
+    [class.active]="sortBy === 'newest'"
+    class="sort-option"
+    id="newest"
+    (click)="changeSort($event)">
+    Newest
+  </li>
+  <li
+    role="button"
+    [class.active]="sortBy === 'oldest'"
+    class="sort-option"
+    id="oldest"
+    (click)="changeSort($event)">
+    Oldest
+  </li>
+  <li
+    role="button"
+    [class.active]="sortBy === 'alpha'"
+    class="sort-option"
+    id="alpha"
+    (click)="changeSort($event)">
+    Alphabetical
+  </li>
 </ul>
