@@ -258,6 +258,18 @@ export class DataService {
           if (a.text.toUpperCase() <  b.text.toUpperCase()) return -1;
         });
         break;
+      case ('random'):
+        /**
+         * Randomize array element order in-place.
+         * Using Durstenfeld shuffle algorithm.
+         */
+        for (let i = this.entries.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            let temp = this.entries[i];
+            this.entries[i] = this.entries[j];
+            this.entries[j] = temp;
+        }
+        break;
     }
   }
 

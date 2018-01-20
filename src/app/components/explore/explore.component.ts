@@ -35,7 +35,7 @@ export class ExploreComponent implements OnInit {
   }
 
   changeSort(event): void {
-    if (this.sortBy == event) return;
+    if (this.sortBy == event && this.sortBy != 'random') return;
 
     this.dataService.setPreference('sortWordListBy', event);
     this.sortBy = event;
