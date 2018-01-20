@@ -357,28 +357,18 @@ nav i-settings svg {
   border-bottom: 1px solid silver;
 }
 
-.three-way-selector {
+.three-way-selector, .four-way-selector {
   padding-top: 8px;
   text-align: center;
 
-  h3 {
-    font-size: 12px;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-  p {
-    margin-bottom: 6px;
-    text-align: left;
-  }
-  ul {
-    width: 302px;
-    height: 23px;
-    margin: 0 auto;
-    border: 1px solid $primary-color;
-    border-radius: 5px;
-    padding: 0;
-  }
+  width: 302px;
+  height: 23px;
+  margin: 0 auto;
+  margin-top: 10px;
+  border: 1px solid $primary-color;
+  border-radius: 5px;
+  padding: 0;
+
   li {
     float: left;
     list-style: none;
@@ -397,6 +387,21 @@ nav i-settings svg {
     color: $light-text;
     cursor: pointer;
   }
+}
+
+.four-way-selector {
+  li {
+    width: 75px;
+  }
+}
+
+.small-heading {
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  // margin-bottom: 6px;
+  padding-top: 8px;
 }
 
 .settings {

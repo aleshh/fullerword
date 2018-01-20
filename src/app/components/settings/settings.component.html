@@ -1,12 +1,12 @@
 <div class="settings">
-  <div class="three-way-selector entry-list-item">
+  <div class="entry-list-item">
     <p>Sort word list by</p>
     <app-sort-order-setting [sortBy]="preferences.sortWordListBy" (sortOrderChanged)="changeSort($event)"></app-sort-order-setting>
   </div>
 
-  <div class="three-way-selector entry-list-item">
+  <div class="entry-list-item">
     <p>Word list display size</p>
-    <ul>
+    <ul class="three-way-selector">
       <li role="button" [class.active]="preferences.exploreDisplaySize === 'small'" id="small" (click)="changeDisplaySize('small')">Small</li
       ><li role="button" [class.active]="preferences.exploreDisplaySize === 'medium'" id="medium" (click)="changeDisplaySize('medium')">Medium</li
       ><li role="button" [class.active]="preferences.exploreDisplaySize === 'large'" id="large" (click)="changeDisplaySize('large')">Large</li>

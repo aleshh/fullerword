@@ -1,6 +1,6 @@
 <div *ngIf="entries.length > 0" class="entry-list-options">
-  <div class="three-way-selector">
-    <h3>Sort by</h3>
+  <div class="entry-list">
+    <h3 class="small-heading">Sort by</h3>
     <app-sort-order-setting [sortBy]="sortBy" (sortOrderChanged)="changeSort($event)"></app-sort-order-setting>
 </div>
 </div>

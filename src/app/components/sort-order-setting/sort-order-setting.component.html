@@ -1,4 +1,4 @@
-<ul>
+<ul class="four-way-selector">
    <li
     role="button"
     [class.active]="sortBy === 'newest'"
@@ -21,6 +21,14 @@
     class="sort-option"
     id="alpha"
     (click)="changeSort($event)">
-    Alphabetical
+    A → Z
+  </li>
+  <li
+    role="button"
+    [class.active]="sortBy === 'random'"
+    class="sort-option"
+    id="random"
+    (click)="changeSort($event)">
+    Random
   </li>
 </ul>
