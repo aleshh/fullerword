@@ -45,6 +45,7 @@ export class EditEntryComponent implements OnInit {
       // and we can cancel and discard our changes
       const tmp = JSON.stringify(loadedEntry);
       this.entry = JSON.parse(tmp);
+      this.entry.dateAdded = new Date(this.entry.dateAdded);
 
       this.editingExisting = true;
     } else {

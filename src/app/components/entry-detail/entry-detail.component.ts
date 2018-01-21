@@ -32,10 +32,9 @@ export class EntryDetailComponent implements OnInit {
     routeText = this.utilities.decodeUrl(routeText);
     this.entry = this.dataService.getEntry(routeText);
 
-    console.log('enry loaded: ',this.entry.text );
-    console.log('dateAdded: ',this.entry.dateAdded );
-    console.log('dateAccesed: ',this.entry.dateAccessed );
-    console.log('dateModified: ',this.entry.dateModified );
+    console.log('dateAdded: ',this.entry.dateAdded, ', ', typeof(this.entry.dateAdded));
+    console.log('dateAccesed: ',this.entry.dateAccessed, ', ', typeof(this.entry.dateAccessed));
+    console.log('dateModified: ',this.entry.dateModified, ', ', typeof(this.entry.dateModified));
   }
 
   editEntry(): void {
