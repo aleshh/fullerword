@@ -171,11 +171,13 @@ export class DataService {
       return;
     }
     let data = sampleWords;
+    let rightNow = Date.now();
     for (let word of data) {
       let index = this.entries.findIndex(r => r.text === word.text);
       if (index == -1) {
-        word.dateAdded = new Date();
+        word.dateAdded = new Date(rightNow);
         this.entries.push(word);
+        rightNow += 1000;
       }
     }
     this.saveEntriesToLocalStorage();
