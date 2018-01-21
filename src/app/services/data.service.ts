@@ -177,7 +177,7 @@ export class DataService {
       if (index == -1) {
         word.dateAdded = new Date(rightNow);
         this.entries.push(word);
-        rightNow += 1000;
+        rightNow -= 1000;
       }
     }
     this.saveEntriesToLocalStorage();
@@ -224,7 +224,7 @@ export class DataService {
         sampleDataLoaded: false,
         useStarRating: true,
         sortWordListBy: 'newest',
-        exploreDisplaySize: 'normal',
+        exploreDisplaySize: 'medium',
         useSource: false
       };
     }
