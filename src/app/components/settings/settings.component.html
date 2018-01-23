@@ -1,10 +1,10 @@
 <div class="settings">
-  <div class="entry-list-item">
+  <div class="settings-item">
     <p>Sort word list by</p>
     <app-sort-order-setting [sortBy]="preferences.sortWordListBy" (sortOrderChanged)="changeSort($event)"></app-sort-order-setting>
   </div>
 
-  <div class="entry-list-item">
+  <div class="settings-item">
     <p>Word list display size</p>
     <ul class="three-way-selector">
       <li role="button" [class.active]="preferences.exploreDisplaySize === 'small'" id="small" (click)="changeDisplaySize('small')">Small</li
@@ -13,7 +13,7 @@
     </ul>
   </div>
 
-  <div class="entry-list-item" (click)="toggleSampleData()" >
+  <div class="settings-item clickable" (click)="toggleSampleData()" >
       <div
         *ngIf="preferences.sampleDataLoaded"
         class="settings-check" >
@@ -30,7 +30,7 @@
       </p>
   </div>
 
-  <div class="entry-list-item" (click)="toggleSetting('useStarRating')" >
+  <div class="settings-item clickable" (click)="toggleSetting('useStarRating')" >
       <div *ngIf="preferences.useStarRating" class="settings-check" > <i-check-circle></i-check-circle> </div>
       <div *ngIf="!preferences.useStarRating"  class="settings-check" > <i-circle></i-circle> </div>
       Use star ratings
@@ -39,7 +39,7 @@
       </p>
   </div>
 
-  <div class="entry-list-item" (click)="toggleSetting('useSource')" >
+  <div class="settings-item clickable" (click)="toggleSetting('useSource')" >
       <div *ngIf="preferences.useSource" class="settings-check" > <i-check-circle></i-check-circle> </div>
       <div *ngIf="!preferences.useSource"  class="settings-check" > <i-circle></i-circle> </div>
       Use source field
@@ -48,7 +48,7 @@
       </p>
   </div>
 
-  <div class="entry-list-item" (click)="toggleTagEntrySeparator()" >
+  <div class="settings-item clickable" (click)="toggleTagEntrySeparator()" >
       <div *ngIf="preferences.tagEntrySeparator == ','" class="settings-check" > <i-check-circle></i-check-circle> </div>
       <div *ngIf="preferences.tagEntrySeparator == ' '"  class="settings-check" > <i-circle></i-circle> </div>
       Use commas as a tag separator
@@ -57,7 +57,7 @@
       </p>
   </div>
 
-  <div class="entry-list-item">
+  <div class="settings-item clickable">
     <a routerLink="/about">About this app</a>
   </div>
 

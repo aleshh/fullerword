@@ -547,6 +547,11 @@ nav i-settings svg {
  *  Settings Component
  */
 
+.settings-item {
+  border-bottom: 1px solid #888;
+  padding: 10px 10px 10px;
+}
+
 .settings-check {
   float:left;
   margin-right: 7px;
