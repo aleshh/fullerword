@@ -13,6 +13,7 @@ export class SettingsComponent implements OnInit {
 
   ngOnInit() {
     this.preferences = this.dataService.getPreferences();
+    scroll(0, 0);
   }
 
   changeSort(event): void {
@@ -48,10 +49,5 @@ export class SettingsComponent implements OnInit {
     }
     this.dataService.setPreference('tagEntrySeparator', this.preferences.tagEntrySeparator);
   }
-
-  // changeStarSetting(): void {
-  //   this.preferences.useStarRating = !this.preferences.useStarRating;
-  //   this.dataService.setPreference('useStarRating', this.preferences.useStarRating);
-  // }
 
 }
