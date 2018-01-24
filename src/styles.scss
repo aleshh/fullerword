@@ -36,6 +36,18 @@ body {
 }
 
 /*
+ *  Global classes
+ */
+
+.container {
+  max-width: 800px;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+/*
  *  Header
  */
 
@@ -132,10 +144,6 @@ header h1 {
   .star-on svg {
     fill: $dark-text;
   }
-}
-
-.clickable {
-  cursor: pointer;
 }
 
 .main-entry, .edit-entry {
