@@ -70,7 +70,6 @@ header h1 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-
 }
 
 .header-button {
@@ -172,34 +171,6 @@ header h1 {
   outline: none;
 }
 
-// .definition-star {
-//   margin-top: 28px;
-//   text-align: left;
-
-//   #star {
-//     float: right;
-
-//     svg {
-//       position: relative;
-//       top: -15px;
-//       height: 35px;
-//       width: 35px;
-//       stroke-width: 1px;
-//     }
-//   }
-//   .star-on svg {
-//     fill: $dark-text;
-//   }
-// }
-
-// .nostars {
-//   text-align: center;
-
-//   #star {
-//     display: none;
-//   }
-// }
-
 .edit-entry {
   border: none;
   background-color: #e6e6e6;
@@ -261,7 +232,6 @@ button, .submit-button {
   border-radius: 5px;
   border: 0;
   padding: 5px 10px;
-  // font-size: 20px;
   margin-bottom: 8px;
   margin-top: 8px;
 }
@@ -277,8 +247,6 @@ button:hover, .submit-button:hover {
   background-color: #bbb;
   cursor: pointer;
 }
-
-
 
 /*
  *  Bottom popup above navbar
