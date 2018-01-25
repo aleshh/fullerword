@@ -140,6 +140,10 @@ header h1 {
   padding: 15px;
   text-align: center;
 
+  h2 {
+    overflow-wrap: break-word;
+  }
+
   .star-on svg {
     fill: $dark-text;
   }
