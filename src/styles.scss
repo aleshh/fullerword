@@ -252,6 +252,17 @@ button:hover, .submit-button:hover {
   cursor: pointer;
 }
 
+.inline-button {
+  position: relative;
+  bottom: 2px;
+  margin-bottom: -2px;
+  font-size: .8em;
+  font-weight: bold;
+  padding: 3px 9px 3px 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 /*
  *  Bottom popup above navbar
  */

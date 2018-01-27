@@ -69,7 +69,9 @@
     </form>
     <hr>
     <div *ngIf="dictionaryDefinition && dictionaryDefinition != '404 error'" class="dictionary-definition">
-      <button (click)="useDefinition()" > <i-chevrons-up></i-chevrons-up> Use</button>
+      <button (click)="useDefinition()" class="inline-button">
+        <i-chevrons-up></i-chevrons-up> Use
+      </button>
       {{ dictionaryDefinition }}
     </div>
     <div *ngIf="dictionaryDefinition == '404 error'" class="dictionary-definition">
