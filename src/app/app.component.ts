@@ -23,7 +23,7 @@ export class AppComponent implements DoCheck {
   ) {}
 
   ngDoCheck() {
-    const routesWithWords = ['detail', 'edit', 'tag'];
+    const routesWithWords = ['detail', 'edit', 'tag', 'add'];
 
     let routeText = this.locationStrategy.path();
     let routeSections = routeText.split("/");
@@ -41,6 +41,7 @@ export class AppComponent implements DoCheck {
     if (dataFromUrl) {
       dataFromUrl = this.utilities.decodeUrl(dataFromUrl);
     }
+
     this.showBack = false;
     this.showSettings = false;
     switch(routeFromUrl) {
@@ -77,7 +78,7 @@ export class AppComponent implements DoCheck {
           this.showBack = true;
         break;
       default:
-        console.error('unknown route in app.component!');
+        console.log('unknown route in app.component!');
     }
   }
 
