@@ -19,7 +19,7 @@ export class EditEntryComponent implements OnInit {
   newTags: string;
   definition: DictionaryEntry;
   // dictionaryDefinition: string;
-  dictionaryDefinitions: string[];
+  dictionaryDefinitions = [];
   editingExisting: boolean = false;
   useStarRating: boolean;
   useSource: boolean;
@@ -34,6 +34,8 @@ export class EditEntryComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.dictionaryDefinitions = [];
+    console.log('first: ', typeof this.dictionaryDefinitions);
     this.useStarRating = this.dataService.getPreference('useStarRating');
     this.useSource = this.dataService.getPreference('useSource');
     let routeText = this.route.snapshot.paramMap.get('text');
@@ -61,13 +63,16 @@ export class EditEntryComponent implements OnInit {
         for (let lexicalEntry of this.definition.results[0].lexicalEntries) {
           for (let entry of lexicalEntry.entries) {
             for (let sense of entry.senses) {
-              console.log('definition: ', sense.definitions[0], ' (',lexicalEntry.lexicalCategory,')' );
-              this.dictionaryDefinitions.push(
-                '(' + lexicalEntry.lexicalCategory + ') ' + sense.definitions[0]
-              );
+              let definition = '(' + lexicalEntry.lexicalCategory + ') ' + sense.definitions[0];
+              // console.log('definition: ', string);
+              this.dictionaryDefinitions.push(definition);
             }
           }
         }
+        console.log('array: ', this.dictionaryDefinitions);
+        // for (let i of this.dictionaryDefinitions) {
+        //   console.log(i);
+        // }
       },
       (error: HttpErrorResponse ) => {
         if (error instanceof Error) {

@@ -27,6 +27,7 @@ export class TagDetailComponent implements OnInit {
     let urlString = this.route.snapshot.paramMap.get('tag');
     urlString = this.utilities.decodeUrl(urlString);
     this.tags = urlString.split('.');
+    console.log('typeof: ', typeof this.tags);
     this.entries = this.dataService.getEntriesByTags(this.tags);
 
     this.sortBy = this.dataService.getPreference('sortWordListBy');
