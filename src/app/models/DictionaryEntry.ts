@@ -4,13 +4,14 @@ export interface DictionaryEntry {
     { lexicalEntries: [
       { entries: [
         { senses: [
-          { definitions: string[] }
-        ] }
-      ]}
+            { definitions: string[] }
+          ]}
+        ],
+        lexicalCategory: string
+      }
     ]}
   ]
 }
-
 
 // export interface DictionaryEntry {
 //   metadata: { provider: string },

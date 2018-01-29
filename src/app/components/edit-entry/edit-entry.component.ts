@@ -57,13 +57,12 @@ export class EditEntryComponent implements OnInit {
         this.dictionaryDefinition = this.definition.results[0].lexicalEntries[0]
           .entries[0].senses[0].definitions[0];
 
-        // for (let sense of this.definition.results[0].lexicalEntries[0]
-        //   .entries[0].senses) {
-        //     console.log('sense: ', sense.definitions[0] );
-        // }
         for (let lexicalEntry of this.definition.results[0].lexicalEntries) {
           for (let entry of lexicalEntry.entries) {
-            // console.log('lexicalEntry.lexicalCategory: ', lexicalEntry.lexicalCategory);
+            for (let sense of entry.senses) {
+              // console.log('lexicalEntry.lexicalCategory: ', lexicalEntry.lexicalCategory);
+              console.log('definition: ', sense.definitions[0], ' (',lexicalEntry.lexicalCategory,')' );
+            }
           }
         }
       },
