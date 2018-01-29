@@ -18,7 +18,8 @@ export class EditEntryComponent implements OnInit {
   entry: Entry;
   newTags: string;
   definition: DictionaryEntry;
-  dictionaryDefinition: string;
+  // dictionaryDefinition: string;
+  dictionaryDefinitions: string[];
   editingExisting: boolean = false;
   useStarRating: boolean;
   useSource: boolean;
@@ -54,14 +55,16 @@ export class EditEntryComponent implements OnInit {
 
     this.dictionaryService.getDefinition(this.entry.text).subscribe(res => {
         this.definition = res;
-        this.dictionaryDefinition = this.definition.results[0].lexicalEntries[0]
-          .entries[0].senses[0].definitions[0];
+        // this.dictionaryDefinition = this.definition.results[0].lexicalEntries[0]
+        //   .entries[0].senses[0].definitions[0];
 
         for (let lexicalEntry of this.definition.results[0].lexicalEntries) {
           for (let entry of lexicalEntry.entries) {
             for (let sense of entry.senses) {
-              // console.log('lexicalEntry.lexicalCategory: ', lexicalEntry.lexicalCategory);
               console.log('definition: ', sense.definitions[0], ' (',lexicalEntry.lexicalCategory,')' );
+              this.dictionaryDefinitions.push(
+                '(' + lexicalEntry.lexicalCategory + ') ' + sense.definitions[0]
+              );
             }
           }
         }
@@ -71,7 +74,8 @@ export class EditEntryComponent implements OnInit {
           console.log('client-side error: ', error.error.mesage);
         } else {
           console.log('API error: ', error.status);
-          this.dictionaryDefinition = error.status + " error";
+          this.dictionaryDefinitions[0] = 'error';
+          this.dictionaryDefinitions[1] = '' + error.status;
         }
       });
   }
@@ -97,7 +101,7 @@ export class EditEntryComponent implements OnInit {
   }
 
   useDefinition(): void {
-    this.entry.definition = this.dictionaryDefinition;
+    // this.entry.definition = this.dictionaryDefinition;
   }
 
   toggleStar():void {

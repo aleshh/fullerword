@@ -68,14 +68,18 @@
 
     </form>
     <hr>
-    <div *ngIf="dictionaryDefinition && dictionaryDefinition != '404 error'" class="dictionary-definition">
+    <div *ngIf="dictionaryDefinitions && dictionaryDefinitions[0] != 'error'" >
+      <div ngFor="definition of dictionaryDefinitions" class="dictionary-definition">
+
+      </div>
+
       <button (click)="useDefinition()" class="inline-button">
         <i-chevrons-up></i-chevrons-up> Use
       </button>
-      {{ dictionaryDefinition }}
+      {{ definition }}
     </div>
-    <div *ngIf="dictionaryDefinition == '404 error'" class="dictionary-definition">
+    <!-- <div *ngIf="dictionaryDefinition == '404 error'" class="dictionary-definition">
       <span class="inline-icon"><i-alert-circle></i-alert-circle></span>
       No definition found.
-    </div>
+    </div> -->
   </div>
