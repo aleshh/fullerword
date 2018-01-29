@@ -51,27 +51,26 @@
         autocomplete="off"
       >
       <br>
-      <hr>
-      <button
-      type="button"
-      class="submit-button"
-      (click)="cancel()"
-      > <i-arrow-left></i-arrow-left> Cancel</button>
-      <button type="submit" class="submit-button"> <i-save></i-save> Save</button>
-      <br>
-      <button
-        *ngIf="editingExisting"
+      <div class="button-container">
+        <button
         type="button"
         class="submit-button"
-        (click)="delete()"
-      > <i-x-circle></i-x-circle> Delete</button>
-
+        (click)="cancel()"
+        > <i-arrow-left></i-arrow-left> Cancel</button>
+        <button type="submit" class="submit-button"> <i-save></i-save> Save</button>
+        <br>
+        <button
+          *ngIf="editingExisting"
+          type="button"
+          class="submit-button"
+          (click)="delete()"
+        > <i-x-circle></i-x-circle> Delete</button>
+      </div>
     </form>
-    <hr>
 
     <div *ngIf="dictionaryDefinitions && dictionaryDefinitions[0] != 'error'" >
         <div *ngFor="let definition of dictionaryDefinitions" class="dictionary-definition">
-          <button (click)="useDefinition()" class="inline-button">
+          <button (click)="useDefinition(definition)" class="inline-button">
             <i-chevrons-up></i-chevrons-up> Use
           </button>
           {{ definition }}

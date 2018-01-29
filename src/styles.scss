@@ -114,6 +114,7 @@ header h1 {
 .main {
   // background-color: #eee;
   margin-top: 67px;
+  margin-bottom: 44px;
 
   h2 {
     font-size: 36px;
@@ -182,8 +183,29 @@ header h1 {
   padding: 5px 0;
 }
 
-.edit-entry-definition {
-  // margin-top: -20px;
+.button-container {
+  border-top: 1px solid $primary-color;
+  border-bottom: 1px solid $primary-color;
+}
+
+.dictionary-definition {
+  margin-top: 7px;
+  margin-bottom: 5px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid $primary-color;
+}
+
+.dictionary-definition:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.inline-icon svg {
+    position: relative;
+    top: 2px;
+    height: 18px;
+    width: 18px;
 }
 
 /*
@@ -207,17 +229,6 @@ header h1 {
   margin-bottom: 10px;
 }
 
-.dictionary-definition {
-  margin-top: 10px;
-  margin-bottom: 45px;
-}
-
-.inline-icon svg {
-    position: relative;
-    top: 2px;
-    height: 18px;
-    width: 18px;
-}
 
 /*
  *  About screen
@@ -414,7 +425,7 @@ nav i-settings svg {
 }
 
 .entry-list-item {
-  border-bottom: 1px solid #888;
+  border-bottom: 1px solid $primary-color;
   padding: 6px 10px;
   cursor: pointer;
 

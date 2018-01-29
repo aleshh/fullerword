@@ -18,8 +18,7 @@ export class EditEntryComponent implements OnInit {
   entry: Entry;
   newTags: string;
   definition: DictionaryEntry;
-  // dictionaryDefinition: string;
-  dictionaryDefinitions = [];
+  dictionaryDefinitions: string[] = [];
   editingExisting: boolean = false;
   useStarRating: boolean;
   useSource: boolean;
@@ -34,8 +33,6 @@ export class EditEntryComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.dictionaryDefinitions = [];
-    console.log('first: ', typeof this.dictionaryDefinitions);
     this.useStarRating = this.dataService.getPreference('useStarRating');
     this.useSource = this.dataService.getPreference('useSource');
     let routeText = this.route.snapshot.paramMap.get('text');
@@ -69,10 +66,8 @@ export class EditEntryComponent implements OnInit {
             }
           }
         }
-        console.log('array: ', this.dictionaryDefinitions);
-        // for (let i of this.dictionaryDefinitions) {
-        //   console.log(i);
-        // }
+        // console.log('array: ', this.dictionaryDefinitions);
+
       },
       (error: HttpErrorResponse ) => {
         if (error instanceof Error) {
@@ -105,8 +100,9 @@ export class EditEntryComponent implements OnInit {
     }
   }
 
-  useDefinition(): void {
-    // this.entry.definition = this.dictionaryDefinition;
+  useDefinition(definition: string): void {
+    console.log('definition: ', definition);
+    this.entry.definition = definition;
   }
 
   toggleStar():void {
