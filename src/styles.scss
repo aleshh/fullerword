@@ -1,14 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i');
 
-$primary-color: #444444;
+$primary-color: rgb(95, 88, 76); // brown
 $primary-color-active: #333333;
-$background-color: #eeeeee;
-$background-color-offset: #dddddd;
+$background-color: rgb(246, 245, 238);
+$background-color-offset: rgb(232, 230, 216);
+
+$accent-color: #a94b34; // red
+$accent-color-darker: #873f2c; // red, slightly darker
+$accent-color-secondary: #767676; // gray, same value as red
+$accent-color-secondary-darker: #565252; // gray, slightly darker
 
 $dark-text: #222222;
 $dark-text-lighter: #666666;
 $dark-text-secondary: #cccccc;
-$light-text: #eeeeee;
+$light-text: #F6F5E4;
 
 * {
   margin: 0;
@@ -146,15 +151,15 @@ header h1 {
   }
 
   .star-on svg {
-    fill: $dark-text;
+    fill: $accent-color;
   }
 }
 
 .main-entry, .edit-entry {
   width: 100%;
   border: 0;
-  border-bottom: 2px solid #444444;
-  background-color: #eeeeee;
+  border-bottom: 2px solid $primary-color;
+  background-color: $background-color;
   max-width: 100%;
   margin-bottom: 15px;
   text-align: center;
@@ -186,6 +191,7 @@ header h1 {
 .button-container {
   border-top: 1px solid $primary-color;
   border-bottom: 1px solid $primary-color;
+  padding-bottom: 8px;
 }
 
 .dictionary-definition {
@@ -216,7 +222,8 @@ header h1 {
   padding: 15px;
 
   .star-on svg {
-    fill: $dark-text;
+    fill: $accent-color-darker;
+    stroke: $accent-color-darker;
   }
 }
 
@@ -242,12 +249,12 @@ header h1 {
  *  Buttons
  */
 
-button, .submit-button {
-  background-color: #ccc;
+button, .button, .submit-button {
+  background-color: $accent-color;
+  color: $background-color;
   border-radius: 5px;
   border: 0;
   padding: 5px 10px;
-  margin-bottom: 8px;
   margin-top: 8px;
 }
 
@@ -258,9 +265,17 @@ button svg {
   width: 18px;
 }
 
-button:hover, .submit-button:hover {
-  background-color: #bbb;
+button:hover, .button:hover, .submit-button:hover {
+  background-color: $accent-color-darker;
   cursor: pointer;
+}
+
+.secondary-button {
+  background-color: $accent-color-secondary;
+}
+
+.secondary-button:hover {
+  background-color: $accent-color-secondary-darker;
 }
 
 .inline-button {
@@ -443,7 +458,7 @@ nav i-settings svg {
     }
   }
   .star-on svg {
-    fill: $dark-text-lighter;
+    fill: $accent-color;
   }
 
   .tag {
@@ -465,7 +480,7 @@ nav i-settings svg {
     margin-left: -2px;
 
     svg {
-      fill: $dark-text;
+      fill: $accent-color-darker;
       stroke: $background-color-offset;
       top: 3px;
       height: 22px;
