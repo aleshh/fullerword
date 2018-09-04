@@ -6,7 +6,7 @@ Currently designed for phone-sized screens. Uses browser local storage to store 
 
 Built with Angular. Uses [the Oxford Dictionary API](https://developer.oxforddictionaries.com) and [Feather](https://feathericons.com) icons.
 
-[Working demo](http://fullerword.alesh.com/explore). (Alpha)
+[Working demo](http://fullerword.alesh.com/). (Alpha)
 
 ![Explore words screen](https://alesh.com/files/screenshots/fullerword-screenshots/1.png)   ![Word detail screen](https://alesh.com/files/screenshots/fullerword-screenshots/2.png)
 
