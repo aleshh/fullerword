@@ -45,6 +45,7 @@ export class AppComponent implements DoCheck {
     this.showBack = false;
     this.showSettings = false;
     switch(routeFromUrl) {
+      case '':
       case 'explore': this.title = "Explore Words";
         this.showSettings = true;
         break;
