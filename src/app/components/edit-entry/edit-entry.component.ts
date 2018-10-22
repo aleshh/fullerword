@@ -22,6 +22,7 @@ export class EditEntryComponent implements OnInit {
   editingExisting: boolean = false;
   useStarRating: boolean;
   useSource: boolean;
+  disableDictionary: boolean = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,7 +30,7 @@ export class EditEntryComponent implements OnInit {
     private dataService: DataService,
     private utilities: UtilitiesService,
     private dictionaryService: DictionaryService,
-    private location: Location
+    private location: Location,
   ) { }
 
   ngOnInit() {
@@ -52,7 +53,8 @@ export class EditEntryComponent implements OnInit {
       this.entry = { text: routeText, definition: '', tags: []};
     }
 
-    this.dictionaryService.getDefinition(this.entry.text).subscribe(res => {
+    if (!this.disableDictionary) {
+      this.dictionaryService.getDefinition(this.entry.text).subscribe(res => {
         this.definition = res;
         // this.dictionaryDefinition = this.definition.results[0].lexicalEntries[0]
         //   .entries[0].senses[0].definitions[0];
@@ -78,6 +80,7 @@ export class EditEntryComponent implements OnInit {
           this.dictionaryDefinitions[1] = '' + error.status;
         }
       });
+    }
   }
 
   onSubmit(): void {
