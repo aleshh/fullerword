@@ -256,6 +256,8 @@ button, .button, .submit-button {
   border: 0;
   padding: 5px 10px;
   margin-top: 8px;
+  margin-right: 10px;
+  min-width: 128px;
 }
 
 button svg {
@@ -599,10 +601,14 @@ nav i-settings svg {
   border-radius: 5px;
   margin-right: 6px;
   border: 0;
-  padding: 4px 10px;
+  padding: 4px 10px 0px;
   font-size: 14px;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
+
+  i-circle {
+    margin-right: -10px;
+  }
 
   svg {
     position:relative;
