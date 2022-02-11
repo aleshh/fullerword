@@ -21,7 +21,7 @@
     "@angular/platform-browser": "^7.0.0",
     "@angular/platform-browser-dynamic": "^7.0.0",
     "@angular/router": "^7.0.0",
-    "ajv": "^6.5.4",
+    "ajv": "^6.12.3",
     "angular-feather": "^5.3.0",
     "atob": "^2.1.2",
     "core-js": "^2.4.1",
